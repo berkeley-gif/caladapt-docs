@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Resources &#8212; Cal-Adapt API Docs 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Tutorials" href="tutorials.html" />
+    <link rel="prev" title="About Cal-Adapt" href="index.html" /> 
+  </head>
+  <body role="document">
+
+<div style="background-color: white; text-align: left; padding: 10px 10px 15px 15px">
+<a href="index.html"><h1 style="font-size: 3em;">Cal-Adapt API</h1></a>
+</div>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="tutorials.html" title="Tutorials"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="About Cal-Adapt"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">home</a>|&nbsp;</li>
+        <li><a href="search.html">search</a>|&nbsp;</li>
+ 
+      </ul>
+    </div>
+
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Resources</a><ul>
+<li><a class="reference internal" href="#basic-principles">Basic Principles</a></li>
+<li><a class="reference internal" href="#entry-point">Entry Point</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">About Cal-Adapt</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="tutorials.html"
+                        title="next chapter">Tutorials</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/resources.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="resources">
+<span id="id1"></span><h1>Resources<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h1>
+<p>We refer to the data assets of an API as resources. They are represented by so-called endpoints referred to by an unambiguous URL.</p>
+<div class="section" id="basic-principles">
+<span id="id2"></span><h2>Basic Principles<a class="headerlink" href="#basic-principles" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>The API returns data formats according to the <code class="docutils literal"><span class="pre">Accept</span></code>-field in the request header if possible. E.g. <code class="docutils literal"><span class="pre">Accept:</span> <span class="pre">application/json</span></code> if this particular format can be provided. Otherwise it will fall back to the HTML based browse-able API view.</li>
+<li>Be aware of the fact that there might be different flavors of returns that are covered by one single accept type. In this case the flavor can be determined with the <code class="docutils literal"><span class="pre">?format=</span></code> query parameter. E.g. <code class="docutils literal"><span class="pre">?format=geojson</span></code> will return GeoJSON.</li>
+<li><code class="docutils literal"><span class="pre">Accept:</span> <span class="pre">text/html</span></code> will return a browse-able API view.</li>
+<li>The endpoint URL will return a paginated list view (e.g. <code class="docutils literal"><span class="pre">/api/observations/</span></code>).</li>
+<li>Adding a unique identifier will return a single item view (e.g. <code class="docutils literal"><span class="pre">/api/observations/LACM:Birds:15913/</span></code>) if applicable.</li>
+</ul>
+</div>
+<div class="section" id="entry-point">
+<span id="id3"></span><h2>Entry Point<a class="headerlink" href="#entry-point" title="Permalink to this headline">¶</a></h2>
+<p>The entry point provides an overview over the available resources and actions. It is a starting point to navigate the API. It provides URLs for all endpoints</p>
+<p>The entry point provides an overview over the available resources and
+actions. It is a starting point to navigate the API. It provides URLs for
+all endpoints including  meta data, data, and specific operations that can
+be performed on the data (currently <code class="docutils literal"><span class="pre">/api/search/</span></code>).</p>
+<blockquote>
+<div><p>The entry endpoint of the API.</p>
+<p><strong>Example Request</strong></p>
+<div class="highlight-http"><div class="highlight"><pre><span></span><span class="nf">GET</span> <span class="nn">/api/</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">ecoengine.berkeley.edu</span>
+<span class="na">Accept</span><span class="o">:</span> <span class="l">text/html</span>
+</pre></div>
+</div>
+<p><strong>Response</strong></p>
+<div class="highlight-http"><div class="highlight"><pre><span></span>HTTP 200 OK Vary: Accept
+Content-Type: text/html; charset=utf-8
+Allow: GET, HEAD, OPTIONS
+
+{
+    &quot;wieslander_vegetation_type_mapping&quot;: {
+        &quot;vtm_plot_data_tree_attributes&quot;: &quot;https://ecoengine.berkeley.edu/api/vtmplots_trees/&quot;,
+        &quot;vtm_plot_data&quot;: &quot;https://ecoengine.berkeley.edu/api/vtmplots/&quot;,
+        &quot;vtm_plot_data_brushes_attributes&quot;: &quot;https://ecoengine.berkeley.edu/api/vtmplots_brushes/&quot;,
+        &quot;vtm_features&quot;: &quot;https://ecoengine.berkeley.edu/api/vtmveg/&quot;
+    },
+    &quot;data&quot;: {
+        &quot;checklists&quot;: &quot;https://ecoengine.berkeley.edu/api/checklists/&quot;,
+        &quot;sensors&quot;: &quot;https://ecoengine.berkeley.edu/api/sensors/&quot;,
+        &quot;observations&quot;: &quot;https://ecoengine.berkeley.edu/api/observations/&quot;,
+        &quot;photos&quot;: &quot;https://ecoengine.berkeley.edu/api/photos/&quot;
+    },
+    &quot;actions&quot;: {
+        &quot;search&quot;: &quot;https://ecoengine.berkeley.edu/api/search/&quot;
+    },
+    &quot;meta-data&quot;: {
+        &quot;footprints&quot;: &quot;https://ecoengine.berkeley.edu/api/footprints/&quot;,
+        &quot;data_sources&quot;: &quot;https://ecoengine.berkeley.edu/api/sources/&quot;
+    }
+}
+</pre></div>
+</div>
+</div></blockquote>
+<p>Explore the browsable API <a class="reference external" href="/api/">/api/</a>.
+The browsable API provides a layer of additional documentation, a quick way
+to get an overview over the data, as well as the possibility to test
+URLs and requests and their returns conveniently in a web browser.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="tutorials.html" title="Tutorials"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="About Cal-Adapt"
+             >previous</a> |</li>
+        <li><a href="index.html">home</a>|&nbsp;</li>
+        <li><a href="search.html">search</a>|&nbsp;</li>
+ 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, Geospatial Innovation Facility, UC Berkeley.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.5.
+    </div>
+  </body>
+</html>
