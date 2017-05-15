@@ -3,6 +3,7 @@
 *.bak
 *~
 env
+build
 
 # iPython checkpoints #
 .ipynb_checkpoints

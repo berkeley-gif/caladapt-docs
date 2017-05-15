@@ -1,3 +1,4 @@
+alabaster==0.7.10
 appdirs==1.4.3
 appnope==0.1.0
 Babel==2.4.0
@@ -43,6 +44,8 @@ simplegeneric==0.8.1
 six==1.10.0
 snowballstemmer==1.2.1
 Sphinx==1.5.5
+sphinx-rtd-theme==0.2.4
+sphinxcontrib-httpdomain==1.5.0
 terminado==0.6
 testpath==0.3
 tornado==4.5.1
