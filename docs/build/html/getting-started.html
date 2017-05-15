@@ -1,0 +1,396 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Getting Started &mdash; Cal-Adapt API Docs 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Cal-Adapt API Docs 1.0 documentation" href="index.html"/>
+        <link rel="next" title="Climate Data" href="data-catalog.html"/>
+        <link rel="prev" title="About Cal-Adapt" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Cal-Adapt API Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#authentication">Authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#entry-point">Entry Point</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#browsable-api-view">Browsable API View</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-formats">Data Formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pagination">Pagination</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="data-catalog.html">Climate Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="series.html">Working with Series</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Cal-Adapt API Docs</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Getting Started</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/getting-started.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+/* nice headers on first paragraph of info/warning boxes */
+.admonition .first {
+    margin: -12px;
+    padding: 6px 12px;
+    margin-bottom: 12px;
+    color: #fff;
+    line-height: 1;
+    display: block;
+}
+.admonition.warning .first {
+    background: #f0b37e;
+}
+.admonition.note .first {
+    background: #6ab0de;
+}
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<div class="section" id="getting-started">
+<span id="id1"></span><h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="authentication">
+<span id="id2"></span><h2>Authentication<a class="headerlink" href="#authentication" title="Permalink to this headline">¶</a></h2>
+<p>Currently the Cal-Adapt API does not require authentication. You do not need to sign up for a key to start working with the API. We plan to maintain the current level of open access to support a wide range of users. However, authentication may be implemented in the future to support throttled access for selected applications.</p>
+</div>
+<div class="section" id="entry-point">
+<span id="id3"></span><h2>Entry Point<a class="headerlink" href="#entry-point" title="Permalink to this headline">¶</a></h2>
+<p>The entry point or api root is a starting point that provides an overview of all available data in the API. The entry point for the Cal-Adapt API is:</p>
+<blockquote>
+<div><div class="highlight-xml"><div class="highlight"><pre><span></span>http://api.cal-adapt.org/api
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="browsable-api-view">
+<span id="browsable-api"></span><h2>Browsable API View<a class="headerlink" href="#browsable-api-view" title="Permalink to this headline">¶</a></h2>
+<p>When you open the above entry point in a browser, you will see an easy to read, browsable view of the Cal-Adapt API. The browsable API view provides a quick overview of available data resources in the API and the URLs to access these data resources. This makes it easier and convenient to test requests and their returns in a web browser.</p>
+</div>
+<div class="section" id="data-formats">
+<span id="id4"></span><h2>Data Formats<a class="headerlink" href="#data-formats" title="Permalink to this headline">¶</a></h2>
+<p>In a web browser by default, the API will return data as HTML. One way to request data in a different format is by adding the <code class="docutils literal"><span class="pre">format</span></code> query parameter to the URL.</p>
+<blockquote>
+<div><div class="highlight-xml"><div class="highlight"><pre><span></span>http://api.cal-adapt.org/api/?format=json
+</pre></div>
+</div>
+</div></blockquote>
+<p>The Cal-Adapt API supports the following data formats:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Raster and vector data<ul>
+<li>Browsable API view (api)</li>
+<li>Javascript Object Notation (json)</li>
+</ul>
+</li>
+<li>Raster data<ul>
+<li>Comma Separated Values (csv) - raster data only</li>
+<li>GeoTIFF (tif.zip) - raster data only</li>
+<li>ERDAS Imagine (img.zip) - raster data only</li>
+</ul>
+</li>
+<li>Vector data<ul>
+<li>GeoJSON (geojson) - vector data only</li>
+<li>Keyhole Markup Language (kml) - vector data only</li>
+<li>Zipped KML files (kmz) - vector data only</li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+<p>However, our preferred way to indicate data format (instead of adding <code class="docutils literal"><span class="pre">format=json</span></code> in the URL) is to use the appropriate HTTP Accept header in your requests, e.g.:</p>
+<blockquote>
+<div><div class="highlight-xml"><div class="highlight"><pre><span></span>Accept: application/json
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="pagination">
+<span id="id5"></span><h2>Pagination<a class="headerlink" href="#pagination" title="Permalink to this headline">¶</a></h2>
+<p>The API returns a paginated response for large datasets. Pagination links are provided as part of the content of the response e.g. <code class="docutils literal"><span class="pre">&quot;next&quot;:</span> <span class="pre">&quot;http://api.cal-adapt.org/api/series/?page=2&quot;</span></code>. The default number of records returned in each page is 10. The number of records returned in each page can be controlled by using <code class="docutils literal"><span class="pre">pagesize</span></code> query parameter.</p>
+<blockquote>
+<div><p><strong>Example Request</strong></p>
+<blockquote>
+<div><div class="highlight-http"><div class="highlight"><pre><span></span>GET /api/series/
+Host: api.cal-adapt.org
+Accept: text/html
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>Response</strong></p>
+<blockquote>
+<div><div class="highlight-http"><div class="highlight"><pre><span></span>HTTP 200 OK Vary: Accept
+Content-Type: text/html; charset=utf-8
+Allow: GET, HEAD, OPTIONS
+
+{
+  &quot;count&quot;: 259,
+  &quot;next&quot;: &quot;http://api.cal-adapt.org/api/series/?page=2&quot;,
+  &quot;previous&quot;: null,
+  &quot;results&quot;: [
+      {
+        &quot;name&quot;: &quot;U.C. Merced Wildfire high population scenario CNRM-CM5 rcp45&quot;,
+        &quot;slug&quot;: &quot;fire_CNRM-CM5_rcp45_H_mu&quot;,
+        &quot;url&quot;: &quot;http://api.cal-adapt.org/api/series/fire_CNRM-CM5_rcp45_H_mu/&quot;,
+        &quot;begin&quot;: &quot;1954-01-01T00:00:00Z&quot;,
+        &quot;end&quot;: &quot;2100-12-31T00:00:00Z&quot;,
+        &quot;rasters&quot;: [
+            &quot;http://api.cal-adapt.org/api/rstores/fire_CNRM-CM5_rcp45_H_mu_1954/&quot;,
+            &quot;http://api.cal-adapt.org/api/rstores/fire_CNRM-CM5_rcp45_H_mu_1955/&quot;,
+            &quot;http://api.cal-adapt.org/api/rstores/fire_CNRM-CM5_rcp45_H_mu_1956/&quot;,
+            ...
+        ],
+        &quot;tags&quot;: [
+            &quot;fire&quot;
+        ]
+      },
+      {
+        &quot;name&quot;: &quot;U.C. Merced Wildfire low population scenario CNRM-CM5 rcp45&quot;,
+        &quot;slug&quot;: &quot;fire_CNRM-CM5_rcp45_L_mu&quot;,
+        &quot;url&quot;: &quot;http://api.cal-adapt.org/api/series/fire_CNRM-CM5_rcp45_L_mu/&quot;,
+        &quot;begin&quot;: &quot;1954-01-01T00:00:00Z&quot;,
+        &quot;end&quot;: &quot;2100-12-31T00:00:00Z&quot;,
+        &quot;rasters&quot;: [
+            &quot;http://api.cal-adapt.org/api/rstores/fire_CNRM-CM5_rcp45_L_mu_1954/&quot;,
+            &quot;http://api.cal-adapt.org/api/rstores/fire_CNRM-CM5_rcp45_L_mu_1955/&quot;,
+            &quot;http://api.cal-adapt.org/api/rstores/fire_CNRM-CM5_rcp45_L_mu_1956/&quot;,
+            ...
+        ],
+        &quot;tags&quot;: [
+            &quot;fire&quot;
+        ]
+      }
+      ...
+    ]
+  }
+</pre></div>
+</div>
+</div></blockquote>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="data-catalog.html" class="btn btn-neutral float-right" title="Climate Data" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="About Cal-Adapt" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Geospatial Innovation Facility, UC Berkeley.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

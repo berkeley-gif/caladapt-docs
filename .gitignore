@@ -3,7 +3,8 @@
 *.bak
 *~
 env
-build
+.doctrees
+doctrees
 
 # iPython checkpoints #
 .ipynb_checkpoints
