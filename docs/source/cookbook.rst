@@ -1,8 +1,8 @@
-.. _tutorials:
+.. _cookbook:
 
 
 ***************
-Tutorials
+Cookbook
 ***************
 
 This is a list of tutorials and code samples we have developed for working with the Cal-Adapt API. If you would like to contribute to this list contact us at `support@cal-adapt.org <support@cal-adapt.org>`_.

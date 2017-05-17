@@ -1,3 +1,6 @@
+.. _index:
+
+
 About Cal-Adapt
 ==================
 
@@ -6,6 +9,9 @@ a view of how climate change might affect California at the local level. Here yo
 
 Cal-Adapt is developed by the `Geospatial Innovation Facility (GIF), UC Berkeley <http://gif.berkeley.edu/>`_ with funding and advisory oversight by the `California Energy Commission <http://www.energy.ca.gov/>`_.
 
+We are working on a new generation of climate tools for California using the Cal-Adapt API. You can preview these on our `beta site <http://beta.cal-adapt.org/>`_.
+
+.. note:: We are working on documenting the Cal-Adapt API and adding more examples and tutorials. Check back for updates.
 
 Cal-Adapt API
 -----------------
@@ -51,5 +57,6 @@ Table of Contents
    getting-started.rst
    data-catalog.rst
    series.rst
-   tutorials.rst
+   raster-store.rst
+   cookbook.rst
 
