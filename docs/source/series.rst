@@ -15,11 +15,11 @@ A Raster Series List is a collection of Raster Series Instance and is represente
 Slug
 -----
 
-A slug is a URL friendly name of a resource in the API. Each climate dataset or resource has it's own unique slug. A resource slug is generally composed of ``variable_period_model_scenario``.
+A slug is a URL friendly name of a resource in the API. Each climate dataset or resource has it's own unique slug. A resource slug is generally composed of ``{variable}_{period}_{model}_{scenario}``.
 
   .. sourcecode:: xml
 
-    http://api.cal-adapt.org/api/series/tasmax_year_CNRM-CM5_rcp45
+    http://api.cal-adapt.org/api/series/tasmax_year_CNRM-CM5_rcp45/
 
 
 .. _filtering-series:
@@ -27,24 +27,29 @@ A slug is a URL friendly name of a resource in the API. Each climate dataset or 
 Filtering Series
 --------------------
 
-The series endpoint supports searching. 
+The series endpoint supports searching by ``name``.
 
   .. sourcecode:: xml
 
     http://api.cal-adapt.org/api/series/?name=yearly+average+maximum+temperature
 
+Or by ``slug``.
+
+  .. sourcecode:: xml
+
+    http://api.cal-adapt.org/api/series/?slug=tasmax_year_CCSM4
 
 
 Get Time Slices
 ------------------
 
-The complete timeseries can be retrieved by adding ``rasters/`` to the url.
+The complete timeseries can be retrieved by adding ``rasters/`` to the URL.
 
   .. sourcecode:: xml
 
     http://api.cal-adapt.org/api/series/tasmax_year_CNRM-CM5_rcp45/rasters/
 
-A time slice can be retreived by adding start and end dates to the url.
+A time slice can be retrieved by adding start and end dates to the URL.
 
   .. sourcecode:: xml
 
@@ -126,15 +131,17 @@ The following example shows an example of requesting timeseries data for a locat
       ]
     }
 
-   :query g: a geometry object (point, line, polygon). supported formats are geojson, WKT
-   :query pagesize: number of records. default is 10
+   :query g: a geometry (point, line, polygon) as GeoJSON or WKT
+   :query bbox: a bounding box in ``xmin,ymin,xmax,ymax``
+   :query pagesize: number of records, default is 10
    :query format: one of ``json``, ``csv``, ``tif.zip``, ``img.zip``
-   :query stat: one of ``mean``, ``max``, ``min``. used with polygon/line geometries.
-   :query period: 
+   :query stat: one of ``mean``, ``max``, ``min``, ``count``, ``median``, ``std``, ``var`` for spatial aggregation by polygon/line geometry.
+   :query period: number of periods to resample to, i.e. from annual to decadal
    :reqheader Accept: the response content type depends on
                       :mailheader:`Accept` header
    :resheader Content-Type: this depends on :mailheader:`Accept`
                             header of request
    :statuscode 200: no error
+   :statuscode 400: something is askew with the request, check the error message
    :statuscode 404: the slug may be incorrect
    :statuscode 500: something's wrong on our end
