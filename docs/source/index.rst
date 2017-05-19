@@ -16,7 +16,7 @@ Cal-Adapt API
 -----------------
 Cal-Adapt API (Application Programming Interface) provides programmatic access to climate data hosted on Cal-Adapt. In general, an API is like a cog that allows two systems to interact with each other, e.g. a web browser on your computer and the Cal-Adapt server.
 
-The Cal-Adapt API is built using `Django <https://www.djangoproject.com/>`_, `Django REST framework http://www.django-rest-framework.org/`_, and `Django-Spillway <https://github.com/bkg/django-spillway>`_, an open source library developed at the GIF. The API follows an architectural style called REST (REpresentational State Transfer) which uses uses HTTP as the transport protocol for the message requests and responses.
+The Cal-Adapt API is built using `Django <https://www.djangoproject.com/>`_, `Django REST framework <http://www.django-rest-framework.org/>`_, and `Django-Spillway <https://github.com/bkg/django-spillway>`_, an open source library developed at the GIF. The API follows an architectural style called REST (REpresentational State Transfer) which uses uses HTTP as the transport protocol for the message requests and responses.
 
 
 What is a REST API?
@@ -28,8 +28,7 @@ What is a REST API?
 
    A general model of a REST API (`source <https://idratherbewriting.com/learnapidoc/docapis_what-is-a-rest-api.html>`_)
 
-The client (web browser, desktop GIS software, python script, etc.) sends a request to the API server for data and the server sends a response back. The client and server can be based in any language, but HTTP is the protocol used to transport the message. This request-and-response pattern is fundamentally how REST APIs work. So, when you open a browser and type a website URL (such as https://twitter.com/Cal_Adapt/status/849368048062664704), you’re actually making a GET request for a resource on Twitter's server. The server responds with the content and the browser makes the content visible.
-
+The client (web browser, desktop GIS software, Python script, etc.) sends a request to the API server for data and the server sends a response back. The client and server can be based in any language, but HTTP is the protocol used to transport the message. This request-and-response pattern is fundamentally how REST APIs work. So, when you open a browser and type a website URL (such as https://twitter.com/Cal_Adapt/status/849368048062664704), you’re actually making a GET request for a resource on Twitter's server. The server responds with the content and the browser makes the content visible.
 
 
 Why did we build a public API for Cal-Adapt?
