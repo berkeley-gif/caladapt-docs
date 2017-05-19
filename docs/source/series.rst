@@ -132,7 +132,6 @@ The following example shows an example of requesting timeseries data for a locat
     }
 
    :query g: a geometry (point, line, polygon) as GeoJSON or WKT
-   :query bbox: a bounding box in ``xmin,ymin,xmax,ymax``
    :query pagesize: number of records, default is 10
    :query format: one of ``json``, ``csv``, ``tif.zip``, ``img.zip``
    :query stat: one of ``mean``, ``max``, ``min``, ``count``, ``median``, ``std``, ``var`` for spatial aggregation by polygon/line geometry.
