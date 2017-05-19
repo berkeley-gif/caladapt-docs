@@ -102,7 +102,7 @@
 <li class="toctree-l1"><a class="reference internal" href="data-catalog.html">Data Catalog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="series.html">Working with Series</a></li>
 <li class="toctree-l1"><a class="reference internal" href="raster-store.html">Working with Raster Store</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cookbook.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cookbook.html">Cookbook</a></li>
 </ul>
 
             
@@ -166,41 +166,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast + .nbinput {
-    margin-top: -19px;
-}
-
-/* nice headers on first paragraph of info/warning boxes */
-.admonition .first {
-    margin: -12px;
-    padding: 6px 12px;
-    margin-bottom: 12px;
-    color: #fff;
-    line-height: 1;
-    display: block;
-}
-.admonition.warning .first {
-    background: #f0b37e;
-}
-.admonition.note .first {
-    background: #6ab0de;
-}
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-</style>
-<div class="section" id="getting-started">
+  <div class="section" id="getting-started">
 <span id="id1"></span><h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="authentication">
 <span id="id2"></span><h2>Authentication<a class="headerlink" href="#authentication" title="Permalink to this headline">¶</a></h2>
@@ -208,9 +174,9 @@
 </div>
 <div class="section" id="entry-point">
 <span id="id3"></span><h2>Entry Point<a class="headerlink" href="#entry-point" title="Permalink to this headline">¶</a></h2>
-<p>The entry point or api root is a starting point that provides an overview of all available data in the API. The entry point for the Cal-Adapt API is:</p>
+<p>The entry point or API root is a starting point that provides an overview of all available data in the API. The entry point for the Cal-Adapt API is:</p>
 <blockquote>
-<div><div class="highlight-xml"><div class="highlight"><pre><span></span>http://api.cal-adapt.org/api
+<div><div class="highlight-xml"><div class="highlight"><pre>http://api.cal-adapt.org/api/
 </pre></div>
 </div>
 </div></blockquote>
@@ -223,7 +189,7 @@
 <span id="id4"></span><h2>Data Formats<a class="headerlink" href="#data-formats" title="Permalink to this headline">¶</a></h2>
 <p>In a web browser by default, the API will return data as HTML. One way to request data in a different format is by adding the <code class="docutils literal"><span class="pre">format</span></code> query parameter to the URL.</p>
 <blockquote>
-<div><div class="highlight-xml"><div class="highlight"><pre><span></span>http://api.cal-adapt.org/api/?format=json
+<div><div class="highlight-xml"><div class="highlight"><pre>http://api.cal-adapt.org/api/?format=json
 </pre></div>
 </div>
 </div></blockquote>
@@ -232,26 +198,26 @@
 <div><ul class="simple">
 <li>Raster and vector data<ul>
 <li>Browsable API view (api)</li>
-<li>Javascript Object Notation (json)</li>
+<li>JavaScript Object Notation (json)</li>
 </ul>
 </li>
-<li>Raster data<ul>
-<li>Comma Separated Values (csv) - raster data only</li>
-<li>GeoTIFF (tif.zip) - raster data only</li>
-<li>ERDAS Imagine (img.zip) - raster data only</li>
+<li>Raster data only<ul>
+<li>Comma Separated Values (csv)</li>
+<li>GeoTIFF (tif.zip)</li>
+<li>ERDAS Imagine (img.zip)</li>
 </ul>
 </li>
-<li>Vector data<ul>
-<li>GeoJSON (geojson) - vector data only</li>
-<li>Keyhole Markup Language (kml) - vector data only</li>
-<li>Zipped KML files (kmz) - vector data only</li>
+<li>Vector data only<ul>
+<li>GeoJSON (geojson)</li>
+<li>Keyhole Markup Language (kml)</li>
+<li>Zipped KML files (kmz)</li>
 </ul>
 </li>
 </ul>
 </div></blockquote>
 <p>However, our preferred way to indicate data format (instead of adding <code class="docutils literal"><span class="pre">format=json</span></code> in the URL) is to use the appropriate HTTP Accept header in your requests, e.g.:</p>
 <blockquote>
-<div><div class="highlight-xml"><div class="highlight"><pre><span></span>Accept: application/json
+<div><div class="highlight-xml"><div class="highlight"><pre>Accept: application/json
 </pre></div>
 </div>
 </div></blockquote>
@@ -262,7 +228,7 @@
 <blockquote>
 <div><p><strong>Example Request</strong></p>
 <blockquote>
-<div><div class="highlight-http"><div class="highlight"><pre><span></span>GET /api/series/
+<div><div class="highlight-http"><div class="highlight"><pre>GET /api/series/
 Host: api.cal-adapt.org
 Accept: text/html
 </pre></div>
@@ -270,7 +236,7 @@ Accept: text/html
 </div></blockquote>
 <p><strong>Response</strong></p>
 <blockquote>
-<div><div class="highlight-http"><div class="highlight"><pre><span></span>HTTP 200 OK Vary: Accept
+<div><div class="highlight-http"><div class="highlight"><pre>HTTP 200 OK Vary: Accept
 Content-Type: text/html; charset=utf-8
 Allow: GET, HEAD, OPTIONS
 

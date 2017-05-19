@@ -158,44 +158,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast + .nbinput {
-    margin-top: -19px;
-}
-
-/* nice headers on first paragraph of info/warning boxes */
-.admonition .first {
-    margin: -12px;
-    padding: 6px 12px;
-    margin-bottom: 12px;
-    color: #fff;
-    line-height: 1;
-    display: block;
-}
-.admonition.warning .first {
-    background: #f0b37e;
-}
-.admonition.note .first {
-    background: #6ab0de;
-}
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-</style>
-<div class="section" id="about-cal-adapt">
+  <div class="section" id="about-cal-adapt">
 <span id="index"></span><h1>About Cal-Adapt<a class="headerlink" href="#about-cal-adapt" title="Permalink to this headline">¶</a></h1>
-<p>Cal-Adapt has been designed to provide access to the wealth of data and information that has been, and continues to be, produced by State of California&#8217;s scientific and research community. The data available on this site offer
-a view of how climate change might affect California at the local level. Here you can work with visualization tools, access data, and participate in community sharing to contribute your own knowledge. Cal-Adapt&#8217;s development was a key recommendation of the 2009 California Climate Adaptation Strategy.</p>
+<p>Cal-Adapt has been designed to provide access to the wealth of data and information that has been, and continues to be, produced by State of California’s scientific and research community. The data available on this site offer
+a view of how climate change might affect California at the local level. Here you can work with visualization tools, access data, and participate in community sharing to contribute your own knowledge. Cal-Adapt’s development was a key recommendation of the 2009 California Climate Adaptation Strategy.</p>
 <p>Cal-Adapt is developed by the <a class="reference external" href="http://gif.berkeley.edu/">Geospatial Innovation Facility (GIF), UC Berkeley</a> with funding and advisory oversight by the <a class="reference external" href="http://www.energy.ca.gov/">California Energy Commission</a>.</p>
 <p>We are working on a new generation of climate tools for California using the Cal-Adapt API. You can preview these on our <a class="reference external" href="http://beta.cal-adapt.org/">beta site</a>.</p>
 <div class="admonition note">
@@ -205,7 +171,7 @@ a view of how climate change might affect California at the local level. Here yo
 <div class="section" id="cal-adapt-api">
 <h2>Cal-Adapt API<a class="headerlink" href="#cal-adapt-api" title="Permalink to this headline">¶</a></h2>
 <p>Cal-Adapt API (Application Programming Interface) provides programmatic access to climate data hosted on Cal-Adapt. In general, an API is like a cog that allows two systems to interact with each other, e.g. a web browser on your computer and the Cal-Adapt server.</p>
-<p>The Cal-Adapt API is built using Django, Django REST framework, and <a class="reference external" href="https://github.com/bkg/django-spillway">Django-Spillway</a>, an open source library developed at the GIF. The API follows an architectural style called REST (REpresentational State Transfer) which uses uses HTTP as the transport protocol for the message requests and responses.</p>
+<p>The Cal-Adapt API is built using <a class="reference external" href="https://www.djangoproject.com/">Django</a>, <a class="reference external" href="http://www.django-rest-framework.org/">Django REST framework</a>, and <a class="reference external" href="https://github.com/bkg/django-spillway">Django-Spillway</a>, an open source library developed at the GIF. The API follows an architectural style called REST (REpresentational State Transfer) which uses uses HTTP as the transport protocol for the message requests and responses.</p>
 </div>
 <div class="section" id="what-is-a-rest-api">
 <h2>What is a REST API?<a class="headerlink" href="#what-is-a-rest-api" title="Permalink to this headline">¶</a></h2>
@@ -213,11 +179,11 @@ a view of how climate change might affect California at the local level. Here yo
 <a class="reference internal image-reference" href="_images/restapi_model.png"><img alt="model of a REST API" src="_images/restapi_model.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-text">A general model of a REST API (<a class="reference external" href="https://idratherbewriting.com/learnapidoc/docapis_what-is-a-rest-api.html">source</a>)</span></p>
 </div>
-<p>The client (web browser, desktop GIS software, python script, etc.) sends a request to the API server for data and the server sends a response back. The client and server can be based in any language, but HTTP is the protocol used to transport the message. This request-and-response pattern is fundamentally how REST APIs work. So, when you open a browser and type a website URL (such as <a class="reference external" href="https://twitter.com/Cal_Adapt/status/849368048062664704">https://twitter.com/Cal_Adapt/status/849368048062664704</a>), you’re actually making a GET request for a resource on Twitter&#8217;s server. The server responds with the content and the browser makes the content visible.</p>
+<p>The client (web browser, desktop GIS software, Python script, etc.) sends a request to the API server for data and the server sends a response back. The client and server can be based in any language, but HTTP is the protocol used to transport the message. This request-and-response pattern is fundamentally how REST APIs work. So, when you open a browser and type a website URL (such as <a class="reference external" href="https://twitter.com/Cal_Adapt/status/849368048062664704">https://twitter.com/Cal_Adapt/status/849368048062664704</a>), you’re actually making a GET request for a resource on Twitter’s server. The server responds with the content and the browser makes the content visible.</p>
 </div>
 <div class="section" id="why-did-we-build-a-public-api-for-cal-adapt">
 <h2>Why did we build a public API for Cal-Adapt?<a class="headerlink" href="#why-did-we-build-a-public-api-for-cal-adapt" title="Permalink to this headline">¶</a></h2>
-<p>The Cal-Adapt API provides developers, researchers, and climate specialists with a new tool for working with the wealth of data and information that has been, and continues to be, produced by State of California&#8217;s scientific and research community. The API allows users to access only the data they actually need, without having to download the entire dataset.</p>
+<p>The Cal-Adapt API provides developers, researchers, and climate specialists with a new tool for working with the wealth of data and information that has been, and continues to be, produced by State of California’s scientific and research community. The API allows users to access only the data they actually need, without having to download the entire dataset.</p>
 <p>It is impossible for a single organization to build tools that might satisfy every potential use of the information. With an API, other organizations will be able to easily access the data and build domain specific visualization and planning tools on top of it.</p>
 </div>
 <div class="section" id="get-in-touch">

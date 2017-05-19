@@ -18,11 +18,11 @@ Currently the Cal-Adapt API does not require authentication. You do not need to 
 Entry Point
 -----------------
 
-The entry point or api root is a starting point that provides an overview of all available data in the API. The entry point for the Cal-Adapt API is:
+The entry point or API root is a starting point that provides an overview of all available data in the API. The entry point for the Cal-Adapt API is:
 
    .. sourcecode:: xml
 
-       http://api.cal-adapt.org/api
+       http://api.cal-adapt.org/api/
 
   
 .. _browsable-api:
@@ -49,17 +49,17 @@ The Cal-Adapt API supports the following data formats:
   * Raster and vector data
 
     * Browsable API view (api)
-    * Javascript Object Notation (json)
-  * Raster data
+    * JavaScript Object Notation (json)
+  * Raster data only
 
-    * Comma Separated Values (csv) - raster data only
-    * GeoTIFF (tif.zip) - raster data only
-    * ERDAS Imagine (img.zip) - raster data only
-  * Vector data
+    * Comma Separated Values (csv)
+    * GeoTIFF (tif.zip)
+    * ERDAS Imagine (img.zip)
+  * Vector data only
 
-    * GeoJSON (geojson) - vector data only
-    * Keyhole Markup Language (kml) - vector data only
-    * Zipped KML files (kmz) - vector data only
+    * GeoJSON (geojson)
+    * Keyhole Markup Language (kml)
+    * Zipped KML files (kmz)
 
 However, our preferred way to indicate data format (instead of adding ``format=json`` in the URL) is to use the appropriate HTTP Accept header in your requests, e.g.:
 
