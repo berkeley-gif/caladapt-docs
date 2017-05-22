@@ -135,7 +135,7 @@ The following example shows an example of requesting timeseries data for a locat
    :query pagesize: number of records, default is 10
    :query format: one of ``json``, ``csv``, ``tif.zip``, ``img.zip``
    :query stat: one of ``mean``, ``max``, ``min``, ``count``, ``median``, ``std``, ``var`` for spatial aggregation by polygon/line geometry.
-   :query period: number of periods to resample to, i.e. from annual to decadal
+   :query periods: number of periods to resample to, i.e. from annual to decadal
    :reqheader Accept: the response content type depends on
                       :mailheader:`Accept` header
    :resheader Content-Type: this depends on :mailheader:`Accept`
