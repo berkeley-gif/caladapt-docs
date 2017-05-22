@@ -166,7 +166,41 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="data-catalog">
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+/* nice headers on first paragraph of info/warning boxes */
+.admonition .first {
+    margin: -12px;
+    padding: 6px 12px;
+    margin-bottom: 12px;
+    color: #fff;
+    line-height: 1;
+    display: block;
+}
+.admonition.warning .first {
+    background: #f0b37e;
+}
+.admonition.note .first {
+    background: #6ab0de;
+}
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<div class="section" id="data-catalog">
 <span id="id1"></span><h1>Data Catalog<a class="headerlink" href="#data-catalog" title="Permalink to this headline">¶</a></h1>
 <p>We refer to the datasets in the Cal-Adapt API as resources. Each resource is represented by a unique endpoint (URL). The following is a list of climate datasets in the Cal-Adapt API. We are actively adding new resources to the API so this list may not reflect the most up to date information.</p>
 <div class="section" id="climate-variables">
@@ -228,7 +262,7 @@
 </div>
 <div class="section" id="scenarios">
 <span id="scenario"></span><h2>Scenarios<a class="headerlink" href="#scenarios" title="Permalink to this headline">¶</a></h2>
-<p>Representatitve Concentration Pathways (RCP). RCP references - <a class="reference external" href="https://skepticalscience.com/rcp.php">The Beginner’s Guide to Representative Concentration Pathways</a> , <a class="reference external" href="http://sedac.ipcc-data.org/ddc/ar5_scenario_process/RCPs.html">IPCC</a></p>
+<p>Representatitve Concentration Pathways (RCP). RCP references - <a class="reference external" href="https://skepticalscience.com/rcp.php">The Beginner&#8217;s Guide to Representative Concentration Pathways</a> , <a class="reference external" href="http://sedac.ipcc-data.org/ddc/ar5_scenario_process/RCPs.html">IPCC</a></p>
 <blockquote>
 <div><ul class="simple">
 <li><code class="docutils literal"><span class="pre">rcp45</span></code> - RCP 4.5 (Emissions peak around 2040, then decline)</li>
@@ -239,7 +273,7 @@
 </div>
 <div class="section" id="period">
 <span id="id3"></span><h2>Period<a class="headerlink" href="#period" title="Permalink to this headline">¶</a></h2>
-<p>Different temporal aggregations are available for climate variables through the API. See <a class="reference internal" href="series.html#filtering-series"><span class="std std-ref">Filtering Series</span></a> to find out what’s available in the API.</p>
+<p>Different temporal aggregations are available for climate variables through the API. See <a class="reference internal" href="series.html#filtering-series"><span class="std std-ref">Filtering Series</span></a> to find out what&#8217;s available in the API.</p>
 <blockquote>
 <div><ul class="simple">
 <li><code class="docutils literal"><span class="pre">year</span></code> - Annual averages</li>

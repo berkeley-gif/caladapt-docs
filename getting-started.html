@@ -166,7 +166,41 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="getting-started">
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+/* nice headers on first paragraph of info/warning boxes */
+.admonition .first {
+    margin: -12px;
+    padding: 6px 12px;
+    margin-bottom: 12px;
+    color: #fff;
+    line-height: 1;
+    display: block;
+}
+.admonition.warning .first {
+    background: #f0b37e;
+}
+.admonition.note .first {
+    background: #6ab0de;
+}
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<div class="section" id="getting-started">
 <span id="id1"></span><h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="authentication">
 <span id="id2"></span><h2>Authentication<a class="headerlink" href="#authentication" title="Permalink to this headline">¶</a></h2>
@@ -176,7 +210,7 @@
 <span id="id3"></span><h2>Entry Point<a class="headerlink" href="#entry-point" title="Permalink to this headline">¶</a></h2>
 <p>The entry point or API root is a starting point that provides an overview of all available data in the API. The entry point for the Cal-Adapt API is:</p>
 <blockquote>
-<div><div class="highlight-xml"><div class="highlight"><pre>http://api.cal-adapt.org/api/
+<div><div class="highlight-xml"><div class="highlight"><pre><span></span>http://api.cal-adapt.org/api/
 </pre></div>
 </div>
 </div></blockquote>
@@ -189,7 +223,7 @@
 <span id="id4"></span><h2>Data Formats<a class="headerlink" href="#data-formats" title="Permalink to this headline">¶</a></h2>
 <p>In a web browser by default, the API will return data as HTML. One way to request data in a different format is by adding the <code class="docutils literal"><span class="pre">format</span></code> query parameter to the URL.</p>
 <blockquote>
-<div><div class="highlight-xml"><div class="highlight"><pre>http://api.cal-adapt.org/api/?format=json
+<div><div class="highlight-xml"><div class="highlight"><pre><span></span>http://api.cal-adapt.org/api/?format=json
 </pre></div>
 </div>
 </div></blockquote>
@@ -217,7 +251,7 @@
 </div></blockquote>
 <p>However, our preferred way to indicate data format (instead of adding <code class="docutils literal"><span class="pre">format=json</span></code> in the URL) is to use the appropriate HTTP Accept header in your requests, e.g.:</p>
 <blockquote>
-<div><div class="highlight-xml"><div class="highlight"><pre>Accept: application/json
+<div><div class="highlight-xml"><div class="highlight"><pre><span></span>Accept: application/json
 </pre></div>
 </div>
 </div></blockquote>
@@ -228,7 +262,7 @@
 <blockquote>
 <div><p><strong>Example Request</strong></p>
 <blockquote>
-<div><div class="highlight-http"><div class="highlight"><pre>GET /api/series/
+<div><div class="highlight-http"><div class="highlight"><pre><span></span>GET /api/series/
 Host: api.cal-adapt.org
 Accept: text/html
 </pre></div>
@@ -236,7 +270,7 @@ Accept: text/html
 </div></blockquote>
 <p><strong>Response</strong></p>
 <blockquote>
-<div><div class="highlight-http"><div class="highlight"><pre>HTTP 200 OK Vary: Accept
+<div><div class="highlight-http"><div class="highlight"><pre><span></span>HTTP 200 OK Vary: Accept
 Content-Type: text/html; charset=utf-8
 Allow: GET, HEAD, OPTIONS
 
