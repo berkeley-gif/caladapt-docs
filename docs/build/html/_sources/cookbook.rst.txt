@@ -12,27 +12,28 @@ This is a list of tutorials and code samples we have developed for working with 
 
 Jupyter Notebooks
 ==================
-* General
 
- * `Searching for resources <https://github.com/berkeley-gif/caladapt-docs/blob/master/cookbook/
- searching_for_resources.ipynb>`_
- * `Get data for a Location <https://github.com/berkeley-gif/caladapt-docs/blob/master/cookbook/get_data_for_location.ipynb>`_
- * `Get polygon geometry from boundaries <https://github.com/berkeley-gif/caladapt-docs/blob/master/cookbook/get_polygon_geometry_from_api.ipynb>`_
- * `A quick overview of working with Pandas <https://github.com/berkeley-gif/caladapt-docs/blob/master/cookbook/pandas_overview.ipynb>`_
+  * General
 
-* Working with Annual Averages
+    * `Searching for resources <https://github.com/berkeley-gif/caladapt-docs/blob/master/cookbook/searching_for_resources.ipynb>`_
+    * `Get data for a Location <https://github.com/berkeley-gif/caladapt-docs/blob/master/cookbook/get_data_for_location.ipynb>`_
+    * `Get polygon geometry from boundaries <https://github.com/berkeley-gif/caladapt-docs/blob/master/cookbook/get_polygon_geometry_from_api.ipynb>`_
+    * `A quick overview of working with Pandas <https://github.com/berkeley-gif/caladapt-docs/blob/master/cookbook/pandas_overview.ipynb>`_
 
- * `Some basic plots with MatplotLib <https://github.com/berkeley-gif/caladapt-docs/blob/master/cookbook/annual_averages_basic_plots.ipynb>`_
- * `Making an animated heatmap <https://github.com/berkeley-gif/caladapt-docs/blob/master/cookbook/annual_averages_heatmap.ipynb>`_
- * `Calculate some summary stats <https://github.com/berkeley-gif/caladapt-docs/blob/master/cookbook/annual_averages_summary_stats.ipynb>`_
- * `Retrieve data for temperature and precipitation <https://github.com/berkeley-gif/caladapt-docs/blob/master/cookbook/annual_averages_temperature_and_precipitation.ipynb>`_
+  * Working with Annual Averages
 
-* Working with Daily Data
+    * `Some basic plots with MatplotLib <https://github.com/berkeley-gif/caladapt-docs/blob/master/cookbook/annual_averages_basic_plots.ipynb>`_
+    * `Making an animated heatmap <https://github.com/berkeley-gif/caladapt-docs/blob/master/cookbook/annual_averages_heatmap.ipynb>`_
+    * `Calculate summary stats for Sacramento County <https://github.com/berkeley-gif/caladapt-docs/blob/master/cookbook/annual_averages_summary_stats.ipynb>`_
+    * `Retrieve data for temperature and precipitation <https://github.com/berkeley-gif/caladapt-docs/blob/master/cookbook/annual_averages_temperature_and_precipitation.ipynb>`_
 
- * `Calculate Extreme Heat Days <https://github.com/berkeley-gif/caladapt-docs/blob/master/cookbook/daily_data_extreme_heat.ipynb>`_
- * `Calculating monthly and annual averages from daily data <https://github.com/berkeley-gif/caladapt-docs/blob/master/cookbook/daily_data_summaries.ipynb>`_
+  * Working with Daily Data
 
- * Working with other climate variables
+    * `Calculate Extreme Heat Days <https://github.com/berkeley-gif/caladapt-docs/blob/master/cookbook/daily_data_extreme_heat.ipynb>`_
+    * `Calculating monthly and annual averages from daily data <https://github.com/berkeley-gif/caladapt-docs/blob/master/cookbook/daily_data_summaries.ipynb>`_
 
- * `Sea Level Rise <https://github.com/berkeley-gif/caladapt-docs/blob/master/cookbook/sea_level_rise.ipynb>`_
- * `Experimental charts using wildfire data <https://github.com/berkeley-gif/caladapt-docs/blob/master/cookbook/wildfire_experimental_charts.ipynb>`_
+
+  * Working with other climate variables
+
+    * `Sea Level Rise <https://github.com/berkeley-gif/caladapt-docs/blob/master/cookbook/sea_level_rise.ipynb>`_
+    * `Experimental charts using wildfire data <https://github.com/berkeley-gif/caladapt-docs/blob/master/cookbook/wildfire_experimental_charts.ipynb>`_
