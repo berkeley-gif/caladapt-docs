@@ -35,16 +35,25 @@ Climate Variables
     * Snow Water Equivalence ``swe``
     * Monthly averages
 
-  * Sea Level Rise (CalFloD-3D) for San Francisco Bay, Sacramento-San Joaquin Delta and California Coast from UC Berkeley (`Radke et al, 2016 <http://www.energy.ca.gov/publications/displayOneReport.php?pubNum=CEC-500-2017-008>`_). 
+  * Sea Level Rise (CalFloD-3D) for San Francisco Bay, Sacramento-San Joaquin Delta and California Coast from UC Berkeley (`Radke et al, 2016 <http://www.energy.ca.gov/publications/displayOneReport.php?pubNum=CEC-500-2017-008>`_).
 
     * ``slr_sfbay`` ``slr_delta`` ``slr_coast``
     * SLR scenarios
 
-  * Widlfire from UC Merced (LeRoy Westerling) 
+  * Widlfire from UC Merced (LeRoy Westerling)
 
     * ``fire``
     * Annual averages
 
+  * Bias-corrected Streamflows for 11 locations (Scripps Institution of Oceanography)
+
+    * ``streamflow``
+    * Monthly averages
+
+  * Extended drought (Scripps Institution of Oceanography)
+
+    * ``drought``
+    * Daily data for two scenarios that portray 20 year drought conditions.
 
 .. _gcm:
 
@@ -52,8 +61,8 @@ Global Climate Models (GCM)
 ----------------------------
 
 The following GCMs have been selected by California state agencies as priority models for Fourth Assessment Research. Data for these models is available through the cal-Adapt API. Downscaled data for 22 other GCMs is available as NetCDF files from the `Cal-Adapt Data Server <http://albers.cnr.berkeley.edu/data/>`_.
-    
-    * ``ACCESS1-0`` - Commonwealth Scientific and Industrial Research Organization (CSIRO) and Bureau of Meteorology (BOM) Australia  
+
+    * ``ACCESS1-0`` - Commonwealth Scientific and Industrial Research Organization (CSIRO) and Bureau of Meteorology (BOM) Australia
     * ``CanESM2`` - Canadian Centre for Climate Modelling and Analysis
     * ``CCSM4`` - University of Miami - RSMAS
     * ``CESM1-BGC`` - Community Earth System Model Contributors
@@ -70,8 +79,8 @@ The following GCMs have been selected by California state agencies as priority m
 Scenarios
 ------------
 
-Representatitve Concentration Pathways (RCP). RCP references - `The Beginner's Guide to Representative Concentration Pathways <https://skepticalscience.com/rcp.php>`_ , `IPCC <http://sedac.ipcc-data.org/ddc/ar5_scenario_process/RCPs.html>`_ 
-  
+Representatitve Concentration Pathways (RCP). RCP references - `The Beginner's Guide to Representative Concentration Pathways <https://skepticalscience.com/rcp.php>`_ , `IPCC <http://sedac.ipcc-data.org/ddc/ar5_scenario_process/RCPs.html>`_
+
   * ``rcp45`` - RCP 4.5 (Emissions peak around 2040, then decline)
   * ``rcp85`` - RCP 8.5 (Emissions continue to rise strongly through 2050 and plateau)
   * ``historical`` - Historical
@@ -82,7 +91,7 @@ Representatitve Concentration Pathways (RCP). RCP references - `The Beginner's G
 Period
 -----------
 
-Different temporal aggregations are available for climate variables through the API. See :ref:`filtering-series` to find out what's available in the API. 
+Different temporal aggregations are available for climate variables through the API. See :ref:`filtering-series` to find out what's available in the API.
 
   * ``year`` - Annual averages
   * ``month`` - Monthly averages
@@ -93,7 +102,7 @@ Different temporal aggregations are available for climate variables through the 
 Vector Data
 -------------
 
-In addition to climate data, the Cal-Adapt API also has endpoints for vector datasets representing administrative boundaries, hydrological boundaries and the LOCA model grid. 
+In addition to climate data, the Cal-Adapt API also has endpoints for vector datasets representing administrative boundaries, hydrological boundaries and the LOCA model grid.
 
     * ``locagrid`` - Model Grid (1/16° - Approximately 6 km)
     * ``counties`` - California counties
