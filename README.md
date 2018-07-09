@@ -4,7 +4,7 @@ This repository contains documentation, tutorials and code samples for working w
 
 
 ## Links
-- [Cal-Adapt API Documentation and Tutorials](https://berkeley-gif.github.io/caladapt-docs/index.html)
+- [Cal-Adapt API Documentation and Tutorials](https://berkeley-gif.github.io/caladapt-docs/)
 - [Cal-Adapt website](beta.cal-adapt.org) 
 
 
