@@ -31,6 +31,7 @@ Jupyter Notebooks
 
     * `Calculate Extreme Heat Days <https://github.com/berkeley-gif/caladapt-docs/blob/master/cookbook/daily_data_extreme_heat.ipynb>`_
     * `Calculating monthly and annual averages from daily data <https://github.com/berkeley-gif/caladapt-docs/blob/master/cookbook/daily_data_summaries.ipynb>`_
+    * `Calculating Cooling & Heating Degree Days from daily maximum and minmum temperatures <https://github.com/berkeley-gif/caladapt-docs/blob/master/cookbook/daily_data_degree_days.ipynb>`_
 
 
   * Working with other climate variables
