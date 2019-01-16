@@ -1,15 +1,14 @@
 .. _working-with-series:
 
-
 ************************
 Working with Series
 ************************
 
-A Raster Series List is a collection of Raster Series Instance and is represented by the endpoint:
+A Raster Series list is a collection of individual raster time series which is represented by this endpoint:
 
   .. sourcecode:: xml
 
-    http://api.cal-adapt.org/api/series/<slug>/
+    https://api.cal-adapt.org/api/series/{slug}/
 
 
 Slug
@@ -19,7 +18,7 @@ A slug is a URL friendly name of a resource in the API. Each climate dataset or 
 
   .. sourcecode:: xml
 
-    http://api.cal-adapt.org/api/series/tasmax_year_CNRM-CM5_rcp45/
+    https://api.cal-adapt.org/api/series/tasmax_year_CNRM-CM5_rcp45/
 
 
 .. _filtering-series:
@@ -31,13 +30,13 @@ The series endpoint supports searching by ``name``.
 
   .. sourcecode:: xml
 
-    http://api.cal-adapt.org/api/series/?name=yearly+average+maximum+temperature
+    https://api.cal-adapt.org/api/series/?name=yearly+average+maximum+temperature
 
 Or by ``slug``.
 
   .. sourcecode:: xml
 
-    http://api.cal-adapt.org/api/series/?slug=tasmax_year_CCSM4
+    https://api.cal-adapt.org/api/series/?slug=tasmax_year_CCSM4
 
 
 Get Time Slices
@@ -47,14 +46,13 @@ The complete timeseries can be retrieved by adding ``rasters/`` to the URL.
 
   .. sourcecode:: xml
 
-    http://api.cal-adapt.org/api/series/tasmax_year_CNRM-CM5_rcp45/rasters/
+    https://api.cal-adapt.org/api/series/tasmax_year_CNRM-CM5_rcp45/rasters/
 
 A time slice can be retrieved by adding start and end dates to the URL.
 
   .. sourcecode:: xml
 
-    http://api.cal-adapt.org/api/series/tasmax_year_CNRM-CM5_rcp45/2030-01-01/2040-01-01/
-
+    https://api.cal-adapt.org/api/series/tasmax_year_CNRM-CM5_rcp45/2030-01-01/2040-01-01/
 
 
 Get Data for a Location
@@ -62,7 +60,7 @@ Get Data for a Location
 
 The following example shows an example of requesting timeseries data for a location. The response consists of ``count`` (number of records), ``next`` (link to next page, see :ref:`pagination`), ``results`` (array of JSON objects for each timestep). Among other fields each timestep contains fields  ``image`` (data value), ``event`` (date), and ``units`` (units of data value).
 
-.. http:get:: http://api.cal-adapt.org/api/series/tasmax_year_CNRM-CM5_rcp45/rasters/?g=POINT(-121.46+38.58)
+.. http:get:: https://api.cal-adapt.org/api/series/tasmax_year_CNRM-CM5_rcp45/rasters/?g=POINT(-121.46+38.58)
 
    Data for annual averages of Maximum Temperature projections at location (longitude -121.46, latitude 38.58) for CNRM-CM5 model and RCP 4.5 scenario.
 
@@ -70,7 +68,7 @@ The following example shows an example of requesting timeseries data for a locat
 
    .. sourcecode:: http
 
-      GET /api/tasmax_year_CNRM-CM5_rcp45/
+      GET /api/series/tasmax_year_CNRM-CM5_rcp45/
       Host: api.cal-adapt.org
       Accept: application/json
 
@@ -85,13 +83,13 @@ The following example shows an example of requesting timeseries data for a locat
 
       {
         "count": 95,
-        "next": "http://api.cal-adapt.org/api/series/tasmax_year_CNRM-CM5_rcp45/rasters/?g=POINT%28-121.46+38.58%29&page=2",
+        "next": "https://api.cal-adapt.org/api/series/tasmax_year_CNRM-CM5_rcp45/rasters/?g=POINT%28-121.46+38.58%29&page=2",
         "previous": null,
         "results": [
         {
             "id": 10521,
-            "tileurl": "http://api.cal-adapt.org/tiles/tasmax_year_CNRM-CM5_rcp45_2006/{z}/{x}/{y}.png",
-            "url": "http://api.cal-adapt.org/api/rstores/tasmax_year_CNRM-CM5_rcp45_2006/",
+            "tileurl": "https://api.cal-adapt.org/tiles/tasmax_year_CNRM-CM5_rcp45_2006/{z}/{x}/{y}.png",
+            "url": "https://api.cal-adapt.org/api/rstores/tasmax_year_CNRM-CM5_rcp45_2006/",
             "image": 297.9866027832031,
             "width": 179,
             "height": 195,
@@ -109,8 +107,8 @@ The following example shows an example of requesting timeseries data for a locat
         },
         {
             "id": 10522,
-            "tileurl": "http://api.cal-adapt.org/tiles/tasmax_year_CNRM-CM5_rcp45_2007/{z}/{x}/{y}.png",
-            "url": "http://api.cal-adapt.org/api/rstores/tasmax_year_CNRM-CM5_rcp45_2007/",
+            "tileurl": "https://api.cal-adapt.org/tiles/tasmax_year_CNRM-CM5_rcp45_2007/{z}/{x}/{y}.png",
+            "url": "https://api.cal-adapt.org/api/rstores/tasmax_year_CNRM-CM5_rcp45_2007/",
             "image": 297.7721862792969,
             "width": 179,
             "height": 195,
