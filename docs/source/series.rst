@@ -131,7 +131,7 @@ The following example shows an example of requesting timeseries data for a locat
 
    :query g: a geometry (point, line, polygon) as GeoJSON or WKT
    :query pagesize: number of records, default is 10
-   :query format: one of ``json``, ``csv``, ``tif.zip``, ``img.zip``
+   :query format: one of ``json``, ``csv``, ``tif.zip``
    :query stat: one of ``mean``, ``max``, ``min``, ``count``, ``median``, ``std``, ``var`` for spatial aggregation by polygon/line geometry.
    :query periods: number of periods to resample to, i.e. from annual to decadal
    :reqheader Accept: the response content type depends on
