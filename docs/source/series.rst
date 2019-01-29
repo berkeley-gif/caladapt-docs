@@ -129,10 +129,11 @@ The following example shows an example of requesting timeseries data for a locat
       ]
     }
 
-   :query g: a geometry (point, line, polygon) as GeoJSON or WKT
+   :query g: a geometry (point, line, polygon) as GeoJSON, WKT, GML or KML
+   :query bbox: a bounding box in the form of x1,y1,x2,y2
    :query pagesize: number of records, default is 10
    :query format: one of ``json``, ``csv``, ``tif.zip``
-   :query stat: one of ``mean``, ``max``, ``min``, ``count``, ``median``, ``std``, ``var`` for spatial aggregation by polygon/line geometry.
+   :query stat: one of ``mean``, ``max``, ``min``, ``count``, ``median``, ``std``, ``var`` for spatial aggregation by polygon/line geometry provided by the ``g`` param.
    :query periods: number of periods to resample to, i.e. from annual to decadal
    :reqheader Accept: the response content type depends on
                       :mailheader:`Accept` header
