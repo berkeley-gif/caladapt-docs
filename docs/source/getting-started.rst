@@ -54,7 +54,6 @@ The Cal-Adapt API supports the following data formats:
 
     * Comma Separated Values (csv)
     * GeoTIFF (tif.zip)
-    * ERDAS Imagine (img.zip)
   * Vector data only
 
     * GeoJSON (geojson)
