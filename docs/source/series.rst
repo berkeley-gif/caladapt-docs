@@ -60,7 +60,7 @@ Get Data for a Location
 
 The following example shows an example of requesting timeseries data for a location. The response consists of ``count`` (number of records), ``next`` (link to next page, see :ref:`pagination`), ``results`` (array of JSON objects for each timestep). Among other fields each timestep contains fields  ``image`` (data value), ``event`` (date), and ``units`` (units of data value).
 
-.. http:get:: https://api.cal-adapt.org/api/series/tasmax_year_CNRM-CM5_rcp45/rasters/?g=POINT(-121.46+38.58)
+.. http:get:: /api/series/{slug}/rasters/?g=POINT(-121.46+38.58)
 
    Data for annual averages of Maximum Temperature projections at location (longitude -121.46, latitude 38.58) for CNRM-CM5 model and RCP 4.5 scenario.
 
@@ -68,7 +68,7 @@ The following example shows an example of requesting timeseries data for a locat
 
    .. sourcecode:: http
 
-      GET /api/series/tasmax_year_CNRM-CM5_rcp45/
+      GET /api/series/tasmax_year_CNRM-CM5_rcp45/rasters/?g=POINT(-121.46+38.58) HTTP/1.1
       Host: api.cal-adapt.org
       Accept: application/json
 
@@ -76,7 +76,7 @@ The following example shows an example of requesting timeseries data for a locat
 
    .. sourcecode:: http
 
-      HTTP 200 OK
+      HTTP/1.1 200 OK
       Allow: GET, POST, OPTIONS
       Content-Type: application/json
       Vary: Accept
@@ -124,10 +124,7 @@ The following example shows an example of requesting timeseries data for a locat
             "slug": "tasmax_year_CNRM-CM5_rcp45_2007",
             "units": "K"
         },
-        ...
-
-      ]
-    }
+      ]}
 
    :query g: a geometry (point, line, polygon) as GeoJSON, WKT, GML or KML
    :query bbox: a bounding box in the form of x1,y1,x2,y2

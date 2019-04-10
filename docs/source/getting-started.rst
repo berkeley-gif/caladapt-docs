@@ -78,7 +78,7 @@ The API returns a paginated response for large datasets. Pagination links are pr
 
    .. sourcecode:: http
 
-       GET /api/series/
+       GET /api/series/ HTTP/1.1
        Host: api.cal-adapt.org
        Accept: text/html
 
@@ -86,7 +86,8 @@ The API returns a paginated response for large datasets. Pagination links are pr
 
    .. sourcecode:: http
 
-    HTTP 200 OK Vary: Accept
+    HTTP/1.1 200 OK
+    Vary: Accept
     Content-Type: text/html; charset=utf-8
     Allow: GET, HEAD, OPTIONS
 
