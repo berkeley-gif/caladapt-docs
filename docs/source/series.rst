@@ -85,8 +85,7 @@ The following example shows an example of requesting timeseries data for a locat
         "count": 95,
         "next": "https://api.cal-adapt.org/api/series/tasmax_year_CNRM-CM5_rcp45/rasters/?g=POINT%28-121.46+38.58%29&page=2",
         "previous": null,
-        "results": [
-        {
+        "results": [{
             "id": 10521,
             "tileurl": "https://api.cal-adapt.org/tiles/tasmax_year_CNRM-CM5_rcp45_2006/{z}/{x}/{y}.png",
             "url": "https://api.cal-adapt.org/api/rstores/tasmax_year_CNRM-CM5_rcp45_2006/",
@@ -104,8 +103,7 @@ The following example shows an example of requesting timeseries data for a locat
             "name": "yearly average maximum temperature CNRM-CM5 RCP 4.5",
             "slug": "tasmax_year_CNRM-CM5_rcp45_2006",
             "units": "K"
-        },
-        {
+        }, {
             "id": 10522,
             "tileurl": "https://api.cal-adapt.org/tiles/tasmax_year_CNRM-CM5_rcp45_2007/{z}/{x}/{y}.png",
             "url": "https://api.cal-adapt.org/api/rstores/tasmax_year_CNRM-CM5_rcp45_2007/",
@@ -123,15 +121,14 @@ The following example shows an example of requesting timeseries data for a locat
             "name": "yearly average maximum temperature CNRM-CM5 RCP 4.5",
             "slug": "tasmax_year_CNRM-CM5_rcp45_2007",
             "units": "K"
-        },
-      ]}
+        }]
+      }
 
    :query g: a geometry (point, line, polygon) as GeoJSON, WKT, GML or KML
    :query bbox: a bounding box in the form of x1,y1,x2,y2
    :query pagesize: number of records, default is 10
-   :query format: one of ``json``, ``csv``, ``tif.zip``
+   :query format: ``json`` or ``tif.zip``
    :query stat: one of ``mean``, ``max``, ``min``, ``count``, ``median``, ``std``, ``var`` for spatial aggregation by polygon/line geometry provided by the ``g`` param.
-   :query periods: number of periods to resample to, i.e. from annual to decadal
    :reqheader Accept: the response content type depends on
                       :mailheader:`Accept` header
    :resheader Content-Type: this depends on :mailheader:`Accept`
@@ -140,3 +137,88 @@ The following example shows an example of requesting timeseries data for a locat
    :statuscode 400: something is askew with the request, check the error message
    :statuscode 404: the slug may be incorrect
    :statuscode 500: something's wrong on our end
+
+
+Time Series
+-----------
+.. http:get:: /api/series/{slug}/events/
+
+   Return the full time series for any location, with optional temporal and/or rolling aggregations applied.
+
+   :arg slug: series slug identifier
+   :query g: a geometry (point, line, polygon) as GeoJSON, WKT, GML or KML
+   :query stat: one of ``max``, ``mean``, ``median``, ``min``, ``sum`` for spatial aggregation by polygon/line provided by the ``g`` param, defaults to ``mean``
+   :query freq: resampling frequency string such as ``M``, ``A``, ``10A``, or any `Pandas offset <http://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects>`_
+   :query rolling: rolling statistic, one of ``max``, ``mean``, ``median``, ``min``, ``sum``
+   :query integer window: rolling window size
+   :query float thresh: only return values above a given threshold
+   :query boolean imperial: use imperial units, defaults to false
+   :query format: ``json`` or ``csv``
+   :query integer pagesize: number of records, default is 10
+   :reqheader Accept: the response content type depends on
+                      :mailheader:`Accept` header
+   :resheader Content-Type: this depends on :mailheader:`Accept`
+                            header of request
+   :statuscode 200: no error
+   :statuscode 400: something is askew with the request, check the error message
+   :statuscode 404: the slug may be incorrect
+   :statuscode 500: something's wrong on our end
+
+   **Example request**:
+
+   .. sourcecode:: http
+
+      GET /api/series/tasmax_day_HadGEM2-ES_rcp85/events/?g=POINT(-121.46+38.58)&freq=M HTTP/1.1
+      Host: api.cal-adapt.org
+      Accept: application/json
+
+   **Response**:
+
+   .. sourcecode:: http
+
+      HTTP/1.1 200 OK
+      Vary: Accept
+      Content-Type: application/json
+
+      {
+      "columns": [
+          "min",
+          "mean",
+          "max",
+          "std",
+          "count"
+      ],
+      "data": [
+          [
+              275.4864807129,
+              283.8988342285,
+              288.8237304688,
+              3.3650608063,
+              31
+          ],
+          [
+              283.4172058105,
+              290.7746276855,
+              298.8256835938,
+              3.4072315693,
+              28
+          ],
+          [
+              286.8976745605,
+              293.8493652344,
+              300.5709533691,
+              4.2584190369,
+              31
+          ],
+      ],
+      "index": [
+          "2006-01-31T00:00:00Z",
+          "2006-02-28T00:00:00Z",
+          "2006-03-31T00:00:00Z",
+      ]}
+
+.. http:post:: /api/series/{slug}/events/
+
+   Use POST when providing a feature set to return data for multiple locations.
+
+   :query features: file upload to provide multiple geometries as part of a feature set, any `OGR supported <https://gdal.org/ogr_formats.html>`_ format or zip file
