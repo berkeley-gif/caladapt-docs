@@ -24,27 +24,19 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="genindex.html"/>
-        <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="Cal-Adapt API Docs 1.0 documentation" href="index.html"/>
-        <link rel="next" title="Working with Series" href="series.html"/>
-        <link rel="prev" title="Getting Started" href="getting-started.html"/> 
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Working with Series" href="series.html" />
+    <link rel="prev" title="Getting Started" href="getting-started.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
@@ -114,7 +106,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">Cal-Adapt API Docs</a>
@@ -122,9 +114,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -166,41 +159,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast + .nbinput {
-    margin-top: -19px;
-}
-
-/* nice headers on first paragraph of info/warning boxes */
-.admonition .first {
-    margin: -12px;
-    padding: 6px 12px;
-    margin-bottom: 12px;
-    color: #fff;
-    line-height: 1;
-    display: block;
-}
-.admonition.warning .first {
-    background: #f0b37e;
-}
-.admonition.note .first {
-    background: #6ab0de;
-}
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-</style>
-<div class="section" id="data-catalog">
+  <div class="section" id="data-catalog">
 <span id="id1"></span><h1>Data Catalog<a class="headerlink" href="#data-catalog" title="Permalink to this headline">¶</a></h1>
 <p>We refer to the datasets in the Cal-Adapt API as resources. Each resource is represented by a unique endpoint (URL). The following is a list of climate datasets in the Cal-Adapt API. We are actively adding new resources to the API so this list may not reflect the most up to date information.</p>
 <div class="section" id="climate-variables">
@@ -208,44 +167,44 @@
 <blockquote>
 <div><ul class="simple">
 <li>LOCA downscaled climate projections from Scripps Institution of Oceanography, UC San Diego (<a class="reference external" href="http://journals.ametsoc.org/doi/abs/10.1175/JHM-D-14-0082.1">Pierce et al, 2014</a>).<ul>
-<li>Maximum Temperature <code class="docutils literal"><span class="pre">tasmax</span></code>, Minimum Temperature <code class="docutils literal"><span class="pre">tasmin</span></code>, Precipitation <code class="docutils literal"><span class="pre">precip</span></code></li>
+<li>Maximum Temperature <code class="docutils literal notranslate"><span class="pre">tasmax</span></code>, Minimum Temperature <code class="docutils literal notranslate"><span class="pre">tasmin</span></code>, Precipitation <code class="docutils literal notranslate"><span class="pre">precip</span></code></li>
 <li>Daily and annual averages</li>
 <li>10 GCMs, 3 scenarios, Envelope</li>
 </ul>
 </li>
 <li>Climate variables produced by the Variable Infiltration Capacity (VIC) model using downscaled LOCA data.<ul>
-<li>Snow Water Equivalence <code class="docutils literal"><span class="pre">swe</span></code></li>
+<li>Snow Water Equivalence <code class="docutils literal notranslate"><span class="pre">swe</span></code></li>
 <li>Monthly averages</li>
 <li>10 GCMs, 3 scenarios</li>
 </ul>
 </li>
 <li>Gridded historical observed climate data from UW Hydro | Computational Hydrology (<a class="reference external" href="http://www.nature.com/articles/sdata201542">Livneh et al, 2015</a>)<ul>
-<li>Maximum Temperature <code class="docutils literal"><span class="pre">tasmax</span></code>, Minimum Temperature <code class="docutils literal"><span class="pre">tasmin</span></code>, Precipitation <code class="docutils literal"><span class="pre">precip</span></code></li>
+<li>Maximum Temperature <code class="docutils literal notranslate"><span class="pre">tasmax</span></code>, Minimum Temperature <code class="docutils literal notranslate"><span class="pre">tasmin</span></code>, Precipitation <code class="docutils literal notranslate"><span class="pre">precip</span></code></li>
 <li>Daily and annual averages</li>
 </ul>
 </li>
 <li>Climate variables produced by the Variable Infiltration Capacity (VIC) model using gridded historical observed Livneh data.<ul>
-<li>Snow Water Equivalence <code class="docutils literal"><span class="pre">swe</span></code></li>
+<li>Snow Water Equivalence <code class="docutils literal notranslate"><span class="pre">swe</span></code></li>
 <li>Monthly averages</li>
 </ul>
 </li>
 <li>Sea Level Rise (CalFloD-3D) for San Francisco Bay, Sacramento-San Joaquin Delta and California Coast from UC Berkeley (<a class="reference external" href="http://www.energy.ca.gov/publications/displayOneReport.php?pubNum=CEC-500-2017-008">Radke et al, 2016</a>).<ul>
-<li><code class="docutils literal"><span class="pre">slr_sfbay</span></code> <code class="docutils literal"><span class="pre">slr_delta</span></code> <code class="docutils literal"><span class="pre">slr_coast</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">slr_sfbay</span></code> <code class="docutils literal notranslate"><span class="pre">slr_delta</span></code> <code class="docutils literal notranslate"><span class="pre">slr_coast</span></code></li>
 <li>SLR scenarios</li>
 </ul>
 </li>
 <li>Widlfire from UC Merced (LeRoy Westerling)<ul>
-<li><code class="docutils literal"><span class="pre">fire</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">fire</span></code></li>
 <li>Annual averages</li>
 </ul>
 </li>
 <li>Bias-corrected Streamflows for 11 locations (Scripps Institution of Oceanography)<ul>
-<li><code class="docutils literal"><span class="pre">streamflow</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">streamflow</span></code></li>
 <li>Monthly averages</li>
 </ul>
 </li>
 <li>Extended drought (Scripps Institution of Oceanography)<ul>
-<li><code class="docutils literal"><span class="pre">drought</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">drought</span></code></li>
 <li>Daily data for two scenarios that portray 20 year drought conditions.</li>
 </ul>
 </li>
@@ -257,38 +216,38 @@
 <p>The following GCMs have been selected by California state agencies as priority models for Fourth Assessment Research. Data for these models is available through the cal-Adapt API. Downscaled data for 22 other GCMs is available as NetCDF files from the <a class="reference external" href="http://albers.cnr.berkeley.edu/data/">Cal-Adapt Data Server</a>.</p>
 <blockquote>
 <div><ul class="simple">
-<li><code class="docutils literal"><span class="pre">ACCESS1-0</span></code> - Commonwealth Scientific and Industrial Research Organization (CSIRO) and Bureau of Meteorology (BOM) Australia</li>
-<li><code class="docutils literal"><span class="pre">CanESM2</span></code> - Canadian Centre for Climate Modelling and Analysis</li>
-<li><code class="docutils literal"><span class="pre">CCSM4</span></code> - University of Miami - RSMAS</li>
-<li><code class="docutils literal"><span class="pre">CESM1-BGC</span></code> - Community Earth System Model Contributors</li>
-<li><code class="docutils literal"><span class="pre">CMCC-CMS</span></code> - Centro Euro-Mediterraneo per I Cambiamenti Climatici</li>
-<li><code class="docutils literal"><span class="pre">CNRM-CM5</span></code> - Centre National de Recherches Météorologiques/ Centre Européen de Recherche et Formation Avancée en Calcul Scientifique</li>
-<li><code class="docutils literal"><span class="pre">GFDL-CM3</span></code> - NOAA Geophysical Fluid Dynamics Laboratory</li>
-<li><code class="docutils literal"><span class="pre">HadGEM2-CC</span></code> - Met Office Hadley Centre</li>
-<li><code class="docutils literal"><span class="pre">HadGEM2-ES</span></code> - Met Office Hadley Centre and Instituto Nacional de Pesquisas Espaciais</li>
-<li><code class="docutils literal"><span class="pre">MIROC5</span></code> - Atmosphere and Ocean Research Institute (The University of Tokyo), National Institute for Environmental Studies, and Japan Agency for Marine-Earth Science and Technology</li>
+<li><code class="docutils literal notranslate"><span class="pre">ACCESS1-0</span></code> - Commonwealth Scientific and Industrial Research Organization (CSIRO) and Bureau of Meteorology (BOM) Australia</li>
+<li><code class="docutils literal notranslate"><span class="pre">CanESM2</span></code> - Canadian Centre for Climate Modelling and Analysis</li>
+<li><code class="docutils literal notranslate"><span class="pre">CCSM4</span></code> - University of Miami - RSMAS</li>
+<li><code class="docutils literal notranslate"><span class="pre">CESM1-BGC</span></code> - Community Earth System Model Contributors</li>
+<li><code class="docutils literal notranslate"><span class="pre">CMCC-CMS</span></code> - Centro Euro-Mediterraneo per I Cambiamenti Climatici</li>
+<li><code class="docutils literal notranslate"><span class="pre">CNRM-CM5</span></code> - Centre National de Recherches Météorologiques/ Centre Européen de Recherche et Formation Avancée en Calcul Scientifique</li>
+<li><code class="docutils literal notranslate"><span class="pre">GFDL-CM3</span></code> - NOAA Geophysical Fluid Dynamics Laboratory</li>
+<li><code class="docutils literal notranslate"><span class="pre">HadGEM2-CC</span></code> - Met Office Hadley Centre</li>
+<li><code class="docutils literal notranslate"><span class="pre">HadGEM2-ES</span></code> - Met Office Hadley Centre and Instituto Nacional de Pesquisas Espaciais</li>
+<li><code class="docutils literal notranslate"><span class="pre">MIROC5</span></code> - Atmosphere and Ocean Research Institute (The University of Tokyo), National Institute for Environmental Studies, and Japan Agency for Marine-Earth Science and Technology</li>
 </ul>
 </div></blockquote>
 </div>
 <div class="section" id="scenarios">
 <span id="scenario"></span><h2>Scenarios<a class="headerlink" href="#scenarios" title="Permalink to this headline">¶</a></h2>
-<p>Representatitve Concentration Pathways (RCP). RCP references - <a class="reference external" href="https://skepticalscience.com/rcp.php">The Beginner&#8217;s Guide to Representative Concentration Pathways</a> , <a class="reference external" href="http://sedac.ipcc-data.org/ddc/ar5_scenario_process/RCPs.html">IPCC</a></p>
+<p>Representatitve Concentration Pathways (RCP). RCP references - <a class="reference external" href="https://skepticalscience.com/rcp.php">The Beginner’s Guide to Representative Concentration Pathways</a> , <a class="reference external" href="http://sedac.ipcc-data.org/ddc/ar5_scenario_process/RCPs.html">IPCC</a></p>
 <blockquote>
 <div><ul class="simple">
-<li><code class="docutils literal"><span class="pre">rcp45</span></code> - RCP 4.5 (Emissions peak around 2040, then decline)</li>
-<li><code class="docutils literal"><span class="pre">rcp85</span></code> - RCP 8.5 (Emissions continue to rise strongly through 2050 and plateau)</li>
-<li><code class="docutils literal"><span class="pre">historical</span></code> - Historical</li>
+<li><code class="docutils literal notranslate"><span class="pre">rcp45</span></code> - RCP 4.5 (Emissions peak around 2040, then decline)</li>
+<li><code class="docutils literal notranslate"><span class="pre">rcp85</span></code> - RCP 8.5 (Emissions continue to rise strongly through 2050 and plateau)</li>
+<li><code class="docutils literal notranslate"><span class="pre">historical</span></code> - Historical</li>
 </ul>
 </div></blockquote>
 </div>
 <div class="section" id="period">
 <span id="id3"></span><h2>Period<a class="headerlink" href="#period" title="Permalink to this headline">¶</a></h2>
-<p>Different temporal aggregations are available for climate variables through the API. See <a class="reference internal" href="series.html#filtering-series"><span class="std std-ref">Filtering Series</span></a> to find out what&#8217;s available in the API.</p>
+<p>Different temporal aggregations are available for climate variables through the API. See <a class="reference internal" href="series.html#filtering-series"><span class="std std-ref">Filtering Series</span></a> to find out what’s available in the API.</p>
 <blockquote>
 <div><ul class="simple">
-<li><code class="docutils literal"><span class="pre">year</span></code> - Annual averages</li>
-<li><code class="docutils literal"><span class="pre">month</span></code> - Monthly averages</li>
-<li><code class="docutils literal"><span class="pre">day</span></code> - Daily values</li>
+<li><code class="docutils literal notranslate"><span class="pre">year</span></code> - Annual averages</li>
+<li><code class="docutils literal notranslate"><span class="pre">month</span></code> - Monthly averages</li>
+<li><code class="docutils literal notranslate"><span class="pre">day</span></code> - Daily values</li>
 </ul>
 </div></blockquote>
 </div>
@@ -297,16 +256,16 @@
 <p>In addition to climate data, the Cal-Adapt API also has endpoints for vector datasets representing administrative boundaries, hydrological boundaries and the LOCA model grid.</p>
 <blockquote>
 <div><ul class="simple">
-<li><code class="docutils literal"><span class="pre">locagrid</span></code> - Model Grid (1/16° - Approximately 6 km)</li>
-<li><code class="docutils literal"><span class="pre">counties</span></code> - California counties</li>
-<li><code class="docutils literal"><span class="pre">hydrounits</span></code> - Watersheds (HUC10)</li>
-<li><code class="docutils literal"><span class="pre">censustracts</span></code> - Census Tracts with CalEnviroScreen 2.0 scores</li>
-<li><code class="docutils literal"><span class="pre">cdistricts</span></code> - 114th congressional districts</li>
-<li><code class="docutils literal"><span class="pre">place</span></code> - Incorporated &amp; census designated places, 2015</li>
-<li><code class="docutils literal"><span class="pre">irwm</span></code> - Integrated Regional Water Management (IRWM) Regions</li>
-<li><code class="docutils literal"><span class="pre">wecc-load-area</span></code> - SWITCH Load Zones</li>
-<li><code class="docutils literal"><span class="pre">climregions</span></code> - Climate Zones</li>
-<li><code class="docutils literal"><span class="pre">electricutilities</span></code> -  Investor and public owned electrical utilities</li>
+<li><code class="docutils literal notranslate"><span class="pre">locagrid</span></code> - Model Grid (1/16° - Approximately 6 km)</li>
+<li><code class="docutils literal notranslate"><span class="pre">counties</span></code> - California counties</li>
+<li><code class="docutils literal notranslate"><span class="pre">hydrounits</span></code> - Watersheds (HUC10)</li>
+<li><code class="docutils literal notranslate"><span class="pre">censustracts</span></code> - Census Tracts with CalEnviroScreen 2.0 scores</li>
+<li><code class="docutils literal notranslate"><span class="pre">cdistricts</span></code> - 114th congressional districts</li>
+<li><code class="docutils literal notranslate"><span class="pre">place</span></code> - Incorporated &amp; census designated places, 2015</li>
+<li><code class="docutils literal notranslate"><span class="pre">irwm</span></code> - Integrated Regional Water Management (IRWM) Regions</li>
+<li><code class="docutils literal notranslate"><span class="pre">wecc-load-area</span></code> - SWITCH Load Zones</li>
+<li><code class="docutils literal notranslate"><span class="pre">climregions</span></code> - Climate Zones</li>
+<li><code class="docutils literal notranslate"><span class="pre">electricutilities</span></code> -  Investor and public owned electrical utilities</li>
 </ul>
 </div></blockquote>
 </div>
@@ -314,9 +273,7 @@
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -334,11 +291,11 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017, Geospatial Innovation Facility, UC Berkeley.
+        &copy; Copyright 2017, Geospatial Innovation Facility, UC Berkeley
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -353,36 +310,24 @@
 
   
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'./',
-            VERSION:'1.0',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="_static/jquery.js"></script>
-      <script type="text/javascript" src="_static/underscore.js"></script>
-      <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
 
   
 
-  
-  
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

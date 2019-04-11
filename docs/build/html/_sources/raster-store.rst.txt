@@ -9,7 +9,7 @@ A Raster Store is an individual raster and is represented by the endpoint:
 
   .. sourcecode:: xml
 
-    http://api.cal-adapt.org/api/rstores/<slug>/
+    https://api.cal-adapt.org/api/rstores/<slug>/
 
 
 Slug
@@ -19,4 +19,4 @@ A slug is a URL friendly name of a resource in the API. Each climate dataset or 
 
   .. sourcecode:: xml
 
-    http://api.cal-adapt.org/api/rstores/tasmax_year_CNRM-CM5_rcp45_2030/
+    https://api.cal-adapt.org/api/rstores/tasmax_year_CNRM-CM5_rcp45_2030/
