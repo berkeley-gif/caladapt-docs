@@ -22,7 +22,7 @@ The entry point or API root is a starting point that provides an overview of all
 
    .. sourcecode:: xml
 
-       http://api.cal-adapt.org/api/
+       https://api.cal-adapt.org/api/
 
   
 .. _browsable-api:
@@ -42,7 +42,7 @@ In a web browser by default, the API will return data as HTML. One way to reques
 
    .. sourcecode:: xml
 
-       http://api.cal-adapt.org/api/?format=json
+       https://api.cal-adapt.org/api/?format=json
 
 The Cal-Adapt API supports the following data formats:
 
@@ -54,7 +54,6 @@ The Cal-Adapt API supports the following data formats:
 
     * Comma Separated Values (csv)
     * GeoTIFF (tif.zip)
-    * ERDAS Imagine (img.zip)
   * Vector data only
 
     * GeoJSON (geojson)
@@ -73,13 +72,13 @@ However, our preferred way to indicate data format (instead of adding ``format=j
 Pagination
 -----------------
 
-The API returns a paginated response for large datasets. Pagination links are provided as part of the content of the response e.g. ``"next": "http://api.cal-adapt.org/api/series/?page=2"``. The default number of records returned in each page is 10. The number of records returned in each page can be controlled by using ``pagesize`` query parameter.
+The API returns a paginated response for large datasets. Pagination links are provided as part of the content of the response e.g. ``"next": "https://api.cal-adapt.org/api/series/?page=2"``. The default number of records returned in each page is 10. The number of records returned in each page can be controlled by using ``pagesize`` query parameter.
 
   **Example Request**
 
    .. sourcecode:: http
 
-       GET /api/series/
+       GET /api/series/ HTTP/1.1
        Host: api.cal-adapt.org
        Accept: text/html
 
@@ -87,25 +86,26 @@ The API returns a paginated response for large datasets. Pagination links are pr
 
    .. sourcecode:: http
 
-    HTTP 200 OK Vary: Accept
+    HTTP/1.1 200 OK
+    Vary: Accept
     Content-Type: text/html; charset=utf-8
     Allow: GET, HEAD, OPTIONS
 
     {
       "count": 259,
-      "next": "http://api.cal-adapt.org/api/series/?page=2",
+      "next": "https://api.cal-adapt.org/api/series/?page=2",
       "previous": null,
       "results": [
           {
             "name": "U.C. Merced Wildfire high population scenario CNRM-CM5 rcp45",
             "slug": "fire_CNRM-CM5_rcp45_H_mu",
-            "url": "http://api.cal-adapt.org/api/series/fire_CNRM-CM5_rcp45_H_mu/",
+            "url": "https://api.cal-adapt.org/api/series/fire_CNRM-CM5_rcp45_H_mu/",
             "begin": "1954-01-01T00:00:00Z",
             "end": "2100-12-31T00:00:00Z",
             "rasters": [
-                "http://api.cal-adapt.org/api/rstores/fire_CNRM-CM5_rcp45_H_mu_1954/",
-                "http://api.cal-adapt.org/api/rstores/fire_CNRM-CM5_rcp45_H_mu_1955/",
-                "http://api.cal-adapt.org/api/rstores/fire_CNRM-CM5_rcp45_H_mu_1956/",
+                "https://api.cal-adapt.org/api/rstores/fire_CNRM-CM5_rcp45_H_mu_1954/",
+                "https://api.cal-adapt.org/api/rstores/fire_CNRM-CM5_rcp45_H_mu_1955/",
+                "https://api.cal-adapt.org/api/rstores/fire_CNRM-CM5_rcp45_H_mu_1956/",
                 ...
             ],
             "tags": [
@@ -115,13 +115,13 @@ The API returns a paginated response for large datasets. Pagination links are pr
           {
             "name": "U.C. Merced Wildfire low population scenario CNRM-CM5 rcp45",
             "slug": "fire_CNRM-CM5_rcp45_L_mu",
-            "url": "http://api.cal-adapt.org/api/series/fire_CNRM-CM5_rcp45_L_mu/",
+            "url": "https://api.cal-adapt.org/api/series/fire_CNRM-CM5_rcp45_L_mu/",
             "begin": "1954-01-01T00:00:00Z",
             "end": "2100-12-31T00:00:00Z",
             "rasters": [
-                "http://api.cal-adapt.org/api/rstores/fire_CNRM-CM5_rcp45_L_mu_1954/",
-                "http://api.cal-adapt.org/api/rstores/fire_CNRM-CM5_rcp45_L_mu_1955/",
-                "http://api.cal-adapt.org/api/rstores/fire_CNRM-CM5_rcp45_L_mu_1956/",
+                "https://api.cal-adapt.org/api/rstores/fire_CNRM-CM5_rcp45_L_mu_1954/",
+                "https://api.cal-adapt.org/api/rstores/fire_CNRM-CM5_rcp45_L_mu_1955/",
+                "https://api.cal-adapt.org/api/rstores/fire_CNRM-CM5_rcp45_L_mu_1956/",
                 ...
             ],
             "tags": [
