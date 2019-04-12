@@ -1,95 +1,86 @@
-.. _getting-started:
-
-
-***************
 Getting Started
-***************
+===============
 
-.. _authentication:
 
 Authentication
------------------
-
+--------------
 Currently the Cal-Adapt API does not require authentication. You do not need to sign up for a key to start working with the API. We plan to maintain the current level of open access to support a wide range of users. However, authentication may be implemented in the future to support throttled access for selected applications.
 
 
-.. _entry-point:
-
 Entry Point
------------------
+-----------
+The entry point or API root is a starting point that provides an overview of all available data in the API. The entry point for the Cal-Adapt API is at https://api.cal-adapt.org/api/. ::
 
-The entry point or API root is a starting point that provides an overview of all available data in the API. The entry point for the Cal-Adapt API is:
-
-   .. sourcecode:: xml
-
-       https://api.cal-adapt.org/api/
+   curl https://api.cal-adapt.org/api/
 
   
-.. _browsable-api:
-
 Browsable API View
---------------------
+------------------
+When you visit the above entry point in a browser, you will see an easy to read, browsable view of the Cal-Adapt API. The browsable API view provides a quick overview of available data resources in the API and the URLs to access these data resources. This makes it easier and convenient to test requests and their returns in a web browser.
 
-When you open the above entry point in a browser, you will see an easy to read, browsable view of the Cal-Adapt API. The browsable API view provides a quick overview of available data resources in the API and the URLs to access these data resources. This makes it easier and convenient to test requests and their returns in a web browser.
 
-
-.. _data-formats:
-
-Data Formats
------------------
-
-In a web browser by default, the API will return data as HTML. One way to request data in a different format is by adding the ``format`` query parameter to the URL.
-
-   .. sourcecode:: xml
-
-       https://api.cal-adapt.org/api/?format=json
-
-The Cal-Adapt API supports the following data formats:
+Representations
+---------------
+The Cal-Adapt API supports the following representations or data formats listed
+with their content type followed by format identifier:
 
   * Raster and vector data
 
-    * Browsable API view (api)
-    * JavaScript Object Notation (json)
+    * Browsable API view ``text/html`` ``api``
+    * JavaScript Object Notation ``application/json`` ``json``
+
   * Raster data only
 
-    * Comma Separated Values (csv)
-    * GeoTIFF (tif.zip)
+    * Comma Separated Values ``text/csv`` ``csv``
+    * Zipped GeoTIFF ``application/zip`` ``tif.zip``
+
   * Vector data only
 
-    * GeoJSON (geojson)
-    * Keyhole Markup Language (kml)
-    * Zipped KML files (kmz)
+    * GeoJSON ``application/vnd.geo+json`` ``geojson``
+    * Keyhole Markup Language ``application/vnd.google-earth.kml+xml`` ``kml``
+    * Zipped KML files ``application/vnd.google-earth.kmz`` ``kmz``
 
-However, our preferred way to indicate data format (instead of adding ``format=json`` in the URL) is to use the appropriate HTTP Accept header in your requests, e.g.:
+The HTTP Accept header is used in performing content negotiation. The server
+will return JSON when a client does not specify. The following command confirms
+the `Contenty-Type: application/json` header in the response. ::
 
-   .. sourcecode:: xml
+    curl -IH 'Accept: application/json' https://api.cal-adapt.org/api/
 
-       Accept: application/json
+.. code-block:: http
 
+    HTTP/1.1 200 OK
+    Vary: Accept
+    Content-Type: application/json
 
-.. _pagination:
+Or, HTML which returns the browsable API page. ::
 
-Pagination
------------------
+    curl -IH 'Accept: text/html' https://api.cal-adapt.org/api/
 
-The API returns a paginated response for large datasets. Pagination links are provided as part of the content of the response e.g. ``"next": "https://api.cal-adapt.org/api/series/?page=2"``. The default number of records returned in each page is 10. The number of records returned in each page can be controlled by using ``pagesize`` query parameter.
-
-  **Example Request**
-
-   .. sourcecode:: http
-
-       GET /api/series/ HTTP/1.1
-       Host: api.cal-adapt.org
-       Accept: text/html
-
-  **Response**
-
-   .. sourcecode:: http
+.. code-block:: http
 
     HTTP/1.1 200 OK
     Vary: Accept
     Content-Type: text/html; charset=utf-8
-    Allow: GET, HEAD, OPTIONS
+
+If necessary, content negotiation can be overridden by adding the ``format``
+query parameter to the URL like https://api.cal-adapt.org/api/?format=json.
+
+
+Pagination
+----------
+The API returns a paginated response for large datasets. Pagination links are provided as part of the content of the response so consumers can fetch additional pages as needed with the `next` property which links to https://api.cal-adapt.org/api/series/?page=2. The default number of records returned per page is 10. The number of records returned in each page can be controlled by using ``pagesize`` query parameter.
+
+  **Example Request**
+
+   .. code-block:: http
+
+       GET /api/series/ HTTP/1.1
+       Host: api.cal-adapt.org
+       Accept: application/json
+
+  **Response**
+
+   .. code-block:: json
 
     {
       "count": 259,
@@ -105,8 +96,8 @@ The API returns a paginated response for large datasets. Pagination links are pr
             "rasters": [
                 "https://api.cal-adapt.org/api/rstores/fire_CNRM-CM5_rcp45_H_mu_1954/",
                 "https://api.cal-adapt.org/api/rstores/fire_CNRM-CM5_rcp45_H_mu_1955/",
-                "https://api.cal-adapt.org/api/rstores/fire_CNRM-CM5_rcp45_H_mu_1956/",
-                ...
+                "https://api.cal-adapt.org/api/rstores/fire_CNRM-CM5_rcp45_H_mu_1956/"
+                ,
             ],
             "tags": [
                 "fire"
@@ -121,13 +112,13 @@ The API returns a paginated response for large datasets. Pagination links are pr
             "rasters": [
                 "https://api.cal-adapt.org/api/rstores/fire_CNRM-CM5_rcp45_L_mu_1954/",
                 "https://api.cal-adapt.org/api/rstores/fire_CNRM-CM5_rcp45_L_mu_1955/",
-                "https://api.cal-adapt.org/api/rstores/fire_CNRM-CM5_rcp45_L_mu_1956/",
-                ...
+                "https://api.cal-adapt.org/api/rstores/fire_CNRM-CM5_rcp45_L_mu_1956/"
+                ,
             ],
             "tags": [
                 "fire"
             ]
           }
-          ...
+          ,
         ]
       }
