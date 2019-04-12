@@ -1,80 +1,84 @@
-.. _working-with-series:
+.. _raster-series:
 
-************************
-Working with Series
-************************
-
-A Raster Series list is a collection of individual raster time series which is represented by this endpoint:
-
-  .. sourcecode:: xml
-
-    https://api.cal-adapt.org/api/series/{slug}/
+Raster Series
+=============
+A raster series is a collection of individual rasters comprising an entire time series.
 
 
-Slug
------
-
-A slug is a URL friendly name of a resource in the API. Each climate dataset or resource has it's own unique slug. A resource slug is generally composed of ``{variable}_{period}_{model}_{scenario}``.
-
-  .. sourcecode:: xml
-
-    https://api.cal-adapt.org/api/series/tasmax_year_CNRM-CM5_rcp45/
-
-
-.. _filtering-series:
-
-Filtering Series
---------------------
-
-The series endpoint supports searching by ``name``.
-
-  .. sourcecode:: xml
-
-    https://api.cal-adapt.org/api/series/?name=yearly+average+maximum+temperature
-
-Or by ``slug``.
-
-  .. sourcecode:: xml
-
-    https://api.cal-adapt.org/api/series/?slug=tasmax_year_CCSM4
-
-
-Get Time Slices
+List Raster Series
 ------------------
+.. http:get:: /api/series/
 
-The complete timeseries can be retrieved by adding ``rasters/`` to the URL.
+   List all available raster time series.
 
-  .. sourcecode:: xml
-
-    https://api.cal-adapt.org/api/series/tasmax_year_CNRM-CM5_rcp45/rasters/
-
-A time slice can be retrieved by adding start and end dates to the URL.
-
-  .. sourcecode:: xml
-
-    https://api.cal-adapt.org/api/series/tasmax_year_CNRM-CM5_rcp45/2030-01-01/2040-01-01/
+   :query slug: search series slugs containing the provided value
+   :query name: search series names containing the provided value
+   :query tags: filter on tags
+   :query integer page: page number
+   :query integer pagesize: number of records, default is 10
 
 
-Get Data for a Location
--------------------------
+Raster Series Detail
+--------------------
+.. http:get:: /api/series/{slug}/
 
-The following example shows an example of requesting timeseries data for a location. The response consists of ``count`` (number of records), ``next`` (link to next page, see :ref:`pagination`), ``results`` (array of JSON objects for each timestep). Among other fields each timestep contains fields  ``image`` (data value), ``event`` (date), and ``units`` (units of data value).
-
-.. http:get:: /api/series/{slug}/rasters/?g=POINT(-121.46+38.58)
-
-   Data for annual averages of Maximum Temperature projections at location (longitude -121.46, latitude 38.58) for CNRM-CM5 model and RCP 4.5 scenario.
+   Request an individual series with a provided slug. A slug is a URL friendly name of a resource in the API. Each climate dataset or resource has it's own unique slug. A resource slug is generally composed of ``{variable}_{period}_{model}_{scenario}``.
 
    **Example request**:
 
-   .. sourcecode:: http
+   .. code-block:: http
 
-      GET /api/series/tasmax_year_CNRM-CM5_rcp45/rasters/?g=POINT(-121.46+38.58) HTTP/1.1
+      GET /api/series/tasmax_year_CNRM-CM5_rcp45/ HTTP/1.1
+      Host: api.cal-adapt.org
+      Accept: application/json
+
+   **Response**:
+
+   .. code-block:: http
+
+      HTTP/1.1 200 OK
+      Vary: Accept
+      Content-Type: application/json
+
+      {
+      "begin": "2006-01-01T00:00:00Z",
+      "end": "2100-12-31T00:00:00Z",
+      "name": "yearly average maximum temperature CNRM-CM5 RCP 4.5",
+      "rasters": [
+          "http://api.cal-adapt.org/api/rstores/tasmax_year_CNRM-CM5_rcp45_2006/",
+          "http://api.cal-adapt.org/api/rstores/tasmax_year_CNRM-CM5_rcp45_2007/",
+          "http://api.cal-adapt.org/api/rstores/tasmax_year_CNRM-CM5_rcp45_2008/"
+          ,
+      ]
+      "slug": "tasmax_year_CNRM-CM5_rcp45",
+      "tags": [
+          "climate",
+          "tasmax",
+          "temperature"
+      ],
+      "url": "http://api.cal-adapt.org/api/series/tasmax_year_CNRM-CM5_rcp45/"
+      }
+
+   :arg slug: series slug identifier
+
+
+List Series Rasters
+-------------------
+.. http:get:: /api/series/{slug}/rasters/
+
+   List all rasters in the series. See :ref:`list-raster-stores`.
+
+   **Example request**:
+
+   .. code-block:: http
+
+      GET /api/series/tasmax_year_CNRM-CM5_rcp45/rasters/ HTTP/1.1
       Host: api.cal-adapt.org
       Accept: application/json
 
    **Example response**:
 
-   .. sourcecode:: http
+   .. code-block:: http
 
       HTTP/1.1 200 OK
       Allow: GET, POST, OPTIONS
@@ -83,13 +87,13 @@ The following example shows an example of requesting timeseries data for a locat
 
       {
         "count": 95,
-        "next": "https://api.cal-adapt.org/api/series/tasmax_year_CNRM-CM5_rcp45/rasters/?g=POINT%28-121.46+38.58%29&page=2",
+        "next": "https://api.cal-adapt.org/api/series/tasmax_year_CNRM-CM5_rcp45/rasters/?page=2",
         "previous": null,
         "results": [{
             "id": 10521,
             "tileurl": "https://api.cal-adapt.org/tiles/tasmax_year_CNRM-CM5_rcp45_2006/{z}/{x}/{y}.png",
             "url": "https://api.cal-adapt.org/api/rstores/tasmax_year_CNRM-CM5_rcp45_2006/",
-            "image": 297.9866027832031,
+            "image": "https://api.cal-adapt.org/media/img/tasmax_year_CNRM-CM5_rcp45_r1i1p1_2006.LOCA_2016-04-02.16th.CA_NV.tif",
             "width": 179,
             "height": 195,
             "geom": "POLYGON ((-124.5625 31.5625, -113.375 31.5625, -113.375 43.75, -124.5625 43.75, -124.5625 31.5625))",
@@ -107,7 +111,7 @@ The following example shows an example of requesting timeseries data for a locat
             "id": 10522,
             "tileurl": "https://api.cal-adapt.org/tiles/tasmax_year_CNRM-CM5_rcp45_2007/{z}/{x}/{y}.png",
             "url": "https://api.cal-adapt.org/api/rstores/tasmax_year_CNRM-CM5_rcp45_2007/",
-            "image": 297.7721862792969,
+            "image": "https://api.cal-adapt.org/media/img/tasmax_year_CNRM-CM5_rcp45_r1i1p1_2007.LOCA_2016-04-02.16th.CA_NV.tif",
             "width": 179,
             "height": 195,
             "geom": "POLYGON ((-124.5625 31.5625, -113.375 31.5625, -113.375 43.75, -124.5625 43.75, -124.5625 31.5625))",
@@ -121,9 +125,12 @@ The following example shows an example of requesting timeseries data for a locat
             "name": "yearly average maximum temperature CNRM-CM5 RCP 4.5",
             "slug": "tasmax_year_CNRM-CM5_rcp45_2007",
             "units": "K"
-        }]
+        }
+        ,
+        ]
       }
 
+   :arg slug: series slug identifier
    :query g: a geometry (point, line, polygon) as GeoJSON, WKT, GML or KML
    :query bbox: a bounding box in the form of x1,y1,x2,y2
    :query pagesize: number of records, default is 10
@@ -138,12 +145,56 @@ The following example shows an example of requesting timeseries data for a locat
    :statuscode 404: the slug may be incorrect
    :statuscode 500: something's wrong on our end
 
+.. http:get:: /api/series/{slug}/{begin}/{end}/
+
+   Filter series rasters from start to end date
+
+   :arg slug: series slug identifier
+   :arg date begin: starting date
+   :arg date end: ending date
+
+A time slice or subset can be retrieved by adding start and end dates to the URL. ::
+
+    curl https://api.cal-adapt.org/api/series/tasmax_year_CNRM-CM5_rcp45/2030-01-01/2040-01-01/
+
 
 Time Series
 -----------
 .. http:get:: /api/series/{slug}/events/
 
-   Return the full time series for any location, with optional temporal and/or rolling aggregations applied.
+   Return the entire time series for any location, with optional temporal and/or rolling aggregations applied. The response consists of ``columns``, ``data``, and ``index``.
+
+   **Example request**:
+
+   .. code-block:: http
+
+      GET /api/series/tasmax_day_HadGEM2-ES_rcp85/events/?g=POINT(-121.46+38.58) HTTP/1.1
+      Host: api.cal-adapt.org
+      Accept: application/json
+
+   **Response**:
+
+   .. code-block:: http
+
+      HTTP/1.1 200 OK
+      Vary: Accept
+      Content-Type: application/json
+
+      {
+      "data": [
+          284.2241516113,
+          283.9797973633,
+          283.4098815918
+          ,
+      ],
+      "index": [
+          "2006-01-01T00:00:00Z",
+          "2006-01-02T00:00:00Z",
+          "2006-01-03T00:00:00Z"
+          ,
+      ],
+      "name": "tasmax_day_HadGEM2-ES_rcp85"
+      }
 
    :arg slug: series slug identifier
    :query g: a geometry (point, line, polygon) as GeoJSON, WKT, GML or KML
@@ -164,61 +215,65 @@ Time Series
    :statuscode 404: the slug may be incorrect
    :statuscode 500: something's wrong on our end
 
-   **Example request**:
-
-   .. sourcecode:: http
-
-      GET /api/series/tasmax_day_HadGEM2-ES_rcp85/events/?g=POINT(-121.46+38.58)&freq=M HTTP/1.1
-      Host: api.cal-adapt.org
-      Accept: application/json
-
-   **Response**:
-
-   .. sourcecode:: http
-
-      HTTP/1.1 200 OK
-      Vary: Accept
-      Content-Type: application/json
-
-      {
-      "columns": [
-          "min",
-          "mean",
-          "max",
-          "std",
-          "count"
-      ],
-      "data": [
-          [
-              275.4864807129,
-              283.8988342285,
-              288.8237304688,
-              3.3650608063,
-              31
-          ],
-          [
-              283.4172058105,
-              290.7746276855,
-              298.8256835938,
-              3.4072315693,
-              28
-          ],
-          [
-              286.8976745605,
-              293.8493652344,
-              300.5709533691,
-              4.2584190369,
-              31
-          ],
-      ],
-      "index": [
-          "2006-01-31T00:00:00Z",
-          "2006-02-28T00:00:00Z",
-          "2006-03-31T00:00:00Z",
-      ]}
-
 .. http:post:: /api/series/{slug}/events/
 
    Use POST when providing a feature set to return data for multiple locations.
+   The same parameters as with GET are available.
 
    :query features: file upload to provide multiple geometries as part of a feature set, any `OGR supported <https://gdal.org/ogr_formats.html>`_ format or zip file
+
+Return monthly data aggregated from daily values for a point location using
+`freq`:
+
+.. code-block:: http
+
+  GET /api/series/tasmax_day_HadGEM2-ES_rcp85/events/?g=POINT(-121.46+38.58)&freq=M HTTP/1.1
+  Host: api.cal-adapt.org
+  Accept: application/json
+
+**Response**:
+
+.. code-block:: http
+
+  HTTP/1.1 200 OK
+  Vary: Accept
+  Content-Type: application/json
+
+  {
+  "columns": [
+      "min",
+      "mean",
+      "max",
+      "std",
+      "count"
+  ],
+  "data": [
+      [
+          275.4864807129,
+          283.8988342285,
+          288.8237304688,
+          3.3650608063,
+          31
+      ],
+      [
+          283.4172058105,
+          290.7746276855,
+          298.8256835938,
+          3.4072315693,
+          28
+      ],
+      [
+          286.8976745605,
+          293.8493652344,
+          300.5709533691,
+          4.2584190369,
+          31
+      ]
+      ,
+  ],
+  "index": [
+      "2006-01-31T00:00:00Z",
+      "2006-02-28T00:00:00Z",
+      "2006-03-31T00:00:00Z"
+      ,
+  ]}
