@@ -1,22 +1,17 @@
 .. _working-with-series:
 
-************************
 Working with Series
-************************
-
-A Raster Series list is a collection of individual raster time series which is represented by this endpoint:
-
-  .. sourcecode:: xml
+===================
+A Raster Series list is a collection of individual raster time series which is represented by this endpoint.::
 
     https://api.cal-adapt.org/api/series/{slug}/
 
 
 Slug
------
-
+----
 A slug is a URL friendly name of a resource in the API. Each climate dataset or resource has it's own unique slug. A resource slug is generally composed of ``{variable}_{period}_{model}_{scenario}``.
 
-  .. sourcecode:: xml
+.. sourcecode:: xml
 
     https://api.cal-adapt.org/api/series/tasmax_year_CNRM-CM5_rcp45/
 
@@ -24,41 +19,38 @@ A slug is a URL friendly name of a resource in the API. Each climate dataset or 
 .. _filtering-series:
 
 Filtering Series
---------------------
-
+----------------
 The series endpoint supports searching by ``name``.
 
-  .. sourcecode:: xml
+.. sourcecode:: xml
 
     https://api.cal-adapt.org/api/series/?name=yearly+average+maximum+temperature
 
 Or by ``slug``.
 
-  .. sourcecode:: xml
+.. sourcecode:: xml
 
     https://api.cal-adapt.org/api/series/?slug=tasmax_year_CCSM4
 
 
 Get Time Slices
-------------------
+---------------
+The complete time series can be retrieved by adding ``rasters/`` to the URL.
 
-The complete timeseries can be retrieved by adding ``rasters/`` to the URL.
-
-  .. sourcecode:: xml
+.. sourcecode:: xml
 
     https://api.cal-adapt.org/api/series/tasmax_year_CNRM-CM5_rcp45/rasters/
 
 A time slice can be retrieved by adding start and end dates to the URL.
 
-  .. sourcecode:: xml
+.. sourcecode:: xml
 
     https://api.cal-adapt.org/api/series/tasmax_year_CNRM-CM5_rcp45/2030-01-01/2040-01-01/
 
 
 Get Data for a Location
--------------------------
-
-The following example shows an example of requesting timeseries data for a location. The response consists of ``count`` (number of records), ``next`` (link to next page, see :ref:`pagination`), ``results`` (array of JSON objects for each timestep). Among other fields each timestep contains fields  ``image`` (data value), ``event`` (date), and ``units`` (units of data value).
+-----------------------
+The following shows an example of requesting time series data for a location. The response consists of ``columns``, ``data``, and ``index``. Among other fields each timestep contains fields  ``image`` (data value), ``event`` (date), and ``units`` (units of data value).
 
 .. http:get:: /api/series/{slug}/rasters/?g=POINT(-121.46+38.58)
 
@@ -68,7 +60,7 @@ The following example shows an example of requesting timeseries data for a locat
 
    .. sourcecode:: http
 
-      GET /api/series/tasmax_year_CNRM-CM5_rcp45/rasters/?g=POINT(-121.46+38.58) HTTP/1.1
+      GET /api/series/tasmax_year_CNRM-CM5_rcp45/events/?g=POINT(-121.46+38.58) HTTP/1.1
       Host: api.cal-adapt.org
       Accept: application/json
 
