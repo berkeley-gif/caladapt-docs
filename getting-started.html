@@ -89,13 +89,13 @@
 <li class="toctree-l2"><a class="reference internal" href="#authentication">Authentication</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#entry-point">Entry Point</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#browsable-api-view">Browsable API View</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#data-formats">Data Formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#representations">Representations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#pagination">Pagination</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="data-catalog.html">Data Catalog</a></li>
-<li class="toctree-l1"><a class="reference internal" href="series.html">Working with Series</a></li>
-<li class="toctree-l1"><a class="reference internal" href="raster-store.html">Working with Raster Store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="series.html">Raster Series</a></li>
+<li class="toctree-l1"><a class="reference internal" href="raster-store.html">Raster Store</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cookbook.html">Cookbook</a></li>
 </ul>
 
@@ -162,119 +162,123 @@
            <div itemprop="articleBody">
             
   <div class="section" id="getting-started">
-<span id="id1"></span><h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="authentication">
-<span id="id2"></span><h2>Authentication<a class="headerlink" href="#authentication" title="Permalink to this headline">¶</a></h2>
+<h2>Authentication<a class="headerlink" href="#authentication" title="Permalink to this headline">¶</a></h2>
 <p>Currently the Cal-Adapt API does not require authentication. You do not need to sign up for a key to start working with the API. We plan to maintain the current level of open access to support a wide range of users. However, authentication may be implemented in the future to support throttled access for selected applications.</p>
 </div>
 <div class="section" id="entry-point">
-<span id="id3"></span><h2>Entry Point<a class="headerlink" href="#entry-point" title="Permalink to this headline">¶</a></h2>
-<p>The entry point or API root is a starting point that provides an overview of all available data in the API. The entry point for the Cal-Adapt API is:</p>
-<blockquote>
-<div><div class="highlight-xml notranslate"><div class="highlight"><pre><span></span>https://api.cal-adapt.org/api/
+<h2>Entry Point<a class="headerlink" href="#entry-point" title="Permalink to this headline">¶</a></h2>
+<p>The entry point or API root is a starting point that provides an overview of all available data in the API. The entry point for the Cal-Adapt API is at <a class="reference external" href="https://api.cal-adapt.org/api/">https://api.cal-adapt.org/api/</a>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="o">.</span><span class="n">cal</span><span class="o">-</span><span class="n">adapt</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">api</span><span class="o">/</span>
 </pre></div>
 </div>
-</div></blockquote>
 </div>
 <div class="section" id="browsable-api-view">
-<span id="browsable-api"></span><h2>Browsable API View<a class="headerlink" href="#browsable-api-view" title="Permalink to this headline">¶</a></h2>
-<p>When you open the above entry point in a browser, you will see an easy to read, browsable view of the Cal-Adapt API. The browsable API view provides a quick overview of available data resources in the API and the URLs to access these data resources. This makes it easier and convenient to test requests and their returns in a web browser.</p>
+<h2>Browsable API View<a class="headerlink" href="#browsable-api-view" title="Permalink to this headline">¶</a></h2>
+<p>When you visit the above entry point in a browser, you will see an easy to read, browsable view of the Cal-Adapt API. The browsable API view provides a quick overview of available data resources in the API and the URLs to access these data resources. This makes it easier and convenient to test requests and their returns in a web browser.</p>
 </div>
-<div class="section" id="data-formats">
-<span id="id4"></span><h2>Data Formats<a class="headerlink" href="#data-formats" title="Permalink to this headline">¶</a></h2>
-<p>In a web browser by default, the API will return data as HTML. One way to request data in a different format is by adding the <code class="docutils literal notranslate"><span class="pre">format</span></code> query parameter to the URL.</p>
-<blockquote>
-<div><div class="highlight-xml notranslate"><div class="highlight"><pre><span></span>https://api.cal-adapt.org/api/?format=json
-</pre></div>
-</div>
-</div></blockquote>
-<p>The Cal-Adapt API supports the following data formats:</p>
+<div class="section" id="representations">
+<h2>Representations<a class="headerlink" href="#representations" title="Permalink to this headline">¶</a></h2>
+<p>The Cal-Adapt API supports the following representations or data formats listed
+with their content type followed by format identifier:</p>
 <blockquote>
 <div><ul class="simple">
 <li>Raster and vector data<ul>
-<li>Browsable API view (api)</li>
-<li>JavaScript Object Notation (json)</li>
+<li>Browsable API view <code class="docutils literal notranslate"><span class="pre">text/html</span></code> <code class="docutils literal notranslate"><span class="pre">api</span></code></li>
+<li>JavaScript Object Notation <code class="docutils literal notranslate"><span class="pre">application/json</span></code> <code class="docutils literal notranslate"><span class="pre">json</span></code></li>
 </ul>
 </li>
 <li>Raster data only<ul>
-<li>Comma Separated Values (csv)</li>
-<li>GeoTIFF (tif.zip)</li>
+<li>Comma Separated Values <code class="docutils literal notranslate"><span class="pre">text/csv</span></code> <code class="docutils literal notranslate"><span class="pre">csv</span></code></li>
+<li>Zipped GeoTIFF <code class="docutils literal notranslate"><span class="pre">application/zip</span></code> <code class="docutils literal notranslate"><span class="pre">tif.zip</span></code></li>
 </ul>
 </li>
 <li>Vector data only<ul>
-<li>GeoJSON (geojson)</li>
-<li>Keyhole Markup Language (kml)</li>
-<li>Zipped KML files (kmz)</li>
+<li>GeoJSON <code class="docutils literal notranslate"><span class="pre">application/vnd.geo+json</span></code> <code class="docutils literal notranslate"><span class="pre">geojson</span></code></li>
+<li>Keyhole Markup Language <code class="docutils literal notranslate"><span class="pre">application/vnd.google-earth.kml+xml</span></code> <code class="docutils literal notranslate"><span class="pre">kml</span></code></li>
+<li>Zipped KML files <code class="docutils literal notranslate"><span class="pre">application/vnd.google-earth.kmz</span></code> <code class="docutils literal notranslate"><span class="pre">kmz</span></code></li>
 </ul>
 </li>
 </ul>
 </div></blockquote>
-<p>However, our preferred way to indicate data format (instead of adding <code class="docutils literal notranslate"><span class="pre">format=json</span></code> in the URL) is to use the appropriate HTTP Accept header in your requests, e.g.:</p>
-<blockquote>
-<div><div class="highlight-xml notranslate"><div class="highlight"><pre><span></span>Accept: application/json
+<p>The HTTP Accept header is used in performing content negotiation. The server
+will return JSON when a client does not specify. The following command confirms
+the <cite>Contenty-Type: application/json</cite> header in the response.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">IH</span> <span class="s1">&#39;Accept: application/json&#39;</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="o">.</span><span class="n">cal</span><span class="o">-</span><span class="n">adapt</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">api</span><span class="o">/</span>
 </pre></div>
 </div>
-</div></blockquote>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Vary</span><span class="o">:</span> <span class="l">Accept</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+</pre></div>
+</div>
+<p>Or, HTML which returns the browsable API page.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">IH</span> <span class="s1">&#39;Accept: text/html&#39;</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="o">.</span><span class="n">cal</span><span class="o">-</span><span class="n">adapt</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">api</span><span class="o">/</span>
+</pre></div>
+</div>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Vary</span><span class="o">:</span> <span class="l">Accept</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">text/html; charset=utf-8</span>
+</pre></div>
+</div>
+<p>If necessary, content negotiation can be overridden by adding the <code class="docutils literal notranslate"><span class="pre">format</span></code>
+query parameter to the URL like <a class="reference external" href="https://api.cal-adapt.org/api/?format=json">https://api.cal-adapt.org/api/?format=json</a>.</p>
 </div>
 <div class="section" id="pagination">
-<span id="id5"></span><h2>Pagination<a class="headerlink" href="#pagination" title="Permalink to this headline">¶</a></h2>
-<p>The API returns a paginated response for large datasets. Pagination links are provided as part of the content of the response e.g. <code class="docutils literal notranslate"><span class="pre">&quot;next&quot;:</span> <span class="pre">&quot;https://api.cal-adapt.org/api/series/?page=2&quot;</span></code>. The default number of records returned in each page is 10. The number of records returned in each page can be controlled by using <code class="docutils literal notranslate"><span class="pre">pagesize</span></code> query parameter.</p>
+<h2>Pagination<a class="headerlink" href="#pagination" title="Permalink to this headline">¶</a></h2>
+<p>The API returns a paginated response for large datasets. Pagination links are provided as part of the content of the response so consumers can fetch additional pages as needed with the <cite>next</cite> property which links to <a class="reference external" href="https://api.cal-adapt.org/api/series/?page=2">https://api.cal-adapt.org/api/series/?page=2</a>. The default number of records returned per page is 10. The number of records returned in each page can be controlled by using <code class="docutils literal notranslate"><span class="pre">pagesize</span></code> query parameter.</p>
 <blockquote>
 <div><p><strong>Example Request</strong></p>
 <blockquote>
 <div><div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">GET</span> <span class="nn">/api/series/</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="o">:</span> <span class="l">api.cal-adapt.org</span>
-<span class="na">Accept</span><span class="o">:</span> <span class="l">text/html</span>
+<span class="na">Accept</span><span class="o">:</span> <span class="l">application/json</span>
 </pre></div>
 </div>
 </div></blockquote>
 <p><strong>Response</strong></p>
 <blockquote>
-<div><div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
-<span class="na">Vary</span><span class="o">:</span> <span class="l">Accept</span>
-<span class="na">Content-Type</span><span class="o">:</span> <span class="l">text/html; charset=utf-8</span>
-<span class="na">Allow</span><span class="o">:</span> <span class="l">GET, HEAD, OPTIONS</span>
-
-{
-  &quot;count&quot;: 259,
-  &quot;next&quot;: &quot;https://api.cal-adapt.org/api/series/?page=2&quot;,
-  &quot;previous&quot;: null,
-  &quot;results&quot;: [
-      {
-        &quot;name&quot;: &quot;U.C. Merced Wildfire high population scenario CNRM-CM5 rcp45&quot;,
-        &quot;slug&quot;: &quot;fire_CNRM-CM5_rcp45_H_mu&quot;,
-        &quot;url&quot;: &quot;https://api.cal-adapt.org/api/series/fire_CNRM-CM5_rcp45_H_mu/&quot;,
-        &quot;begin&quot;: &quot;1954-01-01T00:00:00Z&quot;,
-        &quot;end&quot;: &quot;2100-12-31T00:00:00Z&quot;,
-        &quot;rasters&quot;: [
-            &quot;https://api.cal-adapt.org/api/rstores/fire_CNRM-CM5_rcp45_H_mu_1954/&quot;,
-            &quot;https://api.cal-adapt.org/api/rstores/fire_CNRM-CM5_rcp45_H_mu_1955/&quot;,
-            &quot;https://api.cal-adapt.org/api/rstores/fire_CNRM-CM5_rcp45_H_mu_1956/&quot;,
-            ...
-        ],
-        &quot;tags&quot;: [
-            &quot;fire&quot;
-        ]
-      },
-      {
-        &quot;name&quot;: &quot;U.C. Merced Wildfire low population scenario CNRM-CM5 rcp45&quot;,
-        &quot;slug&quot;: &quot;fire_CNRM-CM5_rcp45_L_mu&quot;,
-        &quot;url&quot;: &quot;https://api.cal-adapt.org/api/series/fire_CNRM-CM5_rcp45_L_mu/&quot;,
-        &quot;begin&quot;: &quot;1954-01-01T00:00:00Z&quot;,
-        &quot;end&quot;: &quot;2100-12-31T00:00:00Z&quot;,
-        &quot;rasters&quot;: [
-            &quot;https://api.cal-adapt.org/api/rstores/fire_CNRM-CM5_rcp45_L_mu_1954/&quot;,
-            &quot;https://api.cal-adapt.org/api/rstores/fire_CNRM-CM5_rcp45_L_mu_1955/&quot;,
-            &quot;https://api.cal-adapt.org/api/rstores/fire_CNRM-CM5_rcp45_L_mu_1956/&quot;,
-            ...
-        ],
-        &quot;tags&quot;: [
-            &quot;fire&quot;
-        ]
-      }
-      ...
-    ]
-  }
+<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">259</span><span class="p">,</span>
+  <span class="nt">&quot;next&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.cal-adapt.org/api/series/?page=2&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;previous&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nt">&quot;results&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;U.C. Merced Wildfire high population scenario CNRM-CM5 rcp45&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;slug&quot;</span><span class="p">:</span> <span class="s2">&quot;fire_CNRM-CM5_rcp45_H_mu&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.cal-adapt.org/api/series/fire_CNRM-CM5_rcp45_H_mu/&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;begin&quot;</span><span class="p">:</span> <span class="s2">&quot;1954-01-01T00:00:00Z&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;end&quot;</span><span class="p">:</span> <span class="s2">&quot;2100-12-31T00:00:00Z&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;rasters&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;https://api.cal-adapt.org/api/rstores/fire_CNRM-CM5_rcp45_H_mu_1954/&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;https://api.cal-adapt.org/api/rstores/fire_CNRM-CM5_rcp45_H_mu_1955/&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;https://api.cal-adapt.org/api/rstores/fire_CNRM-CM5_rcp45_H_mu_1956/&quot;</span>
+            <span class="p">,</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;fire&quot;</span>
+        <span class="p">]</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;U.C. Merced Wildfire low population scenario CNRM-CM5 rcp45&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;slug&quot;</span><span class="p">:</span> <span class="s2">&quot;fire_CNRM-CM5_rcp45_L_mu&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.cal-adapt.org/api/series/fire_CNRM-CM5_rcp45_L_mu/&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;begin&quot;</span><span class="p">:</span> <span class="s2">&quot;1954-01-01T00:00:00Z&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;end&quot;</span><span class="p">:</span> <span class="s2">&quot;2100-12-31T00:00:00Z&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;rasters&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;https://api.cal-adapt.org/api/rstores/fire_CNRM-CM5_rcp45_L_mu_1954/&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;https://api.cal-adapt.org/api/rstores/fire_CNRM-CM5_rcp45_L_mu_1955/&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;https://api.cal-adapt.org/api/rstores/fire_CNRM-CM5_rcp45_L_mu_1956/&quot;</span>
+            <span class="p">,</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;fire&quot;</span>
+        <span class="p">]</span>
+      <span class="p">}</span>
+      <span class="p">,</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
 </pre></div>
 </div>
 </div></blockquote>

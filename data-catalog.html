@@ -35,7 +35,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Working with Series" href="series.html" />
+    <link rel="next" title="Raster Series" href="series.html" />
     <link rel="prev" title="Getting Started" href="getting-started.html" /> 
 </head>
 
@@ -94,8 +94,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#vector-data">Vector Data</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="series.html">Working with Series</a></li>
-<li class="toctree-l1"><a class="reference internal" href="raster-store.html">Working with Raster Store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="series.html">Raster Series</a></li>
+<li class="toctree-l1"><a class="reference internal" href="raster-store.html">Raster Store</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cookbook.html">Cookbook</a></li>
 </ul>
 
@@ -162,10 +162,10 @@
            <div itemprop="articleBody">
             
   <div class="section" id="data-catalog">
-<span id="id1"></span><h1>Data Catalog<a class="headerlink" href="#data-catalog" title="Permalink to this headline">¶</a></h1>
+<h1>Data Catalog<a class="headerlink" href="#data-catalog" title="Permalink to this headline">¶</a></h1>
 <p>We refer to the datasets in the Cal-Adapt API as resources. Each resource is represented by a unique endpoint (URL). The following is a list of climate datasets in the Cal-Adapt API. We are actively adding new resources to the API so this list may not reflect the most up to date information.</p>
 <div class="section" id="climate-variables">
-<span id="id2"></span><h2>Climate Variables<a class="headerlink" href="#climate-variables" title="Permalink to this headline">¶</a></h2>
+<h2>Climate Variables<a class="headerlink" href="#climate-variables" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><ul class="simple">
 <li>LOCA downscaled climate projections from Scripps Institution of Oceanography, UC San Diego (<a class="reference external" href="http://journals.ametsoc.org/doi/abs/10.1175/JHM-D-14-0082.1">Pierce et al, 2014</a>).<ul>
@@ -195,7 +195,7 @@
 <li>SLR scenarios</li>
 </ul>
 </li>
-<li>Widlfire from UC Merced (LeRoy Westerling)<ul>
+<li>Wildfire from UC Merced (LeRoy Westerling)<ul>
 <li><code class="docutils literal notranslate"><span class="pre">fire</span></code></li>
 <li>Annual averages</li>
 </ul>
@@ -232,8 +232,8 @@
 </div></blockquote>
 </div>
 <div class="section" id="scenarios">
-<span id="scenario"></span><h2>Scenarios<a class="headerlink" href="#scenarios" title="Permalink to this headline">¶</a></h2>
-<p>Representatitve Concentration Pathways (RCP). RCP references - <a class="reference external" href="https://skepticalscience.com/rcp.php">The Beginner’s Guide to Representative Concentration Pathways</a> , <a class="reference external" href="http://sedac.ipcc-data.org/ddc/ar5_scenario_process/RCPs.html">IPCC</a></p>
+<h2>Scenarios<a class="headerlink" href="#scenarios" title="Permalink to this headline">¶</a></h2>
+<p>Representative Concentration Pathways (RCP). RCP references - <a class="reference external" href="https://skepticalscience.com/rcp.php">The Beginner’s Guide to Representative Concentration Pathways</a> , <a class="reference external" href="http://sedac.ipcc-data.org/ddc/ar5_scenario_process/RCPs.html">IPCC</a></p>
 <blockquote>
 <div><ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">rcp45</span></code> - RCP 4.5 (Emissions peak around 2040, then decline)</li>
@@ -243,8 +243,8 @@
 </div></blockquote>
 </div>
 <div class="section" id="period">
-<span id="id3"></span><h2>Period<a class="headerlink" href="#period" title="Permalink to this headline">¶</a></h2>
-<p>Different temporal aggregations are available for climate variables through the API. See <a class="reference internal" href="series.html#filtering-series"><span class="std std-ref">Filtering Series</span></a> to find out what’s available in the API.</p>
+<h2>Period<a class="headerlink" href="#period" title="Permalink to this headline">¶</a></h2>
+<p>Different temporal aggregations are available for climate variables through the API. See <span class="xref std std-ref">raster-series</span> to find out what’s available in the API.</p>
 <blockquote>
 <div><ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">year</span></code> - Annual averages</li>
@@ -254,7 +254,7 @@
 </div></blockquote>
 </div>
 <div class="section" id="vector-data">
-<span id="id4"></span><h2>Vector Data<a class="headerlink" href="#vector-data" title="Permalink to this headline">¶</a></h2>
+<h2>Vector Data<a class="headerlink" href="#vector-data" title="Permalink to this headline">¶</a></h2>
 <p>In addition to climate data, the Cal-Adapt API also has endpoints for vector datasets representing administrative boundaries, hydrological boundaries and the LOCA model grid.</p>
 <blockquote>
 <div><ul class="simple">
@@ -281,7 +281,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="series.html" class="btn btn-neutral float-right" title="Working with Series" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="series.html" class="btn btn-neutral float-right" title="Raster Series" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="getting-started.html" class="btn btn-neutral float-left" title="Getting Started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
