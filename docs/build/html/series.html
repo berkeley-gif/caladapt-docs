@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Working with Series &mdash; Cal-Adapt API Docs 1.0 documentation</title>
+  <title>Raster Series &mdash; Cal-Adapt API Docs 1.0 documentation</title>
   
 
   
@@ -17,34 +17,36 @@
   
 
   
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Working with Raster Store" href="raster-store.html" />
+    <link rel="next" title="Raster Store" href="raster-store.html" />
     <link rel="prev" title="Data Catalog" href="data-catalog.html" /> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -85,15 +87,14 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data-catalog.html">Data Catalog</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Working with Series</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#slug">Slug</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#filtering-series">Filtering Series</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#get-time-slices">Get Time Slices</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#get-data-for-a-location">Get Data for a Location</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Raster Series</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#list-raster-series">List Raster Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#raster-series-detail">Raster Series Detail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#list-series-rasters">List Series Rasters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#time-series">Time Series</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="raster-store.html">Working with Raster Store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="raster-store.html">Raster Store</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cookbook.html">Cookbook</a></li>
 </ul>
 
@@ -140,7 +141,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Working with Series</li>
+      <li>Raster Series</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -159,62 +160,93 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="working-with-series">
-<span id="id1"></span><h1>Working with Series<a class="headerlink" href="#working-with-series" title="Permalink to this headline">¶</a></h1>
-<p>A Raster Series list is a collection of individual raster time series which is represented by this endpoint:</p>
-<blockquote>
-<div><div class="highlight-xml notranslate"><div class="highlight"><pre><span></span>https://api.cal-adapt.org/api/series/{slug}/
-</pre></div>
-</div>
-</div></blockquote>
-<div class="section" id="slug">
-<h2>Slug<a class="headerlink" href="#slug" title="Permalink to this headline">¶</a></h2>
-<p>A slug is a URL friendly name of a resource in the API. Each climate dataset or resource has it’s own unique slug. A resource slug is generally composed of <code class="docutils literal notranslate"><span class="pre">{variable}_{period}_{model}_{scenario}</span></code>.</p>
-<blockquote>
-<div><div class="highlight-xml notranslate"><div class="highlight"><pre><span></span>https://api.cal-adapt.org/api/series/tasmax_year_CNRM-CM5_rcp45/
-</pre></div>
-</div>
-</div></blockquote>
-</div>
-<div class="section" id="filtering-series">
-<span id="id2"></span><h2>Filtering Series<a class="headerlink" href="#filtering-series" title="Permalink to this headline">¶</a></h2>
-<p>The series endpoint supports searching by <code class="docutils literal notranslate"><span class="pre">name</span></code>.</p>
-<blockquote>
-<div><div class="highlight-xml notranslate"><div class="highlight"><pre><span></span>https://api.cal-adapt.org/api/series/?name=yearly+average+maximum+temperature
-</pre></div>
-</div>
-</div></blockquote>
-<p>Or by <code class="docutils literal notranslate"><span class="pre">slug</span></code>.</p>
-<blockquote>
-<div><div class="highlight-xml notranslate"><div class="highlight"><pre><span></span>https://api.cal-adapt.org/api/series/?slug=tasmax_year_CCSM4
-</pre></div>
-</div>
-</div></blockquote>
-</div>
-<div class="section" id="get-time-slices">
-<h2>Get Time Slices<a class="headerlink" href="#get-time-slices" title="Permalink to this headline">¶</a></h2>
-<p>The complete timeseries can be retrieved by adding <code class="docutils literal notranslate"><span class="pre">rasters/</span></code> to the URL.</p>
-<blockquote>
-<div><div class="highlight-xml notranslate"><div class="highlight"><pre><span></span>https://api.cal-adapt.org/api/series/tasmax_year_CNRM-CM5_rcp45/rasters/
-</pre></div>
-</div>
-</div></blockquote>
-<p>A time slice can be retrieved by adding start and end dates to the URL.</p>
-<blockquote>
-<div><div class="highlight-xml notranslate"><div class="highlight"><pre><span></span>https://api.cal-adapt.org/api/series/tasmax_year_CNRM-CM5_rcp45/2030-01-01/2040-01-01/
-</pre></div>
-</div>
-</div></blockquote>
-</div>
-<div class="section" id="get-data-for-a-location">
-<h2>Get Data for a Location<a class="headerlink" href="#get-data-for-a-location" title="Permalink to this headline">¶</a></h2>
-<p>The following example shows an example of requesting timeseries data for a location. The response consists of <code class="docutils literal notranslate"><span class="pre">count</span></code> (number of records), <code class="docutils literal notranslate"><span class="pre">next</span></code> (link to next page, see <a class="reference internal" href="getting-started.html#pagination"><span class="std std-ref">Pagination</span></a>), <code class="docutils literal notranslate"><span class="pre">results</span></code> (array of JSON objects for each timestep). Among other fields each timestep contains fields  <code class="docutils literal notranslate"><span class="pre">image</span></code> (data value), <code class="docutils literal notranslate"><span class="pre">event</span></code> (date), and <code class="docutils literal notranslate"><span class="pre">units</span></code> (units of data value).</p>
+  <div class="section" id="raster-series">
+<span id="id1"></span><h1>Raster Series<a class="headerlink" href="#raster-series" title="Permalink to this headline">¶</a></h1>
+<p>A raster series is a collection of individual rasters comprising an entire time series.</p>
+<div class="section" id="list-raster-series">
+<h2>List Raster Series<a class="headerlink" href="#list-raster-series" title="Permalink to this headline">¶</a></h2>
 <dl class="get">
-<dt id="get--api-series-slug-rasters-?g=POINT(-121.46+38.58)">
-<code class="descname">GET </code><code class="descname">/api/series/{slug}/rasters/?g=POINT(-121.46+38.58)</code><a class="headerlink" href="#get--api-series-slug-rasters-?g=POINT(-121.46+38.58)" title="Permalink to this definition">¶</a></dt>
-<dd><p>Data for annual averages of Maximum Temperature projections at location (longitude -121.46, latitude 38.58) for CNRM-CM5 model and RCP 4.5 scenario.</p>
+<dt id="get--api-series-">
+<code class="descname">GET </code><code class="descname">/api/series/</code><a class="headerlink" href="#get--api-series-" title="Permalink to this definition">¶</a></dt>
+<dd><p>List all available raster time series.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Query Parameters:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><ul class="first last simple">
+<li><strong>slug</strong> – search series slugs containing the provided value</li>
+<li><strong>name</strong> – search series names containing the provided value</li>
+<li><strong>tags</strong> – filter on tags</li>
+<li><strong>page</strong> (<em>integer</em>) – page number</li>
+<li><strong>pagesize</strong> (<em>integer</em>) – number of records, default is 10</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="raster-series-detail">
+<h2>Raster Series Detail<a class="headerlink" href="#raster-series-detail" title="Permalink to this headline">¶</a></h2>
+<dl class="get">
+<dt id="get--api-series-slug-">
+<code class="descname">GET </code><code class="descname">/api/series/{slug}/</code><a class="headerlink" href="#get--api-series-slug-" title="Permalink to this definition">¶</a></dt>
+<dd><p>Request an individual series with a provided slug. A slug is a URL friendly name of a resource in the API. Each climate dataset or resource has it’s own unique slug. A resource slug is generally composed of <code class="docutils literal notranslate"><span class="pre">{variable}_{period}_{model}_{scenario}</span></code>.</p>
 <p><strong>Example request</strong>:</p>
-<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">GET</span> <span class="nn">/api/series/tasmax_year_CNRM-CM5_rcp45/rasters/?g=POINT(-121.46+38.58)</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">GET</span> <span class="nn">/api/series/tasmax_year_CNRM-CM5_rcp45/</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">api.cal-adapt.org</span>
+<span class="na">Accept</span><span class="o">:</span> <span class="l">application/json</span>
+</pre></div>
+</div>
+<p><strong>Response</strong>:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Vary</span><span class="o">:</span> <span class="l">Accept</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+
+<span class="p">{</span>
+<span class="nt">&quot;begin&quot;</span><span class="p">:</span> <span class="s2">&quot;2006-01-01T00:00:00Z&quot;</span><span class="p">,</span>
+<span class="nt">&quot;end&quot;</span><span class="p">:</span> <span class="s2">&quot;2100-12-31T00:00:00Z&quot;</span><span class="p">,</span>
+<span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;yearly average maximum temperature CNRM-CM5 RCP 4.5&quot;</span><span class="p">,</span>
+<span class="nt">&quot;rasters&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;http://api.cal-adapt.org/api/rstores/tasmax_year_CNRM-CM5_rcp45_2006/&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;http://api.cal-adapt.org/api/rstores/tasmax_year_CNRM-CM5_rcp45_2007/&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;http://api.cal-adapt.org/api/rstores/tasmax_year_CNRM-CM5_rcp45_2008/&quot;</span>
+    <span class="p">,</span>
+<span class="p">]</span>
+<span class="s2">&quot;slug&quot;</span><span class="p">:</span> <span class="s2">&quot;tasmax_year_CNRM-CM5_rcp45&quot;</span><span class="p">,</span>
+<span class="nt">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;climate&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;tasmax&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;temperature&quot;</span>
+<span class="p">],</span>
+<span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://api.cal-adapt.org/api/series/tasmax_year_CNRM-CM5_rcp45/&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>slug</strong> – series slug identifier</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="list-series-rasters">
+<h2>List Series Rasters<a class="headerlink" href="#list-series-rasters" title="Permalink to this headline">¶</a></h2>
+<dl class="get">
+<dt id="get--api-series-slug-rasters-">
+<code class="descname">GET </code><code class="descname">/api/series/{slug}/rasters/</code><a class="headerlink" href="#get--api-series-slug-rasters-" title="Permalink to this definition">¶</a></dt>
+<dd><p>List all rasters in the series. See <a class="reference internal" href="raster-store.html#list-raster-stores"><span class="std std-ref">List Raster Stores</span></a>.</p>
+<p><strong>Example request</strong>:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">GET</span> <span class="nn">/api/series/tasmax_year_CNRM-CM5_rcp45/rasters/</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="o">:</span> <span class="l">api.cal-adapt.org</span>
 <span class="na">Accept</span><span class="o">:</span> <span class="l">application/json</span>
 </pre></div>
@@ -227,13 +259,13 @@
 
 <span class="p">{</span>
   <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">95</span><span class="p">,</span>
-  <span class="nt">&quot;next&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.cal-adapt.org/api/series/tasmax_year_CNRM-CM5_rcp45/rasters/?g=POINT%28-121.46+38.58%29&amp;page=2&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;next&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.cal-adapt.org/api/series/tasmax_year_CNRM-CM5_rcp45/rasters/?page=2&quot;</span><span class="p">,</span>
   <span class="nt">&quot;previous&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
   <span class="nt">&quot;results&quot;</span><span class="p">:</span> <span class="p">[{</span>
       <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">10521</span><span class="p">,</span>
       <span class="nt">&quot;tileurl&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.cal-adapt.org/tiles/tasmax_year_CNRM-CM5_rcp45_2006/{z}/{x}/{y}.png&quot;</span><span class="p">,</span>
       <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.cal-adapt.org/api/rstores/tasmax_year_CNRM-CM5_rcp45_2006/&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;image&quot;</span><span class="p">:</span> <span class="mf">297.9866027832031</span><span class="p">,</span>
+      <span class="nt">&quot;image&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.cal-adapt.org/media/img/tasmax_year_CNRM-CM5_rcp45_r1i1p1_2006.LOCA_2016-04-02.16th.CA_NV.tif&quot;</span><span class="p">,</span>
       <span class="nt">&quot;width&quot;</span><span class="p">:</span> <span class="mi">179</span><span class="p">,</span>
       <span class="nt">&quot;height&quot;</span><span class="p">:</span> <span class="mi">195</span><span class="p">,</span>
       <span class="nt">&quot;geom&quot;</span><span class="p">:</span> <span class="s2">&quot;POLYGON ((-124.5625 31.5625, -113.375 31.5625, -113.375 43.75, -124.5625 43.75, -124.5625 31.5625))&quot;</span><span class="p">,</span>
@@ -251,7 +283,7 @@
       <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">10522</span><span class="p">,</span>
       <span class="nt">&quot;tileurl&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.cal-adapt.org/tiles/tasmax_year_CNRM-CM5_rcp45_2007/{z}/{x}/{y}.png&quot;</span><span class="p">,</span>
       <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.cal-adapt.org/api/rstores/tasmax_year_CNRM-CM5_rcp45_2007/&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;image&quot;</span><span class="p">:</span> <span class="mf">297.7721862792969</span><span class="p">,</span>
+      <span class="nt">&quot;image&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.cal-adapt.org/media/img/tasmax_year_CNRM-CM5_rcp45_r1i1p1_2007.LOCA_2016-04-02.16th.CA_NV.tif&quot;</span><span class="p">,</span>
       <span class="nt">&quot;width&quot;</span><span class="p">:</span> <span class="mi">179</span><span class="p">,</span>
       <span class="nt">&quot;height&quot;</span><span class="p">:</span> <span class="mi">195</span><span class="p">,</span>
       <span class="nt">&quot;geom&quot;</span><span class="p">:</span> <span class="s2">&quot;POLYGON ((-124.5625 31.5625, -113.375 31.5625, -113.375 43.75, -124.5625 43.75, -124.5625 31.5625))&quot;</span><span class="p">,</span>
@@ -265,7 +297,9 @@
       <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;yearly average maximum temperature CNRM-CM5 RCP 4.5&quot;</span><span class="p">,</span>
       <span class="nt">&quot;slug&quot;</span><span class="p">:</span> <span class="s2">&quot;tasmax_year_CNRM-CM5_rcp45_2007&quot;</span><span class="p">,</span>
       <span class="nt">&quot;units&quot;</span><span class="p">:</span> <span class="s2">&quot;K&quot;</span>
-  <span class="p">}]</span>
+  <span class="p">}</span>
+  <span class="p">,</span>
+  <span class="p">]</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -273,8 +307,13 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Query Parameters:</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body"><ul class="first simple">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>slug</strong> – series slug identifier</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Query Parameters:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><ul class="first simple">
 <li><strong>g</strong> – a geometry (point, line, polygon) as GeoJSON, WKT, GML or KML</li>
 <li><strong>bbox</strong> – a bounding box in the form of x1,y1,x2,y2</li>
 <li><strong>pagesize</strong> – number of records, default is 10</li>
@@ -283,21 +322,21 @@
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name" colspan="2">Request Headers:</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body"><ul class="first simple">
+<tr class="field-odd field"><th class="field-name" colspan="2">Request Headers:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><ul class="first simple">
 <li><a class="reference external" href="https://tools.ietf.org/html/rfc7231#section-5.3.2">Accept</a> – the response content type depends on
 <em class="mailheader">Accept</em> header</li>
 </ul>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">Response Headers:</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body"><ul class="first simple">
+<tr class="field-even field"><th class="field-name" colspan="2">Response Headers:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><ul class="first simple">
 <li><a class="reference external" href="https://tools.ietf.org/html/rfc7231#section-3.1.1.5">Content-Type</a> – this depends on <em class="mailheader">Accept</em>
 header of request</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Status Codes:</th><td class="field-body"><ul class="first last simple">
+<tr class="field-odd field"><th class="field-name">Status Codes:</th><td class="field-body"><ul class="first last simple">
 <li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a> – no error</li>
 <li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1">400 Bad Request</a> – something is askew with the request, check the error message</li>
 <li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.5">404 Not Found</a> – the slug may be incorrect</li>
@@ -309,13 +348,64 @@ header of request</li>
 </table>
 </dd></dl>
 
+<dl class="get">
+<dt id="get--api-series-slug-begin-end-">
+<code class="descname">GET </code><code class="descname">/api/series/{slug}/{begin}/{end}/</code><a class="headerlink" href="#get--api-series-slug-begin-end-" title="Permalink to this definition">¶</a></dt>
+<dd><p>Filter series rasters from start to end date</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>slug</strong> – series slug identifier</li>
+<li><strong>begin</strong> (<em>date</em>) – starting date</li>
+<li><strong>end</strong> (<em>date</em>) – ending date</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<p>A time slice or subset can be retrieved by adding start and end dates to the URL.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="o">.</span><span class="n">cal</span><span class="o">-</span><span class="n">adapt</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">series</span><span class="o">/</span><span class="n">tasmax_year_CNRM</span><span class="o">-</span><span class="n">CM5_rcp45</span><span class="o">/</span><span class="mi">2030</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="o">/</span><span class="mi">2040</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="o">/</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="time-series">
 <h2>Time Series<a class="headerlink" href="#time-series" title="Permalink to this headline">¶</a></h2>
 <dl class="get">
 <dt id="get--api-series-slug-events-">
 <code class="descname">GET </code><code class="descname">/api/series/{slug}/events/</code><a class="headerlink" href="#get--api-series-slug-events-" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the full time series for any location, with optional temporal and/or rolling aggregations applied.</p>
+<dd><p>Return the entire time series for any location, with optional temporal and/or rolling aggregations applied. The response consists of <code class="docutils literal notranslate"><span class="pre">columns</span></code>, <code class="docutils literal notranslate"><span class="pre">data</span></code>, and <code class="docutils literal notranslate"><span class="pre">index</span></code>.</p>
+<p><strong>Example request</strong>:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">GET</span> <span class="nn">/api/series/tasmax_day_HadGEM2-ES_rcp85/events/?g=POINT(-121.46+38.58)</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">api.cal-adapt.org</span>
+<span class="na">Accept</span><span class="o">:</span> <span class="l">application/json</span>
+</pre></div>
+</div>
+<p><strong>Response</strong>:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Vary</span><span class="o">:</span> <span class="l">Accept</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+
+<span class="p">{</span>
+<span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="mf">284.2241516113</span><span class="p">,</span>
+    <span class="mf">283.9797973633</span><span class="p">,</span>
+    <span class="mf">283.4098815918</span>
+    <span class="p">,</span>
+<span class="p">],</span>
+<span class="nt">&quot;index&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;2006-01-01T00:00:00Z&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;2006-01-02T00:00:00Z&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;2006-01-03T00:00:00Z&quot;</span>
+    <span class="p">,</span>
+<span class="p">],</span>
+<span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;tasmax_day_HadGEM2-ES_rcp85&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -363,7 +453,29 @@ header of request</li>
 </tr>
 </tbody>
 </table>
-<p><strong>Example request</strong>:</p>
+</dd></dl>
+
+<dl class="post">
+<dt id="post--api-series-slug-events-">
+<code class="descname">POST </code><code class="descname">/api/series/{slug}/events/</code><a class="headerlink" href="#post--api-series-slug-events-" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use POST when providing a feature set to return data for multiple locations.
+The same parameters as with GET are available.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Query Parameters:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><ul class="first last simple">
+<li><strong>features</strong> – file upload to provide multiple geometries as part of a feature set, any <a class="reference external" href="https://gdal.org/ogr_formats.html">OGR supported</a> format or zip file</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<p>Return monthly data aggregated from daily values for a point location using
+<cite>freq</cite>:</p>
 <div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">GET</span> <span class="nn">/api/series/tasmax_day_HadGEM2-ES_rcp85/events/?g=POINT(-121.46+38.58)&amp;freq=M</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="o">:</span> <span class="l">api.cal-adapt.org</span>
 <span class="na">Accept</span><span class="o">:</span> <span class="l">application/json</span>
@@ -403,35 +515,17 @@ header of request</li>
         <span class="mf">300.5709533691</span><span class="p">,</span>
         <span class="mf">4.2584190369</span><span class="p">,</span>
         <span class="mi">31</span>
-    <span class="p">],</span>
+    <span class="p">]</span>
+    <span class="p">,</span>
 <span class="p">],</span>
 <span class="nt">&quot;index&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="s2">&quot;2006-01-31T00:00:00Z&quot;</span><span class="p">,</span>
     <span class="s2">&quot;2006-02-28T00:00:00Z&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;2006-03-31T00:00:00Z&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;2006-03-31T00:00:00Z&quot;</span>
+    <span class="p">,</span>
 <span class="p">]}</span>
 </pre></div>
 </div>
-</dd></dl>
-
-<dl class="post">
-<dt id="post--api-series-slug-events-">
-<code class="descname">POST </code><code class="descname">/api/series/{slug}/events/</code><a class="headerlink" href="#post--api-series-slug-events-" title="Permalink to this definition">¶</a></dt>
-<dd><p>Use POST when providing a feature set to return data for multiple locations.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Query Parameters:</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body"><ul class="first last simple">
-<li><strong>features</strong> – file upload to provide multiple geometries as part of a feature set, any <a class="reference external" href="https://gdal.org/ogr_formats.html">OGR supported</a> format or zip file</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
 </div>
 </div>
 
@@ -443,10 +537,10 @@ header of request</li>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="raster-store.html" class="btn btn-neutral float-right" title="Working with Raster Store" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="raster-store.html" class="btn btn-neutral float-right" title="Raster Store" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="data-catalog.html" class="btn btn-neutral" title="Data Catalog" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="data-catalog.html" class="btn btn-neutral float-left" title="Data Catalog" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -472,26 +566,16 @@ header of request</li>
   
 
 
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/language_data.js"></script>
-    
-
-  
-
-  <script type="text/javascript" src="_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

@@ -1,18 +1,10 @@
-.. _data-catalog:
-
-
-***************
 Data Catalog
-***************
-
+============
 We refer to the datasets in the Cal-Adapt API as resources. Each resource is represented by a unique endpoint (URL). The following is a list of climate datasets in the Cal-Adapt API. We are actively adding new resources to the API so this list may not reflect the most up to date information.
 
 
-.. _climate-variables:
-
 Climate Variables
--------------------
-
+-----------------
   * LOCA downscaled climate projections from Scripps Institution of Oceanography, UC San Diego (`Pierce et al, 2014 <http://journals.ametsoc.org/doi/abs/10.1175/JHM-D-14-0082.1>`_).
 
     * Maximum Temperature ``tasmax``, Minimum Temperature ``tasmin``, Precipitation ``precip``
@@ -40,7 +32,7 @@ Climate Variables
     * ``slr_sfbay`` ``slr_delta`` ``slr_coast``
     * SLR scenarios
 
-  * Widlfire from UC Merced (LeRoy Westerling)
+  * Wildfire from UC Merced (LeRoy Westerling)
 
     * ``fire``
     * Annual averages
@@ -55,11 +47,11 @@ Climate Variables
     * ``drought``
     * Daily data for two scenarios that portray 20 year drought conditions.
 
+
 .. _gcm:
 
 Global Climate Models (GCM)
-----------------------------
-
+---------------------------
 The following GCMs have been selected by California state agencies as priority models for Fourth Assessment Research. Data for these models is available through the cal-Adapt API. Downscaled data for 22 other GCMs is available as NetCDF files from the `Cal-Adapt Data Server <http://albers.cnr.berkeley.edu/data/>`_.
 
     * ``ACCESS1-0`` - Commonwealth Scientific and Industrial Research Organization (CSIRO) and Bureau of Meteorology (BOM) Australia
@@ -74,34 +66,26 @@ The following GCMs have been selected by California state agencies as priority m
     * ``MIROC5`` - Atmosphere and Ocean Research Institute (The University of Tokyo), National Institute for Environmental Studies, and Japan Agency for Marine-Earth Science and Technology
 
 
-.. _scenario:
-
 Scenarios
-------------
-
-Representatitve Concentration Pathways (RCP). RCP references - `The Beginner's Guide to Representative Concentration Pathways <https://skepticalscience.com/rcp.php>`_ , `IPCC <http://sedac.ipcc-data.org/ddc/ar5_scenario_process/RCPs.html>`_
+---------
+Representative Concentration Pathways (RCP). RCP references - `The Beginner's Guide to Representative Concentration Pathways <https://skepticalscience.com/rcp.php>`_ , `IPCC <http://sedac.ipcc-data.org/ddc/ar5_scenario_process/RCPs.html>`_
 
   * ``rcp45`` - RCP 4.5 (Emissions peak around 2040, then decline)
   * ``rcp85`` - RCP 8.5 (Emissions continue to rise strongly through 2050 and plateau)
   * ``historical`` - Historical
 
 
-.. _period:
-
 Period
------------
-
-Different temporal aggregations are available for climate variables through the API. See :ref:`filtering-series` to find out what's available in the API.
+------
+Different temporal aggregations are available for climate variables through the API. See :ref:`raster-series` to find out what's available in the API.
 
   * ``year`` - Annual averages
   * ``month`` - Monthly averages
   * ``day`` - Daily values
 
-.. _vector-data:
 
 Vector Data
--------------
-
+-----------
 In addition to climate data, the Cal-Adapt API also has endpoints for vector datasets representing administrative boundaries, hydrological boundaries and the LOCA model grid.
 
     * ``locagrid`` - Model Grid (1/16° - Approximately 6 km)
@@ -114,4 +98,3 @@ In addition to climate data, the Cal-Adapt API also has endpoints for vector dat
     * ``wecc-load-area`` - SWITCH Load Zones
     * ``climregions`` - Climate Zones
     * ``electricutilities`` -  Investor and public owned electrical utilities
-

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Working with Raster Store &mdash; Cal-Adapt API Docs 1.0 documentation</title>
+  <title>Raster Store &mdash; Cal-Adapt API Docs 1.0 documentation</title>
   
 
   
@@ -36,7 +36,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Cookbook" href="cookbook.html" />
-    <link rel="prev" title="Working with Series" href="series.html" /> 
+    <link rel="prev" title="Raster Series" href="series.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -87,9 +87,10 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data-catalog.html">Data Catalog</a></li>
-<li class="toctree-l1"><a class="reference internal" href="series.html">Working with Series</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Working with Raster Store</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#slug">Slug</a></li>
+<li class="toctree-l1"><a class="reference internal" href="series.html">Raster Series</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Raster Store</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#list-raster-stores">List Raster Stores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#raster-store-detail">Raster Store Detail</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="cookbook.html">Cookbook</a></li>
@@ -138,7 +139,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Working with Raster Store</li>
+      <li>Raster Store</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -157,22 +158,114 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="working-with-raster-store">
-<span id="id1"></span><h1>Working with Raster Store<a class="headerlink" href="#working-with-raster-store" title="Permalink to this headline">¶</a></h1>
-<p>A Raster Store is an individual raster and is represented by the endpoint:</p>
-<blockquote>
-<div><div class="highlight-xml notranslate"><div class="highlight"><pre><span></span>https://api.cal-adapt.org/api/rstores/<span class="nt">&lt;slug&gt;</span>/
+  <div class="section" id="raster-store">
+<h1>Raster Store<a class="headerlink" href="#raster-store" title="Permalink to this headline">¶</a></h1>
+<p>A Raster Store is an individual raster file and associated information like
+spatial resolution, coordinate system reference, and bounding box.</p>
+<div class="section" id="list-raster-stores">
+<span id="id1"></span><h2>List Raster Stores<a class="headerlink" href="#list-raster-stores" title="Permalink to this headline">¶</a></h2>
+<dl class="get">
+<dt id="get--api-rstores-">
+<code class="descname">GET </code><code class="descname">/api/rstores/</code><a class="headerlink" href="#get--api-rstores-" title="Permalink to this definition">¶</a></dt>
+<dd><p>List all raster stores.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Query Parameters:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><ul class="first last simple">
+<li><strong>name</strong> – search raster names containing the provided value</li>
+<li><strong>page</strong> (<em>integer</em>) – page number</li>
+<li><strong>pagesize</strong> (<em>integer</em>) – number of records, default is 10</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="raster-store-detail">
+<h2>Raster Store Detail<a class="headerlink" href="#raster-store-detail" title="Permalink to this headline">¶</a></h2>
+<dl class="get">
+<dt id="get--api-rstores-slug-">
+<code class="descname">GET </code><code class="descname">/api/rstores/{slug}/</code><a class="headerlink" href="#get--api-rstores-slug-" title="Permalink to this definition">¶</a></dt>
+<dd><p>Request an individual raster with a provided slug. A slug is a URL friendly
+name of a resource in the API. Each climate dataset or resource has its own
+unique slug. A resource slug is generally composed of <code class="docutils literal notranslate"><span class="pre">{variable}_{period}_{model}_{scenario}_{timestep}</span></code>.</p>
+<p>Response fields include <code class="docutils literal notranslate"><span class="pre">image</span></code> (raster file link), <code class="docutils literal notranslate"><span class="pre">event</span></code> (date), and <code class="docutils literal notranslate"><span class="pre">units</span></code> (units for pixel values). Image statistics for <code class="docutils literal notranslate"><span class="pre">min</span></code> and <code class="docutils literal notranslate"><span class="pre">max</span></code> with regard to the <code class="docutils literal notranslate"><span class="pre">nodata</span></code> value, and dimensions <code class="docutils literal notranslate"><span class="pre">xpixsize</span></code> <code class="docutils literal notranslate"><span class="pre">ypixsize</span></code>. Map tiles can be requested with the url template at <code class="docutils literal notranslate"><span class="pre">tileurl</span></code>.</p>
+<p><strong>Example request</strong>:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">GET</span> <span class="nn">/api/rstores/tasmax_year_CNRM-CM5_rcp45_2030/</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">api.cal-adapt.org</span>
+<span class="na">Accept</span><span class="o">:</span> <span class="l">application/json</span>
 </pre></div>
 </div>
-</div></blockquote>
-<div class="section" id="slug">
-<h2>Slug<a class="headerlink" href="#slug" title="Permalink to this headline">¶</a></h2>
-<p>A slug is a URL friendly name of a resource in the API. Each climate dataset or resource has it’s own unique slug. A resource slug is generally composed of <code class="docutils literal notranslate"><span class="pre">{variable}_{period}_{model}_{scenario}_{timestep}</span></code>.</p>
-<blockquote>
-<div><div class="highlight-xml notranslate"><div class="highlight"><pre><span></span>https://api.cal-adapt.org/api/rstores/tasmax_year_CNRM-CM5_rcp45_2030/
+<p><strong>Example response</strong>:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Allow</span><span class="o">:</span> <span class="l">GET, POST, OPTIONS</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+<span class="na">Vary</span><span class="o">:</span> <span class="l">Accept</span>
+
+<span class="p">{</span>
+  <span class="nt">&quot;event&quot;</span><span class="p">:</span> <span class="s2">&quot;2030-01-01&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;geom&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;coordinates&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="p">[</span>
+              <span class="p">[</span>
+                  <span class="mf">-124.5625</span><span class="p">,</span>
+                  <span class="mf">31.5625</span>
+              <span class="p">],</span>
+              <span class="p">[</span>
+                  <span class="mf">-113.375</span><span class="p">,</span>
+                  <span class="mf">31.5625</span>
+              <span class="p">],</span>
+              <span class="p">[</span>
+                  <span class="mf">-113.375</span><span class="p">,</span>
+                  <span class="mf">43.75</span>
+              <span class="p">],</span>
+              <span class="p">[</span>
+                  <span class="mf">-124.5625</span><span class="p">,</span>
+                  <span class="mf">43.75</span>
+              <span class="p">],</span>
+              <span class="p">[</span>
+                  <span class="mf">-124.5625</span><span class="p">,</span>
+                  <span class="mf">31.5625</span>
+              <span class="p">]</span>
+          <span class="p">]</span>
+      <span class="p">],</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Polygon&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;height&quot;</span><span class="p">:</span> <span class="mi">195</span><span class="p">,</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">10545</span><span class="p">,</span>
+  <span class="nt">&quot;image&quot;</span><span class="p">:</span> <span class="s2">&quot;http://api.cal-adapt.org/media/img/tasmax_year_CNRM-CM5_rcp45_r1i1p1_2030.LOCA_2016-04-02.16th.CA_NV.tif&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;maxval&quot;</span><span class="p">:</span> <span class="mf">307.184326171875</span><span class="p">,</span>
+  <span class="nt">&quot;minval&quot;</span><span class="p">:</span> <span class="mf">278.8943786621094</span><span class="p">,</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;yearly average maximum temperature CNRM-CM5 RCP 4.5&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;nodata&quot;</span><span class="p">:</span> <span class="mf">1.0000000150474662e+30</span><span class="p">,</span>
+  <span class="nt">&quot;slug&quot;</span><span class="p">:</span> <span class="s2">&quot;tasmax_year_CNRM-CM5_rcp45_2030&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;srs&quot;</span><span class="p">:</span> <span class="s2">&quot;GEOGCS[\&quot;WGS 84\&quot;,DATUM[\&quot;WGS_1984\&quot;,SPHEROID[\&quot;WGS 84\&quot;,6378137,298.257223563,AUTHORITY[\&quot;EPSG\&quot;,\&quot;7030\&quot;]],AUTHORITY[\&quot;EPSG\&quot;,\&quot;6326\&quot;]],PRIMEM[\&quot;Greenwich\&quot;,0],UNIT[\&quot;degree\&quot;,0.0174532925199433],AUTHORITY[\&quot;EPSG\&quot;,\&quot;4326\&quot;]]&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;tileurl&quot;</span><span class="p">:</span> <span class="s2">&quot;http://api.cal-adapt.org/tiles/tasmax_year_CNRM-CM5_rcp45_2030/{z}/{x}/{y}.png&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;units&quot;</span><span class="p">:</span> <span class="s2">&quot;K&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://api.cal-adapt.org/api/rstores/tasmax_year_CNRM-CM5_rcp45_2030/&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;width&quot;</span><span class="p">:</span> <span class="mi">179</span><span class="p">,</span>
+  <span class="nt">&quot;xpixsize&quot;</span><span class="p">:</span> <span class="mf">0.0625</span><span class="p">,</span>
+  <span class="nt">&quot;ypixsize&quot;</span><span class="p">:</span> <span class="mf">-0.0625</span>
+<span class="p">}</span>
 </pre></div>
 </div>
-</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>slug</strong> – raster slug identifier</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </div>
 </div>
 
@@ -187,7 +280,7 @@
         <a href="cookbook.html" class="btn btn-neutral float-right" title="Cookbook" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="series.html" class="btn btn-neutral float-left" title="Working with Series" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="series.html" class="btn btn-neutral float-left" title="Raster Series" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
