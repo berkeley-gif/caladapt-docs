@@ -35,7 +35,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Cookbook" href="cookbook.html" />
+    <link rel="next" title="Climate Indicators" href="indicator.html" />
     <link rel="prev" title="Raster Series" href="series.html" /> 
 </head>
 
@@ -93,6 +93,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#raster-store-detail">Raster Store Detail</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="indicator.html">Climate Indicators</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cookbook.html">Cookbook</a></li>
 </ul>
 
@@ -159,11 +160,11 @@
            <div itemprop="articleBody">
             
   <div class="section" id="raster-store">
-<h1>Raster Store<a class="headerlink" href="#raster-store" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1>Raster Store<a class="headerlink" href="#raster-store" title="Permalink to this headline">¶</a></h1>
 <p>A Raster Store is an individual raster file and associated information like
 spatial resolution, coordinate system reference, and bounding box.</p>
 <div class="section" id="list-raster-stores">
-<span id="id1"></span><h2>List Raster Stores<a class="headerlink" href="#list-raster-stores" title="Permalink to this headline">¶</a></h2>
+<h2>List Raster Stores<a class="headerlink" href="#list-raster-stores" title="Permalink to this headline">¶</a></h2>
 <dl class="get">
 <dt id="get--api-rstores-">
 <code class="descname">GET </code><code class="descname">/api/rstores/</code><a class="headerlink" href="#get--api-rstores-" title="Permalink to this definition">¶</a></dt>
@@ -193,7 +194,7 @@ spatial resolution, coordinate system reference, and bounding box.</p>
 <dd><p>Request an individual raster with a provided slug. A slug is a URL friendly
 name of a resource in the API. Each climate dataset or resource has its own
 unique slug. A resource slug is generally composed of <code class="docutils literal notranslate"><span class="pre">{variable}_{period}_{model}_{scenario}_{timestep}</span></code>.</p>
-<p>Response fields include <code class="docutils literal notranslate"><span class="pre">image</span></code> (raster file link), <code class="docutils literal notranslate"><span class="pre">event</span></code> (date), and <code class="docutils literal notranslate"><span class="pre">units</span></code> (units for pixel values). Image statistics for <code class="docutils literal notranslate"><span class="pre">min</span></code> and <code class="docutils literal notranslate"><span class="pre">max</span></code> with regard to the <code class="docutils literal notranslate"><span class="pre">nodata</span></code> value, and dimensions <code class="docutils literal notranslate"><span class="pre">xpixsize</span></code> <code class="docutils literal notranslate"><span class="pre">ypixsize</span></code>. Map tiles can be requested with the url template at <code class="docutils literal notranslate"><span class="pre">tileurl</span></code>.</p>
+<p>Response fields include <code class="docutils literal notranslate"><span class="pre">image</span></code> (raster file link), <code class="docutils literal notranslate"><span class="pre">event</span></code> (date), and <code class="docutils literal notranslate"><span class="pre">units</span></code> (unit of measurement for pixel values). Image statistics for <code class="docutils literal notranslate"><span class="pre">min</span></code> and <code class="docutils literal notranslate"><span class="pre">max</span></code> with regard to the <code class="docutils literal notranslate"><span class="pre">nodata</span></code> value, and dimensions <code class="docutils literal notranslate"><span class="pre">xpixsize</span></code> <code class="docutils literal notranslate"><span class="pre">ypixsize</span></code>. Map tiles can be requested with the url template at <code class="docutils literal notranslate"><span class="pre">tileurl</span></code>.</p>
 <p><strong>Example request</strong>:</p>
 <div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">GET</span> <span class="nn">/api/rstores/tasmax_year_CNRM-CM5_rcp45_2030/</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="o">:</span> <span class="l">api.cal-adapt.org</span>
@@ -277,7 +278,7 @@ unique slug. A resource slug is generally composed of <code class="docutils lite
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="cookbook.html" class="btn btn-neutral float-right" title="Cookbook" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="indicator.html" class="btn btn-neutral float-right" title="Climate Indicators" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="series.html" class="btn btn-neutral float-left" title="Raster Series" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

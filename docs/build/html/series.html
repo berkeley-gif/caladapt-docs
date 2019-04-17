@@ -90,11 +90,12 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Raster Series</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#list-raster-series">List Raster Series</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#raster-series-detail">Raster Series Detail</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#list-series-rasters">List Series Rasters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#time-series">Time Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#list-series-rasters">List Series Rasters</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="raster-store.html">Raster Store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="indicator.html">Climate Indicators</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cookbook.html">Cookbook</a></li>
 </ul>
 
@@ -238,139 +239,6 @@
 </table>
 </dd></dl>
 
-</div>
-<div class="section" id="list-series-rasters">
-<h2>List Series Rasters<a class="headerlink" href="#list-series-rasters" title="Permalink to this headline">¶</a></h2>
-<dl class="get">
-<dt id="get--api-series-slug-rasters-">
-<code class="descname">GET </code><code class="descname">/api/series/{slug}/rasters/</code><a class="headerlink" href="#get--api-series-slug-rasters-" title="Permalink to this definition">¶</a></dt>
-<dd><p>List all rasters in the series. See <a class="reference internal" href="raster-store.html#list-raster-stores"><span class="std std-ref">List Raster Stores</span></a>.</p>
-<p><strong>Example request</strong>:</p>
-<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">GET</span> <span class="nn">/api/series/tasmax_year_CNRM-CM5_rcp45/rasters/</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">Host</span><span class="o">:</span> <span class="l">api.cal-adapt.org</span>
-<span class="na">Accept</span><span class="o">:</span> <span class="l">application/json</span>
-</pre></div>
-</div>
-<p><strong>Example response</strong>:</p>
-<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
-<span class="na">Allow</span><span class="o">:</span> <span class="l">GET, POST, OPTIONS</span>
-<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
-<span class="na">Vary</span><span class="o">:</span> <span class="l">Accept</span>
-
-<span class="p">{</span>
-  <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">95</span><span class="p">,</span>
-  <span class="nt">&quot;next&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.cal-adapt.org/api/series/tasmax_year_CNRM-CM5_rcp45/rasters/?page=2&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;previous&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-  <span class="nt">&quot;results&quot;</span><span class="p">:</span> <span class="p">[{</span>
-      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">10521</span><span class="p">,</span>
-      <span class="nt">&quot;tileurl&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.cal-adapt.org/tiles/tasmax_year_CNRM-CM5_rcp45_2006/{z}/{x}/{y}.png&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.cal-adapt.org/api/rstores/tasmax_year_CNRM-CM5_rcp45_2006/&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;image&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.cal-adapt.org/media/img/tasmax_year_CNRM-CM5_rcp45_r1i1p1_2006.LOCA_2016-04-02.16th.CA_NV.tif&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;width&quot;</span><span class="p">:</span> <span class="mi">179</span><span class="p">,</span>
-      <span class="nt">&quot;height&quot;</span><span class="p">:</span> <span class="mi">195</span><span class="p">,</span>
-      <span class="nt">&quot;geom&quot;</span><span class="p">:</span> <span class="s2">&quot;POLYGON ((-124.5625 31.5625, -113.375 31.5625, -113.375 43.75, -124.5625 43.75, -124.5625 31.5625))&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;event&quot;</span><span class="p">:</span> <span class="s2">&quot;2006-01-01&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;srs&quot;</span><span class="p">:</span> <span class="s2">&quot;GEOGCS[\&quot;WGS 84\&quot;,DATUM[\&quot;WGS_1984\&quot;,SPHEROID[\&quot;WGS 84\&quot;,6378137,298.257223563,AUTHORITY[\&quot;EPSG\&quot;,\&quot;7030\&quot;]],AUTHORITY[\&quot;EPSG\&quot;,\&quot;6326\&quot;]],PRIMEM[\&quot;Greenwich\&quot;,0],UNIT[\&quot;degree\&quot;,0.0174532925199433],AUTHORITY[\&quot;EPSG\&quot;,\&quot;4326\&quot;]]&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;minval&quot;</span><span class="p">:</span> <span class="mf">279.1251220703125</span><span class="p">,</span>
-      <span class="nt">&quot;maxval&quot;</span><span class="p">:</span> <span class="mf">307.180908203125</span><span class="p">,</span>
-      <span class="nt">&quot;nodata&quot;</span><span class="p">:</span> <span class="mf">1.0000000150474662e+30</span><span class="p">,</span>
-      <span class="nt">&quot;xpixsize&quot;</span><span class="p">:</span> <span class="mf">0.0625</span><span class="p">,</span>
-      <span class="nt">&quot;ypixsize&quot;</span><span class="p">:</span> <span class="mf">-0.0625</span><span class="p">,</span>
-      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;yearly average maximum temperature CNRM-CM5 RCP 4.5&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;slug&quot;</span><span class="p">:</span> <span class="s2">&quot;tasmax_year_CNRM-CM5_rcp45_2006&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;units&quot;</span><span class="p">:</span> <span class="s2">&quot;K&quot;</span>
-  <span class="p">},</span> <span class="p">{</span>
-      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">10522</span><span class="p">,</span>
-      <span class="nt">&quot;tileurl&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.cal-adapt.org/tiles/tasmax_year_CNRM-CM5_rcp45_2007/{z}/{x}/{y}.png&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.cal-adapt.org/api/rstores/tasmax_year_CNRM-CM5_rcp45_2007/&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;image&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.cal-adapt.org/media/img/tasmax_year_CNRM-CM5_rcp45_r1i1p1_2007.LOCA_2016-04-02.16th.CA_NV.tif&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;width&quot;</span><span class="p">:</span> <span class="mi">179</span><span class="p">,</span>
-      <span class="nt">&quot;height&quot;</span><span class="p">:</span> <span class="mi">195</span><span class="p">,</span>
-      <span class="nt">&quot;geom&quot;</span><span class="p">:</span> <span class="s2">&quot;POLYGON ((-124.5625 31.5625, -113.375 31.5625, -113.375 43.75, -124.5625 43.75, -124.5625 31.5625))&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;event&quot;</span><span class="p">:</span> <span class="s2">&quot;2007-01-01&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;srs&quot;</span><span class="p">:</span> <span class="s2">&quot;GEOGCS[\&quot;WGS 84\&quot;,DATUM[\&quot;WGS_1984\&quot;,SPHEROID[\&quot;WGS 84\&quot;,6378137,298.257223563,AUTHORITY[\&quot;EPSG\&quot;,\&quot;7030\&quot;]],AUTHORITY[\&quot;EPSG\&quot;,\&quot;6326\&quot;]],PRIMEM[\&quot;Greenwich\&quot;,0],UNIT[\&quot;degree\&quot;,0.0174532925199433],AUTHORITY[\&quot;EPSG\&quot;,\&quot;4326\&quot;]]&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;minval&quot;</span><span class="p">:</span> <span class="mf">278.38330078125</span><span class="p">,</span>
-      <span class="nt">&quot;maxval&quot;</span><span class="p">:</span> <span class="mf">307.52490234375</span><span class="p">,</span>
-      <span class="nt">&quot;nodata&quot;</span><span class="p">:</span> <span class="mf">1.0000000150474662e+30</span><span class="p">,</span>
-      <span class="nt">&quot;xpixsize&quot;</span><span class="p">:</span> <span class="mf">0.0625</span><span class="p">,</span>
-      <span class="nt">&quot;ypixsize&quot;</span><span class="p">:</span> <span class="mf">-0.0625</span><span class="p">,</span>
-      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;yearly average maximum temperature CNRM-CM5 RCP 4.5&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;slug&quot;</span><span class="p">:</span> <span class="s2">&quot;tasmax_year_CNRM-CM5_rcp45_2007&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;units&quot;</span><span class="p">:</span> <span class="s2">&quot;K&quot;</span>
-  <span class="p">}</span>
-  <span class="p">,</span>
-  <span class="p">]</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>slug</strong> – series slug identifier</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">Query Parameters:</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body"><ul class="first simple">
-<li><strong>g</strong> – a geometry (point, line, polygon) as GeoJSON, WKT, GML or KML</li>
-<li><strong>bbox</strong> – a bounding box in the form of x1,y1,x2,y2</li>
-<li><strong>pagesize</strong> – number of records, default is 10</li>
-<li><strong>format</strong> – <code class="docutils literal notranslate"><span class="pre">json</span></code> or <code class="docutils literal notranslate"><span class="pre">tif.zip</span></code></li>
-<li><strong>stat</strong> – one of <code class="docutils literal notranslate"><span class="pre">mean</span></code>, <code class="docutils literal notranslate"><span class="pre">max</span></code>, <code class="docutils literal notranslate"><span class="pre">min</span></code>, <code class="docutils literal notranslate"><span class="pre">count</span></code>, <code class="docutils literal notranslate"><span class="pre">median</span></code>, <code class="docutils literal notranslate"><span class="pre">std</span></code>, <code class="docutils literal notranslate"><span class="pre">var</span></code> for spatial aggregation by polygon/line geometry provided by the <code class="docutils literal notranslate"><span class="pre">g</span></code> param.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">Request Headers:</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body"><ul class="first simple">
-<li><a class="reference external" href="https://tools.ietf.org/html/rfc7231#section-5.3.2">Accept</a> – the response content type depends on
-<em class="mailheader">Accept</em> header</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">Response Headers:</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body"><ul class="first simple">
-<li><a class="reference external" href="https://tools.ietf.org/html/rfc7231#section-3.1.1.5">Content-Type</a> – this depends on <em class="mailheader">Accept</em>
-header of request</li>
-</ul>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Status Codes:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a> – no error</li>
-<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1">400 Bad Request</a> – something is askew with the request, check the error message</li>
-<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.5">404 Not Found</a> – the slug may be incorrect</li>
-<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.1">500 Internal Server Error</a> – something’s wrong on our end</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="get">
-<dt id="get--api-series-slug-begin-end-">
-<code class="descname">GET </code><code class="descname">/api/series/{slug}/{begin}/{end}/</code><a class="headerlink" href="#get--api-series-slug-begin-end-" title="Permalink to this definition">¶</a></dt>
-<dd><p>Filter series rasters from start to end date</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>slug</strong> – series slug identifier</li>
-<li><strong>begin</strong> (<em>date</em>) – starting date</li>
-<li><strong>end</strong> (<em>date</em>) – ending date</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<p>A time slice or subset can be retrieved by adding start and end dates to the URL.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="o">.</span><span class="n">cal</span><span class="o">-</span><span class="n">adapt</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">series</span><span class="o">/</span><span class="n">tasmax_year_CNRM</span><span class="o">-</span><span class="n">CM5_rcp45</span><span class="o">/</span><span class="mi">2030</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="o">/</span><span class="mi">2040</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="o">/</span>
-</pre></div>
-</div>
 </div>
 <div class="section" id="time-series">
 <h2>Time Series<a class="headerlink" href="#time-series" title="Permalink to this headline">¶</a></h2>
@@ -524,6 +392,139 @@ The same parameters as with GET are available.</p>
     <span class="s2">&quot;2006-03-31T00:00:00Z&quot;</span>
     <span class="p">,</span>
 <span class="p">]}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="list-series-rasters">
+<h2>List Series Rasters<a class="headerlink" href="#list-series-rasters" title="Permalink to this headline">¶</a></h2>
+<dl class="get">
+<dt id="get--api-series-slug-rasters-">
+<code class="descname">GET </code><code class="descname">/api/series/{slug}/rasters/</code><a class="headerlink" href="#get--api-series-slug-rasters-" title="Permalink to this definition">¶</a></dt>
+<dd><p>List all rasters in the series. See the <a class="reference internal" href="raster-store.html#raster-store"><span class="std std-ref">Raster Store</span></a> description.</p>
+<p><strong>Example request</strong>:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">GET</span> <span class="nn">/api/series/tasmax_year_CNRM-CM5_rcp45/rasters/</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">api.cal-adapt.org</span>
+<span class="na">Accept</span><span class="o">:</span> <span class="l">application/json</span>
+</pre></div>
+</div>
+<p><strong>Example response</strong>:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Allow</span><span class="o">:</span> <span class="l">GET, POST, OPTIONS</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+<span class="na">Vary</span><span class="o">:</span> <span class="l">Accept</span>
+
+<span class="p">{</span>
+  <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">95</span><span class="p">,</span>
+  <span class="nt">&quot;next&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.cal-adapt.org/api/series/tasmax_year_CNRM-CM5_rcp45/rasters/?page=2&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;previous&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nt">&quot;results&quot;</span><span class="p">:</span> <span class="p">[{</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">10521</span><span class="p">,</span>
+      <span class="nt">&quot;tileurl&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.cal-adapt.org/tiles/tasmax_year_CNRM-CM5_rcp45_2006/{z}/{x}/{y}.png&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.cal-adapt.org/api/rstores/tasmax_year_CNRM-CM5_rcp45_2006/&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;image&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.cal-adapt.org/media/img/tasmax_year_CNRM-CM5_rcp45_r1i1p1_2006.LOCA_2016-04-02.16th.CA_NV.tif&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;width&quot;</span><span class="p">:</span> <span class="mi">179</span><span class="p">,</span>
+      <span class="nt">&quot;height&quot;</span><span class="p">:</span> <span class="mi">195</span><span class="p">,</span>
+      <span class="nt">&quot;geom&quot;</span><span class="p">:</span> <span class="s2">&quot;POLYGON ((-124.5625 31.5625, -113.375 31.5625, -113.375 43.75, -124.5625 43.75, -124.5625 31.5625))&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;event&quot;</span><span class="p">:</span> <span class="s2">&quot;2006-01-01&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;srs&quot;</span><span class="p">:</span> <span class="s2">&quot;GEOGCS[\&quot;WGS 84\&quot;,DATUM[\&quot;WGS_1984\&quot;,SPHEROID[\&quot;WGS 84\&quot;,6378137,298.257223563,AUTHORITY[\&quot;EPSG\&quot;,\&quot;7030\&quot;]],AUTHORITY[\&quot;EPSG\&quot;,\&quot;6326\&quot;]],PRIMEM[\&quot;Greenwich\&quot;,0],UNIT[\&quot;degree\&quot;,0.0174532925199433],AUTHORITY[\&quot;EPSG\&quot;,\&quot;4326\&quot;]]&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;minval&quot;</span><span class="p">:</span> <span class="mf">279.1251220703125</span><span class="p">,</span>
+      <span class="nt">&quot;maxval&quot;</span><span class="p">:</span> <span class="mf">307.180908203125</span><span class="p">,</span>
+      <span class="nt">&quot;nodata&quot;</span><span class="p">:</span> <span class="mf">1.0000000150474662e+30</span><span class="p">,</span>
+      <span class="nt">&quot;xpixsize&quot;</span><span class="p">:</span> <span class="mf">0.0625</span><span class="p">,</span>
+      <span class="nt">&quot;ypixsize&quot;</span><span class="p">:</span> <span class="mf">-0.0625</span><span class="p">,</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;yearly average maximum temperature CNRM-CM5 RCP 4.5&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;slug&quot;</span><span class="p">:</span> <span class="s2">&quot;tasmax_year_CNRM-CM5_rcp45_2006&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;units&quot;</span><span class="p">:</span> <span class="s2">&quot;K&quot;</span>
+  <span class="p">},</span> <span class="p">{</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">10522</span><span class="p">,</span>
+      <span class="nt">&quot;tileurl&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.cal-adapt.org/tiles/tasmax_year_CNRM-CM5_rcp45_2007/{z}/{x}/{y}.png&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.cal-adapt.org/api/rstores/tasmax_year_CNRM-CM5_rcp45_2007/&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;image&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.cal-adapt.org/media/img/tasmax_year_CNRM-CM5_rcp45_r1i1p1_2007.LOCA_2016-04-02.16th.CA_NV.tif&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;width&quot;</span><span class="p">:</span> <span class="mi">179</span><span class="p">,</span>
+      <span class="nt">&quot;height&quot;</span><span class="p">:</span> <span class="mi">195</span><span class="p">,</span>
+      <span class="nt">&quot;geom&quot;</span><span class="p">:</span> <span class="s2">&quot;POLYGON ((-124.5625 31.5625, -113.375 31.5625, -113.375 43.75, -124.5625 43.75, -124.5625 31.5625))&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;event&quot;</span><span class="p">:</span> <span class="s2">&quot;2007-01-01&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;srs&quot;</span><span class="p">:</span> <span class="s2">&quot;GEOGCS[\&quot;WGS 84\&quot;,DATUM[\&quot;WGS_1984\&quot;,SPHEROID[\&quot;WGS 84\&quot;,6378137,298.257223563,AUTHORITY[\&quot;EPSG\&quot;,\&quot;7030\&quot;]],AUTHORITY[\&quot;EPSG\&quot;,\&quot;6326\&quot;]],PRIMEM[\&quot;Greenwich\&quot;,0],UNIT[\&quot;degree\&quot;,0.0174532925199433],AUTHORITY[\&quot;EPSG\&quot;,\&quot;4326\&quot;]]&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;minval&quot;</span><span class="p">:</span> <span class="mf">278.38330078125</span><span class="p">,</span>
+      <span class="nt">&quot;maxval&quot;</span><span class="p">:</span> <span class="mf">307.52490234375</span><span class="p">,</span>
+      <span class="nt">&quot;nodata&quot;</span><span class="p">:</span> <span class="mf">1.0000000150474662e+30</span><span class="p">,</span>
+      <span class="nt">&quot;xpixsize&quot;</span><span class="p">:</span> <span class="mf">0.0625</span><span class="p">,</span>
+      <span class="nt">&quot;ypixsize&quot;</span><span class="p">:</span> <span class="mf">-0.0625</span><span class="p">,</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;yearly average maximum temperature CNRM-CM5 RCP 4.5&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;slug&quot;</span><span class="p">:</span> <span class="s2">&quot;tasmax_year_CNRM-CM5_rcp45_2007&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;units&quot;</span><span class="p">:</span> <span class="s2">&quot;K&quot;</span>
+  <span class="p">}</span>
+  <span class="p">,</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>slug</strong> – series slug identifier</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Query Parameters:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><ul class="first simple">
+<li><strong>g</strong> – a geometry (point, line, polygon) as GeoJSON, WKT, GML or KML</li>
+<li><strong>bbox</strong> – a bounding box in the form of x1,y1,x2,y2</li>
+<li><strong>pagesize</strong> – number of records, default is 10</li>
+<li><strong>format</strong> – <code class="docutils literal notranslate"><span class="pre">json</span></code> or <code class="docutils literal notranslate"><span class="pre">tif.zip</span></code></li>
+<li><strong>stat</strong> – one of <code class="docutils literal notranslate"><span class="pre">mean</span></code>, <code class="docutils literal notranslate"><span class="pre">max</span></code>, <code class="docutils literal notranslate"><span class="pre">min</span></code>, <code class="docutils literal notranslate"><span class="pre">count</span></code>, <code class="docutils literal notranslate"><span class="pre">median</span></code>, <code class="docutils literal notranslate"><span class="pre">std</span></code>, <code class="docutils literal notranslate"><span class="pre">var</span></code> for spatial aggregation by polygon/line geometry provided by the <code class="docutils literal notranslate"><span class="pre">g</span></code> param.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Request Headers:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><ul class="first simple">
+<li><a class="reference external" href="https://tools.ietf.org/html/rfc7231#section-5.3.2">Accept</a> – the response content type depends on
+<em class="mailheader">Accept</em> header</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Response Headers:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><ul class="first simple">
+<li><a class="reference external" href="https://tools.ietf.org/html/rfc7231#section-3.1.1.5">Content-Type</a> – this depends on <em class="mailheader">Accept</em>
+header of request</li>
+</ul>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Status Codes:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a> – no error</li>
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1">400 Bad Request</a> – something is askew with the request, check the error message</li>
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.5">404 Not Found</a> – the slug may be incorrect</li>
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.1">500 Internal Server Error</a> – something’s wrong on our end</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="get">
+<dt id="get--api-series-slug-begin-end-">
+<code class="descname">GET </code><code class="descname">/api/series/{slug}/{begin}/{end}/</code><a class="headerlink" href="#get--api-series-slug-begin-end-" title="Permalink to this definition">¶</a></dt>
+<dd><p>Filter series rasters from start to end date</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>slug</strong> – series slug identifier</li>
+<li><strong>begin</strong> (<em>date</em>) – starting date</li>
+<li><strong>end</strong> (<em>date</em>) – ending date</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<p>A time slice or subset can be retrieved by adding start and end dates to the URL.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="o">.</span><span class="n">cal</span><span class="o">-</span><span class="n">adapt</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">series</span><span class="o">/</span><span class="n">tasmax_year_CNRM</span><span class="o">-</span><span class="n">CM5_rcp45</span><span class="o">/</span><span class="mi">2030</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="o">/</span><span class="mi">2040</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="o">/</span>
 </pre></div>
 </div>
 </div>

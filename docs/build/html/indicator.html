@@ -1,0 +1,292 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Climate Indicators &mdash; Cal-Adapt API Docs 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Cookbook" href="cookbook.html" />
+    <link rel="prev" title="Raster Store" href="raster-store.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Cal-Adapt API Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data-catalog.html">Data Catalog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="series.html">Raster Series</a></li>
+<li class="toctree-l1"><a class="reference internal" href="raster-store.html">Raster Store</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Climate Indicators</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#extreme-precipitation">Extreme Precipitation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cookbook.html">Cookbook</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Cal-Adapt API Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Climate Indicators</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/indicator.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="climate-indicators">
+<h1>Climate Indicators<a class="headerlink" href="#climate-indicators" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="extreme-precipitation">
+<h2>Extreme Precipitation<a class="headerlink" href="#extreme-precipitation" title="Permalink to this headline">¶</a></h2>
+<p>Extreme precipitation events can be characterized using Extreme Value Analysis (EVA) by return levels, including confidence intervals, using the peak over threshold methodology. See the <a class="reference external" href="http://cal-adapt.org/tools/extreme-precipitation/">extreme precipitation tool</a> for more information and charting of the available data.</p>
+<dl class="get">
+<dt id="get--api-series-slug-pot-">
+<code class="descname">GET </code><code class="descname">/api/series/{slug}/pot/</code><a class="headerlink" href="#get--api-series-slug-pot-" title="Permalink to this definition">¶</a></dt>
+<dd><p>Response fields include <code class="docutils literal notranslate"><span class="pre">returnlevels</span></code>, <code class="docutils literal notranslate"><span class="pre">threshold</span></code>, and <code class="docutils literal notranslate"><span class="pre">units</span></code> (unit of measurement). The return levels are summarized over historic, mid, and end of century time frames. Each return interval is a 3-item array of the lower, estimated return level, and upper confidence interval.</p>
+<p><strong>Example request</strong>:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">GET</span> <span class="nn">/api/series/pr_day_ACCESS1-0_rcp45/pot/?g=POINT(-121.4687+38.5938)&amp;duration=2</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">api.cal-adapt.org</span>
+<span class="na">Accept</span><span class="o">:</span> <span class="l">application/json</span>
+</pre></div>
+</div>
+<p><strong>Example response</strong>:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Allow</span><span class="o">:</span> <span class="l">GET, POST, OPTIONS</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+<span class="na">Vary</span><span class="o">:</span> <span class="l">Accept</span>
+
+<span class="p">{</span>
+<span class="nt">&quot;returnlevels&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;1961-10-01:1990-09-30&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;10&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mf">3.3738083898103706</span><span class="p">,</span> <span class="mf">3.9522201904266527</span><span class="p">,</span> <span class="mf">5.228567088406137</span> <span class="p">],</span>
+        <span class="nt">&quot;100&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mf">4.792120480767816</span><span class="p">,</span> <span class="mf">6.491227596207121</span><span class="p">,</span> <span class="mf">11.655569842787486</span> <span class="p">],</span>
+        <span class="nt">&quot;2&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mf">2.317027627106765</span><span class="p">,</span> <span class="mf">2.5667466512434016</span><span class="p">,</span> <span class="mf">2.941214643156155</span> <span class="p">],</span>
+        <span class="nt">&quot;20&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mf">3.781685742237907</span><span class="p">,</span> <span class="mf">4.640839376130399</span><span class="p">,</span> <span class="mf">6.677332244692823</span> <span class="p">],</span>
+        <span class="nt">&quot;5&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mf">2.9107509896073562</span><span class="p">,</span> <span class="mf">3.321044449279986</span><span class="p">,</span> <span class="mf">4.080450921786112</span> <span class="p">],</span>
+        <span class="nt">&quot;50&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mf">4.368586837537248</span><span class="p">,</span> <span class="mf">5.648252163486491</span><span class="p">,</span> <span class="mf">9.185085270172545</span> <span class="p">],</span>
+        <span class="nt">&quot;n&quot;</span><span class="p">:</span> <span class="mi">159</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;2035-10-01:2064-09-30&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;10&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mf">3.7262371212589867</span><span class="p">,</span> <span class="mf">4.236568397086659</span><span class="p">,</span> <span class="mf">5.240493845112521</span> <span class="p">],</span>
+        <span class="nt">&quot;100&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mf">4.906061402196474</span><span class="p">,</span> <span class="mf">6.0225286812315595</span><span class="p">,</span> <span class="mf">9.111781051084918</span> <span class="p">],</span>
+        <span class="nt">&quot;2&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mf">2.688362812028139</span><span class="p">,</span> <span class="mf">2.9617466455337116</span><span class="p">,</span> <span class="mf">3.315414408012187</span> <span class="p">],</span>
+        <span class="nt">&quot;20&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mf">4.134337164339881</span><span class="p">,</span> <span class="mf">4.778850804514478</span><span class="p">,</span> <span class="mf">6.252823005631932</span> <span class="p">],</span>
+        <span class="nt">&quot;5&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mf">3.312975478107658</span><span class="p">,</span> <span class="mf">3.690233369085343</span><span class="p">,</span> <span class="mf">4.342160397675551</span> <span class="p">],</span>
+        <span class="nt">&quot;50&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mf">4.571528643603971</span><span class="p">,</span> <span class="mf">5.4895406091554895</span><span class="p">,</span> <span class="mf">7.7864184564943955</span> <span class="p">],</span>
+        <span class="nt">&quot;n&quot;</span><span class="p">:</span> <span class="mi">175</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;2070-10-01:2099-09-30&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;10&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mf">4.241220088665857</span><span class="p">,</span> <span class="mf">5.0994935705499715</span><span class="p">,</span> <span class="mf">6.9916568467598665</span> <span class="p">],</span>
+      <span class="nt">&quot;100&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mf">6.244111144979032</span><span class="p">,</span> <span class="mf">8.769602618538272</span><span class="p">,</span> <span class="mf">16.754704790152964</span> <span class="p">],</span>
+      <span class="nt">&quot;2&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mf">2.820991602527356</span><span class="p">,</span> <span class="mf">3.1581853987832025</span><span class="p">,</span> <span class="mf">3.650831557730822</span> <span class="p">],</span>
+      <span class="nt">&quot;20&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mf">4.851689971070942</span><span class="p">,</span> <span class="mf">6.081585627582591</span><span class="p">,</span> <span class="mf">9.144602394922993</span> <span class="p">],</span>
+      <span class="nt">&quot;5&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mf">3.631161165606033</span><span class="p">,</span> <span class="mf">4.209052130230058</span><span class="p">,</span> <span class="mf">5.315306960831256</span> <span class="p">],</span>
+      <span class="nt">&quot;50&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mf">5.653315714995296</span><span class="p">,</span> <span class="mf">7.536659927706938</span><span class="p">,</span> <span class="mf">12.944282870291804</span> <span class="p">],</span>
+      <span class="nt">&quot;n&quot;</span><span class="p">:</span> <span class="mi">165</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;threshold&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+<span class="p">},</span>
+<span class="nt">&quot;units&quot;</span><span class="p">:</span> <span class="s2">&quot;inches&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>slug</strong> – series slug identifier</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Query Parameters:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><ul class="first last simple">
+<li><strong>g</strong> – a geometry (point, line, polygon) as GeoJSON, WKT, GML or KML</li>
+<li><strong>stat</strong> – one of <code class="docutils literal notranslate"><span class="pre">max</span></code>, <code class="docutils literal notranslate"><span class="pre">mean</span></code>, <code class="docutils literal notranslate"><span class="pre">median</span></code>, <code class="docutils literal notranslate"><span class="pre">min</span></code>, <code class="docutils literal notranslate"><span class="pre">sum</span></code> for spatial aggregation by polygon/line provided by the <code class="docutils literal notranslate"><span class="pre">g</span></code> param, defaults to <code class="docutils literal notranslate"><span class="pre">mean</span></code></li>
+<li><strong>duration</strong> (<em>integer</em>) – duration of extreme event in days</li>
+<li><strong>intervals</strong> – comma separated list of return intervals, returns levels for 2, 5, 10, 20, 50, and 100 year events by default</li>
+<li><strong>pct</strong> (<em>float</em>) – percentile to use for exceedance threshold, when not specified the min value from the annual maxima series (AMS) is used</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cookbook.html" class="btn btn-neutral float-right" title="Cookbook" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="raster-store.html" class="btn btn-neutral float-left" title="Raster Store" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Geospatial Innovation Facility, UC Berkeley
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
