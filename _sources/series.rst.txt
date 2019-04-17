@@ -62,102 +62,6 @@ Raster Series Detail
    :arg slug: series slug identifier
 
 
-List Series Rasters
--------------------
-.. http:get:: /api/series/{slug}/rasters/
-
-   List all rasters in the series. See :ref:`list-raster-stores`.
-
-   **Example request**:
-
-   .. code-block:: http
-
-      GET /api/series/tasmax_year_CNRM-CM5_rcp45/rasters/ HTTP/1.1
-      Host: api.cal-adapt.org
-      Accept: application/json
-
-   **Example response**:
-
-   .. code-block:: http
-
-      HTTP/1.1 200 OK
-      Allow: GET, POST, OPTIONS
-      Content-Type: application/json
-      Vary: Accept
-
-      {
-        "count": 95,
-        "next": "https://api.cal-adapt.org/api/series/tasmax_year_CNRM-CM5_rcp45/rasters/?page=2",
-        "previous": null,
-        "results": [{
-            "id": 10521,
-            "tileurl": "https://api.cal-adapt.org/tiles/tasmax_year_CNRM-CM5_rcp45_2006/{z}/{x}/{y}.png",
-            "url": "https://api.cal-adapt.org/api/rstores/tasmax_year_CNRM-CM5_rcp45_2006/",
-            "image": "https://api.cal-adapt.org/media/img/tasmax_year_CNRM-CM5_rcp45_r1i1p1_2006.LOCA_2016-04-02.16th.CA_NV.tif",
-            "width": 179,
-            "height": 195,
-            "geom": "POLYGON ((-124.5625 31.5625, -113.375 31.5625, -113.375 43.75, -124.5625 43.75, -124.5625 31.5625))",
-            "event": "2006-01-01",
-            "srs": "GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0],UNIT[\"degree\",0.0174532925199433],AUTHORITY[\"EPSG\",\"4326\"]]",
-            "minval": 279.1251220703125,
-            "maxval": 307.180908203125,
-            "nodata": 1.0000000150474662e+30,
-            "xpixsize": 0.0625,
-            "ypixsize": -0.0625,
-            "name": "yearly average maximum temperature CNRM-CM5 RCP 4.5",
-            "slug": "tasmax_year_CNRM-CM5_rcp45_2006",
-            "units": "K"
-        }, {
-            "id": 10522,
-            "tileurl": "https://api.cal-adapt.org/tiles/tasmax_year_CNRM-CM5_rcp45_2007/{z}/{x}/{y}.png",
-            "url": "https://api.cal-adapt.org/api/rstores/tasmax_year_CNRM-CM5_rcp45_2007/",
-            "image": "https://api.cal-adapt.org/media/img/tasmax_year_CNRM-CM5_rcp45_r1i1p1_2007.LOCA_2016-04-02.16th.CA_NV.tif",
-            "width": 179,
-            "height": 195,
-            "geom": "POLYGON ((-124.5625 31.5625, -113.375 31.5625, -113.375 43.75, -124.5625 43.75, -124.5625 31.5625))",
-            "event": "2007-01-01",
-            "srs": "GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0],UNIT[\"degree\",0.0174532925199433],AUTHORITY[\"EPSG\",\"4326\"]]",
-            "minval": 278.38330078125,
-            "maxval": 307.52490234375,
-            "nodata": 1.0000000150474662e+30,
-            "xpixsize": 0.0625,
-            "ypixsize": -0.0625,
-            "name": "yearly average maximum temperature CNRM-CM5 RCP 4.5",
-            "slug": "tasmax_year_CNRM-CM5_rcp45_2007",
-            "units": "K"
-        }
-        ,
-        ]
-      }
-
-   :arg slug: series slug identifier
-   :query g: a geometry (point, line, polygon) as GeoJSON, WKT, GML or KML
-   :query bbox: a bounding box in the form of x1,y1,x2,y2
-   :query pagesize: number of records, default is 10
-   :query format: ``json`` or ``tif.zip``
-   :query stat: one of ``mean``, ``max``, ``min``, ``count``, ``median``, ``std``, ``var`` for spatial aggregation by polygon/line geometry provided by the ``g`` param.
-   :reqheader Accept: the response content type depends on
-                      :mailheader:`Accept` header
-   :resheader Content-Type: this depends on :mailheader:`Accept`
-                            header of request
-   :statuscode 200: no error
-   :statuscode 400: something is askew with the request, check the error message
-   :statuscode 404: the slug may be incorrect
-   :statuscode 500: something's wrong on our end
-
-.. http:get:: /api/series/{slug}/{begin}/{end}/
-
-   Filter series rasters from start to end date
-
-   :arg slug: series slug identifier
-   :arg date begin: starting date
-   :arg date end: ending date
-
-A time slice or subset can be retrieved by adding start and end dates to the URL. ::
-
-    curl https://api.cal-adapt.org/api/series/tasmax_year_CNRM-CM5_rcp45/2030-01-01/2040-01-01/
-
-
 Time Series
 -----------
 .. http:get:: /api/series/{slug}/events/
@@ -277,3 +181,99 @@ Return monthly data aggregated from daily values for a point location using
       "2006-03-31T00:00:00Z"
       ,
   ]}
+
+
+List Series Rasters
+-------------------
+.. http:get:: /api/series/{slug}/rasters/
+
+   List all rasters in the series. See the :ref:`raster-store` description.
+
+   **Example request**:
+
+   .. code-block:: http
+
+      GET /api/series/tasmax_year_CNRM-CM5_rcp45/rasters/ HTTP/1.1
+      Host: api.cal-adapt.org
+      Accept: application/json
+
+   **Example response**:
+
+   .. code-block:: http
+
+      HTTP/1.1 200 OK
+      Allow: GET, POST, OPTIONS
+      Content-Type: application/json
+      Vary: Accept
+
+      {
+        "count": 95,
+        "next": "https://api.cal-adapt.org/api/series/tasmax_year_CNRM-CM5_rcp45/rasters/?page=2",
+        "previous": null,
+        "results": [{
+            "id": 10521,
+            "tileurl": "https://api.cal-adapt.org/tiles/tasmax_year_CNRM-CM5_rcp45_2006/{z}/{x}/{y}.png",
+            "url": "https://api.cal-adapt.org/api/rstores/tasmax_year_CNRM-CM5_rcp45_2006/",
+            "image": "https://api.cal-adapt.org/media/img/tasmax_year_CNRM-CM5_rcp45_r1i1p1_2006.LOCA_2016-04-02.16th.CA_NV.tif",
+            "width": 179,
+            "height": 195,
+            "geom": "POLYGON ((-124.5625 31.5625, -113.375 31.5625, -113.375 43.75, -124.5625 43.75, -124.5625 31.5625))",
+            "event": "2006-01-01",
+            "srs": "GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0],UNIT[\"degree\",0.0174532925199433],AUTHORITY[\"EPSG\",\"4326\"]]",
+            "minval": 279.1251220703125,
+            "maxval": 307.180908203125,
+            "nodata": 1.0000000150474662e+30,
+            "xpixsize": 0.0625,
+            "ypixsize": -0.0625,
+            "name": "yearly average maximum temperature CNRM-CM5 RCP 4.5",
+            "slug": "tasmax_year_CNRM-CM5_rcp45_2006",
+            "units": "K"
+        }, {
+            "id": 10522,
+            "tileurl": "https://api.cal-adapt.org/tiles/tasmax_year_CNRM-CM5_rcp45_2007/{z}/{x}/{y}.png",
+            "url": "https://api.cal-adapt.org/api/rstores/tasmax_year_CNRM-CM5_rcp45_2007/",
+            "image": "https://api.cal-adapt.org/media/img/tasmax_year_CNRM-CM5_rcp45_r1i1p1_2007.LOCA_2016-04-02.16th.CA_NV.tif",
+            "width": 179,
+            "height": 195,
+            "geom": "POLYGON ((-124.5625 31.5625, -113.375 31.5625, -113.375 43.75, -124.5625 43.75, -124.5625 31.5625))",
+            "event": "2007-01-01",
+            "srs": "GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0],UNIT[\"degree\",0.0174532925199433],AUTHORITY[\"EPSG\",\"4326\"]]",
+            "minval": 278.38330078125,
+            "maxval": 307.52490234375,
+            "nodata": 1.0000000150474662e+30,
+            "xpixsize": 0.0625,
+            "ypixsize": -0.0625,
+            "name": "yearly average maximum temperature CNRM-CM5 RCP 4.5",
+            "slug": "tasmax_year_CNRM-CM5_rcp45_2007",
+            "units": "K"
+        }
+        ,
+        ]
+      }
+
+   :arg slug: series slug identifier
+   :query g: a geometry (point, line, polygon) as GeoJSON, WKT, GML or KML
+   :query bbox: a bounding box in the form of x1,y1,x2,y2
+   :query pagesize: number of records, default is 10
+   :query format: ``json`` or ``tif.zip``
+   :query stat: one of ``mean``, ``max``, ``min``, ``count``, ``median``, ``std``, ``var`` for spatial aggregation by polygon/line geometry provided by the ``g`` param.
+   :reqheader Accept: the response content type depends on
+                      :mailheader:`Accept` header
+   :resheader Content-Type: this depends on :mailheader:`Accept`
+                            header of request
+   :statuscode 200: no error
+   :statuscode 400: something is askew with the request, check the error message
+   :statuscode 404: the slug may be incorrect
+   :statuscode 500: something's wrong on our end
+
+.. http:get:: /api/series/{slug}/{begin}/{end}/
+
+   Filter series rasters from start to end date
+
+   :arg slug: series slug identifier
+   :arg date begin: starting date
+   :arg date end: ending date
+
+A time slice or subset can be retrieved by adding start and end dates to the URL. ::
+
+    curl https://api.cal-adapt.org/api/series/tasmax_year_CNRM-CM5_rcp45/2030-01-01/2040-01-01/

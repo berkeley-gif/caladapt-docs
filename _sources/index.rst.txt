@@ -52,4 +52,5 @@ Table of Contents
    data-catalog.rst
    series.rst
    raster-store.rst
+   indicator.rst
    cookbook.rst

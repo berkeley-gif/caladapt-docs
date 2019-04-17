@@ -1,10 +1,10 @@
+.. _raster-store:
+
 Raster Store
 ============
 A Raster Store is an individual raster file and associated information like
 spatial resolution, coordinate system reference, and bounding box.
 
-
-.. _list-raster-stores:
 
 List Raster Stores
 ------------------
@@ -25,7 +25,7 @@ Raster Store Detail
    name of a resource in the API. Each climate dataset or resource has its own
    unique slug. A resource slug is generally composed of ``{variable}_{period}_{model}_{scenario}_{timestep}``.
 
-   Response fields include ``image`` (raster file link), ``event`` (date), and ``units`` (units for pixel values). Image statistics for ``min`` and ``max`` with regard to the ``nodata`` value, and dimensions ``xpixsize`` ``ypixsize``. Map tiles can be requested with the url template at ``tileurl``.
+   Response fields include ``image`` (raster file link), ``event`` (date), and ``units`` (unit of measurement for pixel values). Image statistics for ``min`` and ``max`` with regard to the ``nodata`` value, and dimensions ``xpixsize`` ``ypixsize``. Map tiles can be requested with the url template at ``tileurl``.
 
    **Example request**:
 
