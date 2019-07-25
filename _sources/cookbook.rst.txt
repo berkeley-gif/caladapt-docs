@@ -38,3 +38,4 @@ Jupyter Notebooks
 
     * `Sea Level Rise <https://github.com/berkeley-gif/caladapt-docs/blob/master/cookbook/sea_level_rise.ipynb>`_
     * `Experimental charts using wildfire data <https://github.com/berkeley-gif/caladapt-docs/blob/master/cookbook/wildfire_experimental_charts.ipynb>`_
+    * `Working with Long Drought Scenarios <https://github.com/berkeley-gif/caladapt-docs/blob/master/cookbook/exploring_long_drought_scenarios.ipynb>`_
