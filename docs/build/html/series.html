@@ -17,36 +17,42 @@
   
 
   
-  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
 
+  
+  
     
 
   
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Raster Store" href="raster-store.html" />
-    <link rel="prev" title="Data Catalog" href="data-catalog.html" /> 
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Cal-Adapt API Docs 1.0 documentation" href="index.html"/>
+        <link rel="next" title="Raster Store" href="raster-store.html"/>
+        <link rel="prev" title="Data Catalog" href="data-catalog.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
 </head>
 
-<body class="wy-body-for-nav">
+<body class="wy-body-for-nav" role="document">
 
    
   <div class="wy-grid-for-nav">
+
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+        <div class="wy-side-nav-search">
           
 
           
@@ -108,7 +114,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">Cal-Adapt API Docs</a>
@@ -116,10 +122,9 @@
       </nav>
 
 
+      
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
           
 
 
@@ -176,11 +181,11 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name" colspan="2">Query Parameters:</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"><ul class="first last simple">
-<li><strong>slug</strong> – search series slugs containing the provided value</li>
-<li><strong>name</strong> – search series names containing the provided value</li>
-<li><strong>tags</strong> – filter on tags</li>
-<li><strong>page</strong> (<em>integer</em>) – page number</li>
-<li><strong>pagesize</strong> (<em>integer</em>) – number of records, default is 10</li>
+<li><strong>slug</strong> &#8211; search series slugs containing the provided value</li>
+<li><strong>name</strong> &#8211; search series names containing the provided value</li>
+<li><strong>tags</strong> &#8211; filter on tags</li>
+<li><strong>page</strong> (<em>integer</em>) &#8211; page number</li>
+<li><strong>pagesize</strong> (<em>integer</em>) &#8211; number of records, default is 10</li>
 </ul>
 </td>
 </tr>
@@ -194,15 +199,15 @@
 <dl class="get">
 <dt id="get--api-series-slug-">
 <code class="descname">GET </code><code class="descname">/api/series/{slug}/</code><a class="headerlink" href="#get--api-series-slug-" title="Permalink to this definition">¶</a></dt>
-<dd><p>Request an individual series with a provided slug. A slug is a URL friendly name of a resource in the API. Each climate dataset or resource has it’s own unique slug. A resource slug is generally composed of <code class="docutils literal notranslate"><span class="pre">{variable}_{period}_{model}_{scenario}</span></code>.</p>
+<dd><p>Request an individual series with a provided slug. A slug is a URL friendly name of a resource in the API. Each climate dataset or resource has it&#8217;s own unique slug. A resource slug is generally composed of <code class="docutils literal"><span class="pre">{variable}_{period}_{model}_{scenario}</span></code>.</p>
 <p><strong>Example request</strong>:</p>
-<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">GET</span> <span class="nn">/api/series/tasmax_year_CNRM-CM5_rcp45/</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<div class="highlight-http"><div class="highlight"><pre><span></span><span class="nf">GET</span> <span class="nn">/api/series/tasmax_year_CNRM-CM5_rcp45/</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="o">:</span> <span class="l">api.cal-adapt.org</span>
 <span class="na">Accept</span><span class="o">:</span> <span class="l">application/json</span>
 </pre></div>
 </div>
 <p><strong>Response</strong>:</p>
-<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<div class="highlight-http"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Vary</span><span class="o">:</span> <span class="l">Accept</span>
 <span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
 
@@ -231,7 +236,7 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>slug</strong> – series slug identifier</li>
+<li><strong>slug</strong> &#8211; series slug identifier</li>
 </ul>
 </td>
 </tr>
@@ -245,15 +250,15 @@
 <dl class="get">
 <dt id="get--api-series-slug-events-">
 <code class="descname">GET </code><code class="descname">/api/series/{slug}/events/</code><a class="headerlink" href="#get--api-series-slug-events-" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the entire time series for any location, with optional temporal and/or rolling aggregations applied. The response consists of <code class="docutils literal notranslate"><span class="pre">columns</span></code>, <code class="docutils literal notranslate"><span class="pre">data</span></code>, and <code class="docutils literal notranslate"><span class="pre">index</span></code>.</p>
+<dd><p>Return the entire time series for any location, with optional temporal and/or rolling aggregations applied. The response consists of <code class="docutils literal"><span class="pre">columns</span></code>, <code class="docutils literal"><span class="pre">data</span></code>, and <code class="docutils literal"><span class="pre">index</span></code>.</p>
 <p><strong>Example request</strong>:</p>
-<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">GET</span> <span class="nn">/api/series/tasmax_day_HadGEM2-ES_rcp85/events/?g=POINT(-121.46+38.58)</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<div class="highlight-http"><div class="highlight"><pre><span></span><span class="nf">GET</span> <span class="nn">/api/series/tasmax_day_HadGEM2-ES_rcp85/events/?g=POINT(-121.46+38.58)</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="o">:</span> <span class="l">api.cal-adapt.org</span>
 <span class="na">Accept</span><span class="o">:</span> <span class="l">application/json</span>
 </pre></div>
 </div>
 <p><strong>Response</strong>:</p>
-<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<div class="highlight-http"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Vary</span><span class="o">:</span> <span class="l">Accept</span>
 <span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
 
@@ -279,43 +284,43 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>slug</strong> – series slug identifier</li>
+<li><strong>slug</strong> &#8211; series slug identifier</li>
 </ul>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name" colspan="2">Query Parameters:</th></tr>
 <tr class="field-even field"><td>&#160;</td><td class="field-body"><ul class="first simple">
-<li><strong>g</strong> – a geometry (point, line, polygon) as GeoJSON, WKT, GML or KML</li>
-<li><strong>stat</strong> – one of <code class="docutils literal notranslate"><span class="pre">max</span></code>, <code class="docutils literal notranslate"><span class="pre">mean</span></code>, <code class="docutils literal notranslate"><span class="pre">median</span></code>, <code class="docutils literal notranslate"><span class="pre">min</span></code>, <code class="docutils literal notranslate"><span class="pre">sum</span></code> for spatial aggregation by polygon/line provided by the <code class="docutils literal notranslate"><span class="pre">g</span></code> param, defaults to <code class="docutils literal notranslate"><span class="pre">mean</span></code></li>
-<li><strong>freq</strong> – resampling frequency string such as <code class="docutils literal notranslate"><span class="pre">M</span></code>, <code class="docutils literal notranslate"><span class="pre">A</span></code>, <code class="docutils literal notranslate"><span class="pre">10A</span></code>, or any <a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects">Pandas offset</a></li>
-<li><strong>rolling</strong> – rolling statistic, one of <code class="docutils literal notranslate"><span class="pre">max</span></code>, <code class="docutils literal notranslate"><span class="pre">mean</span></code>, <code class="docutils literal notranslate"><span class="pre">median</span></code>, <code class="docutils literal notranslate"><span class="pre">min</span></code>, <code class="docutils literal notranslate"><span class="pre">sum</span></code></li>
-<li><strong>window</strong> (<em>integer</em>) – rolling window size</li>
-<li><strong>thresh</strong> (<em>float</em>) – only return values above a given threshold</li>
-<li><strong>imperial</strong> (<em>boolean</em>) – use imperial units, defaults to false</li>
-<li><strong>format</strong> – <code class="docutils literal notranslate"><span class="pre">json</span></code> or <code class="docutils literal notranslate"><span class="pre">csv</span></code></li>
-<li><strong>pagesize</strong> (<em>integer</em>) – number of records, default is 10</li>
+<li><strong>g</strong> &#8211; a geometry (point, line, polygon) as GeoJSON, WKT, GML or KML</li>
+<li><strong>stat</strong> &#8211; one of <code class="docutils literal"><span class="pre">max</span></code>, <code class="docutils literal"><span class="pre">mean</span></code>, <code class="docutils literal"><span class="pre">median</span></code>, <code class="docutils literal"><span class="pre">min</span></code>, <code class="docutils literal"><span class="pre">sum</span></code> for spatial aggregation by polygon/line provided by the <code class="docutils literal"><span class="pre">g</span></code> param, defaults to <code class="docutils literal"><span class="pre">mean</span></code></li>
+<li><strong>freq</strong> &#8211; resampling frequency string such as <code class="docutils literal"><span class="pre">M</span></code>, <code class="docutils literal"><span class="pre">A</span></code>, <code class="docutils literal"><span class="pre">10A</span></code>, or any <a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects">Pandas offset</a></li>
+<li><strong>rolling</strong> &#8211; rolling statistic, one of <code class="docutils literal"><span class="pre">max</span></code>, <code class="docutils literal"><span class="pre">mean</span></code>, <code class="docutils literal"><span class="pre">median</span></code>, <code class="docutils literal"><span class="pre">min</span></code>, <code class="docutils literal"><span class="pre">sum</span></code></li>
+<li><strong>window</strong> (<em>integer</em>) &#8211; rolling window size</li>
+<li><strong>thresh</strong> (<em>float</em>) &#8211; only return values above a given threshold</li>
+<li><strong>imperial</strong> (<em>boolean</em>) &#8211; use imperial units, defaults to false</li>
+<li><strong>format</strong> &#8211; <code class="docutils literal"><span class="pre">json</span></code> or <code class="docutils literal"><span class="pre">csv</span></code></li>
+<li><strong>pagesize</strong> (<em>integer</em>) &#8211; number of records, default is 10</li>
 </ul>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name" colspan="2">Request Headers:</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"><ul class="first simple">
-<li><a class="reference external" href="https://tools.ietf.org/html/rfc7231#section-5.3.2">Accept</a> – the response content type depends on
+<li><a class="reference external" href="http://tools.ietf.org/html/rfc7231#section-5.3.2">Accept</a> &#8211; the response content type depends on
 <em class="mailheader">Accept</em> header</li>
 </ul>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name" colspan="2">Response Headers:</th></tr>
 <tr class="field-even field"><td>&#160;</td><td class="field-body"><ul class="first simple">
-<li><a class="reference external" href="https://tools.ietf.org/html/rfc7231#section-3.1.1.5">Content-Type</a> – this depends on <em class="mailheader">Accept</em>
+<li><a class="reference external" href="http://tools.ietf.org/html/rfc7231#section-3.1.1.5">Content-Type</a> &#8211; this depends on <em class="mailheader">Accept</em>
 header of request</li>
 </ul>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Status Codes:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a> – no error</li>
-<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1">400 Bad Request</a> – something is askew with the request, check the error message</li>
-<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.5">404 Not Found</a> – the slug may be incorrect</li>
-<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.1">500 Internal Server Error</a> – something’s wrong on our end</li>
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a> &#8211; no error</li>
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1">400 Bad Request</a> &#8211; something is askew with the request, check the error message</li>
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.5">404 Not Found</a> &#8211; the slug may be incorrect</li>
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.1">500 Internal Server Error</a> &#8211; something&#8217;s wrong on our end</li>
 </ul>
 </td>
 </tr>
@@ -334,7 +339,7 @@ The same parameters as with GET are available.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name" colspan="2">Query Parameters:</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"><ul class="first last simple">
-<li><strong>features</strong> – file upload to provide multiple geometries as part of a feature set, any <a class="reference external" href="https://gdal.org/ogr_formats.html">OGR supported</a> format or zip file</li>
+<li><strong>features</strong> &#8211; file upload to provide multiple geometries as part of a feature set, any <a class="reference external" href="https://gdal.org/ogr_formats.html">OGR supported</a> format or zip file</li>
 </ul>
 </td>
 </tr>
@@ -344,13 +349,13 @@ The same parameters as with GET are available.</p>
 
 <p>Return monthly data aggregated from daily values for a point location using
 <cite>freq</cite>:</p>
-<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">GET</span> <span class="nn">/api/series/tasmax_day_HadGEM2-ES_rcp85/events/?g=POINT(-121.46+38.58)&amp;freq=M</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<div class="highlight-http"><div class="highlight"><pre><span></span><span class="nf">GET</span> <span class="nn">/api/series/tasmax_day_HadGEM2-ES_rcp85/events/?g=POINT(-121.46+38.58)&amp;freq=M</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="o">:</span> <span class="l">api.cal-adapt.org</span>
 <span class="na">Accept</span><span class="o">:</span> <span class="l">application/json</span>
 </pre></div>
 </div>
 <p><strong>Response</strong>:</p>
-<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<div class="highlight-http"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Vary</span><span class="o">:</span> <span class="l">Accept</span>
 <span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
 
@@ -402,13 +407,13 @@ The same parameters as with GET are available.</p>
 <code class="descname">GET </code><code class="descname">/api/series/{slug}/rasters/</code><a class="headerlink" href="#get--api-series-slug-rasters-" title="Permalink to this definition">¶</a></dt>
 <dd><p>List all rasters in the series. See the <a class="reference internal" href="raster-store.html#raster-store"><span class="std std-ref">Raster Store</span></a> description.</p>
 <p><strong>Example request</strong>:</p>
-<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">GET</span> <span class="nn">/api/series/tasmax_year_CNRM-CM5_rcp45/rasters/</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<div class="highlight-http"><div class="highlight"><pre><span></span><span class="nf">GET</span> <span class="nn">/api/series/tasmax_year_CNRM-CM5_rcp45/rasters/</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="o">:</span> <span class="l">api.cal-adapt.org</span>
 <span class="na">Accept</span><span class="o">:</span> <span class="l">application/json</span>
 </pre></div>
 </div>
 <p><strong>Example response</strong>:</p>
-<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<div class="highlight-http"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Allow</span><span class="o">:</span> <span class="l">GET, POST, OPTIONS</span>
 <span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
 <span class="na">Vary</span><span class="o">:</span> <span class="l">Accept</span>
@@ -464,39 +469,39 @@ The same parameters as with GET are available.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>slug</strong> – series slug identifier</li>
+<li><strong>slug</strong> &#8211; series slug identifier</li>
 </ul>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name" colspan="2">Query Parameters:</th></tr>
 <tr class="field-even field"><td>&#160;</td><td class="field-body"><ul class="first simple">
-<li><strong>g</strong> – a geometry (point, line, polygon) as GeoJSON, WKT, GML or KML</li>
-<li><strong>bbox</strong> – a bounding box in the form of x1,y1,x2,y2</li>
-<li><strong>pagesize</strong> – number of records, default is 10</li>
-<li><strong>format</strong> – <code class="docutils literal notranslate"><span class="pre">json</span></code> or <code class="docutils literal notranslate"><span class="pre">tif.zip</span></code></li>
-<li><strong>stat</strong> – one of <code class="docutils literal notranslate"><span class="pre">mean</span></code>, <code class="docutils literal notranslate"><span class="pre">max</span></code>, <code class="docutils literal notranslate"><span class="pre">min</span></code>, <code class="docutils literal notranslate"><span class="pre">count</span></code>, <code class="docutils literal notranslate"><span class="pre">median</span></code>, <code class="docutils literal notranslate"><span class="pre">std</span></code>, <code class="docutils literal notranslate"><span class="pre">var</span></code> for spatial aggregation by polygon/line geometry provided by the <code class="docutils literal notranslate"><span class="pre">g</span></code> param.</li>
+<li><strong>g</strong> &#8211; a geometry (point, line, polygon) as GeoJSON, WKT, GML or KML</li>
+<li><strong>bbox</strong> &#8211; a bounding box in the form of x1,y1,x2,y2</li>
+<li><strong>pagesize</strong> &#8211; number of records, default is 10</li>
+<li><strong>format</strong> &#8211; <code class="docutils literal"><span class="pre">json</span></code> or <code class="docutils literal"><span class="pre">tif.zip</span></code></li>
+<li><strong>stat</strong> &#8211; one of <code class="docutils literal"><span class="pre">mean</span></code>, <code class="docutils literal"><span class="pre">max</span></code>, <code class="docutils literal"><span class="pre">min</span></code>, <code class="docutils literal"><span class="pre">count</span></code>, <code class="docutils literal"><span class="pre">median</span></code>, <code class="docutils literal"><span class="pre">std</span></code>, <code class="docutils literal"><span class="pre">var</span></code> for spatial aggregation by polygon/line geometry provided by the <code class="docutils literal"><span class="pre">g</span></code> param.</li>
 </ul>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name" colspan="2">Request Headers:</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"><ul class="first simple">
-<li><a class="reference external" href="https://tools.ietf.org/html/rfc7231#section-5.3.2">Accept</a> – the response content type depends on
+<li><a class="reference external" href="http://tools.ietf.org/html/rfc7231#section-5.3.2">Accept</a> &#8211; the response content type depends on
 <em class="mailheader">Accept</em> header</li>
 </ul>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name" colspan="2">Response Headers:</th></tr>
 <tr class="field-even field"><td>&#160;</td><td class="field-body"><ul class="first simple">
-<li><a class="reference external" href="https://tools.ietf.org/html/rfc7231#section-3.1.1.5">Content-Type</a> – this depends on <em class="mailheader">Accept</em>
+<li><a class="reference external" href="http://tools.ietf.org/html/rfc7231#section-3.1.1.5">Content-Type</a> &#8211; this depends on <em class="mailheader">Accept</em>
 header of request</li>
 </ul>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Status Codes:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a> – no error</li>
-<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1">400 Bad Request</a> – something is askew with the request, check the error message</li>
-<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.5">404 Not Found</a> – the slug may be incorrect</li>
-<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.1">500 Internal Server Error</a> – something’s wrong on our end</li>
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a> &#8211; no error</li>
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1">400 Bad Request</a> &#8211; something is askew with the request, check the error message</li>
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.5">404 Not Found</a> &#8211; the slug may be incorrect</li>
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.1">500 Internal Server Error</a> &#8211; something&#8217;s wrong on our end</li>
 </ul>
 </td>
 </tr>
@@ -513,9 +518,9 @@ header of request</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>slug</strong> – series slug identifier</li>
-<li><strong>begin</strong> (<em>date</em>) – starting date</li>
-<li><strong>end</strong> (<em>date</em>) – ending date</li>
+<li><strong>slug</strong> &#8211; series slug identifier</li>
+<li><strong>begin</strong> (<em>date</em>) &#8211; starting date</li>
+<li><strong>end</strong> (<em>date</em>) &#8211; ending date</li>
 </ul>
 </td>
 </tr>
@@ -524,7 +529,7 @@ header of request</li>
 </dd></dl>
 
 <p>A time slice or subset can be retrieved by adding start and end dates to the URL.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="o">.</span><span class="n">cal</span><span class="o">-</span><span class="n">adapt</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">series</span><span class="o">/</span><span class="n">tasmax_year_CNRM</span><span class="o">-</span><span class="n">CM5_rcp45</span><span class="o">/</span><span class="mi">2030</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="o">/</span><span class="mi">2040</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="o">/</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="o">.</span><span class="n">cal</span><span class="o">-</span><span class="n">adapt</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">series</span><span class="o">/</span><span class="n">tasmax_year_CNRM</span><span class="o">-</span><span class="n">CM5_rcp45</span><span class="o">/</span><span class="mi">2030</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="o">/</span><span class="mi">2040</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="o">/</span>
 </pre></div>
 </div>
 </div>
@@ -532,7 +537,9 @@ header of request</li>
 
 
            </div>
-           
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
@@ -541,7 +548,7 @@ header of request</li>
         <a href="raster-store.html" class="btn btn-neutral float-right" title="Raster Store" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="data-catalog.html" class="btn btn-neutral float-left" title="Data Catalog" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="data-catalog.html" class="btn btn-neutral" title="Data Catalog" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -550,11 +557,11 @@ header of request</li>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017, Geospatial Innovation Facility, UC Berkeley
+        &copy; Copyright 2017, Geospatial Innovation Facility, UC Berkeley.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -567,15 +574,37 @@ header of request</li>
   
 
 
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
 
   
   
-    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
    
 
 </body>

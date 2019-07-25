@@ -3,7 +3,7 @@ Climate Indicators
 
 Extreme Precipitation
 ---------------------
-Extreme precipitation events can be characterized using Extreme Value Analysis (EVA) by return levels, including confidence intervals, using the peak over threshold methodology. See the `extreme precipitation tool <http://cal-adapt.org/tools/extreme-precipitation/>`_ for more information and charting of the available data. 
+Extreme precipitation events can be characterized using Extreme Value Analysis (EVA) by return levels, including confidence intervals, using the peak over threshold methodology. See the `extreme precipitation tool <http://cal-adapt.org/tools/extreme-precipitation/>`_ for more information and charting of the available data.
 
 .. http:get:: /api/series/{slug}/pot/
 
