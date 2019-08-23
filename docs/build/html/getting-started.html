@@ -17,42 +17,36 @@
   
 
   
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-  
-    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="genindex.html"/>
-        <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="Cal-Adapt API Docs 1.0 documentation" href="index.html"/>
-        <link rel="next" title="Data Catalog" href="data-catalog.html"/>
-        <link rel="prev" title="About Cal-Adapt" href="index.html"/> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Data Catalog" href="data-catalog.html" />
+    <link rel="prev" title="About Cal-Adapt" href="index.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -115,7 +109,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">Cal-Adapt API Docs</a>
@@ -123,9 +117,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -176,7 +171,7 @@
 <div class="section" id="entry-point">
 <h2>Entry Point<a class="headerlink" href="#entry-point" title="Permalink to this headline">¶</a></h2>
 <p>The entry point or API root is a starting point that provides an overview of all available data in the API. The entry point for the Cal-Adapt API is at <a class="reference external" href="https://api.cal-adapt.org/api/">https://api.cal-adapt.org/api/</a>.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="o">.</span><span class="n">cal</span><span class="o">-</span><span class="n">adapt</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">api</span><span class="o">/</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="o">.</span><span class="n">cal</span><span class="o">-</span><span class="n">adapt</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">api</span><span class="o">/</span>
 </pre></div>
 </div>
 </div>
@@ -191,19 +186,19 @@ with their content type followed by format identifier:</p>
 <blockquote>
 <div><ul class="simple">
 <li>Raster and vector data<ul>
-<li>Browsable API view <code class="docutils literal"><span class="pre">text/html</span></code> <code class="docutils literal"><span class="pre">api</span></code></li>
-<li>JavaScript Object Notation <code class="docutils literal"><span class="pre">application/json</span></code> <code class="docutils literal"><span class="pre">json</span></code></li>
+<li>Browsable API view <code class="docutils literal notranslate"><span class="pre">text/html</span></code> <code class="docutils literal notranslate"><span class="pre">api</span></code></li>
+<li>JavaScript Object Notation <code class="docutils literal notranslate"><span class="pre">application/json</span></code> <code class="docutils literal notranslate"><span class="pre">json</span></code></li>
 </ul>
 </li>
 <li>Raster data only<ul>
-<li>Comma Separated Values <code class="docutils literal"><span class="pre">text/csv</span></code> <code class="docutils literal"><span class="pre">csv</span></code></li>
-<li>Zipped GeoTIFF <code class="docutils literal"><span class="pre">application/zip</span></code> <code class="docutils literal"><span class="pre">tif.zip</span></code></li>
+<li>Comma Separated Values <code class="docutils literal notranslate"><span class="pre">text/csv</span></code> <code class="docutils literal notranslate"><span class="pre">csv</span></code></li>
+<li>Zipped GeoTIFF <code class="docutils literal notranslate"><span class="pre">application/zip</span></code> <code class="docutils literal notranslate"><span class="pre">tif.zip</span></code></li>
 </ul>
 </li>
 <li>Vector data only<ul>
-<li>GeoJSON <code class="docutils literal"><span class="pre">application/vnd.geo+json</span></code> <code class="docutils literal"><span class="pre">geojson</span></code></li>
-<li>Keyhole Markup Language <code class="docutils literal"><span class="pre">application/vnd.google-earth.kml+xml</span></code> <code class="docutils literal"><span class="pre">kml</span></code></li>
-<li>Zipped KML files <code class="docutils literal"><span class="pre">application/vnd.google-earth.kmz</span></code> <code class="docutils literal"><span class="pre">kmz</span></code></li>
+<li>GeoJSON <code class="docutils literal notranslate"><span class="pre">application/vnd.geo+json</span></code> <code class="docutils literal notranslate"><span class="pre">geojson</span></code></li>
+<li>Keyhole Markup Language <code class="docutils literal notranslate"><span class="pre">application/vnd.google-earth.kml+xml</span></code> <code class="docutils literal notranslate"><span class="pre">kml</span></code></li>
+<li>Zipped KML files <code class="docutils literal notranslate"><span class="pre">application/vnd.google-earth.kmz</span></code> <code class="docutils literal notranslate"><span class="pre">kmz</span></code></li>
 </ul>
 </li>
 </ul>
@@ -211,33 +206,33 @@ with their content type followed by format identifier:</p>
 <p>The HTTP Accept header is used in performing content negotiation. The server
 will return JSON when a client does not specify. The following command confirms
 the <cite>Contenty-Type: application/json</cite> header in the response.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">IH</span> <span class="s1">&#39;Accept: application/json&#39;</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="o">.</span><span class="n">cal</span><span class="o">-</span><span class="n">adapt</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">api</span><span class="o">/</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">IH</span> <span class="s1">&#39;Accept: application/json&#39;</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="o">.</span><span class="n">cal</span><span class="o">-</span><span class="n">adapt</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">api</span><span class="o">/</span>
 </pre></div>
 </div>
-<div class="highlight-http"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Vary</span><span class="o">:</span> <span class="l">Accept</span>
 <span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
 </pre></div>
 </div>
 <p>Or, HTML which returns the browsable API page.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">IH</span> <span class="s1">&#39;Accept: text/html&#39;</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="o">.</span><span class="n">cal</span><span class="o">-</span><span class="n">adapt</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">api</span><span class="o">/</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">IH</span> <span class="s1">&#39;Accept: text/html&#39;</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="o">.</span><span class="n">cal</span><span class="o">-</span><span class="n">adapt</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">api</span><span class="o">/</span>
 </pre></div>
 </div>
-<div class="highlight-http"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Vary</span><span class="o">:</span> <span class="l">Accept</span>
 <span class="na">Content-Type</span><span class="o">:</span> <span class="l">text/html; charset=utf-8</span>
 </pre></div>
 </div>
-<p>If necessary, content negotiation can be overridden by adding the <code class="docutils literal"><span class="pre">format</span></code>
+<p>If necessary, content negotiation can be overridden by adding the <code class="docutils literal notranslate"><span class="pre">format</span></code>
 query parameter to the URL like <a class="reference external" href="https://api.cal-adapt.org/api/?format=json">https://api.cal-adapt.org/api/?format=json</a>.</p>
 </div>
 <div class="section" id="pagination">
 <h2>Pagination<a class="headerlink" href="#pagination" title="Permalink to this headline">¶</a></h2>
-<p>The API returns a paginated response for large datasets. Pagination links are provided as part of the content of the response so consumers can fetch additional pages as needed with the <cite>next</cite> property which links to <a class="reference external" href="https://api.cal-adapt.org/api/series/?page=2">https://api.cal-adapt.org/api/series/?page=2</a>. The default number of records returned per page is 10. The number of records returned in each page can be controlled by using <code class="docutils literal"><span class="pre">pagesize</span></code> query parameter.</p>
+<p>The API returns a paginated response for large datasets. Pagination links are provided as part of the content of the response so consumers can fetch additional pages as needed with the <cite>next</cite> property which links to <a class="reference external" href="https://api.cal-adapt.org/api/series/?page=2">https://api.cal-adapt.org/api/series/?page=2</a>. The default number of records returned per page is 10. The number of records returned in each page can be controlled by using <code class="docutils literal notranslate"><span class="pre">pagesize</span></code> query parameter.</p>
 <blockquote>
 <div><p><strong>Example Request</strong></p>
 <blockquote>
-<div><div class="highlight-http"><div class="highlight"><pre><span></span><span class="nf">GET</span> <span class="nn">/api/series/</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<div><div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">GET</span> <span class="nn">/api/series/</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="o">:</span> <span class="l">api.cal-adapt.org</span>
 <span class="na">Accept</span><span class="o">:</span> <span class="l">application/json</span>
 </pre></div>
@@ -245,7 +240,7 @@ query parameter to the URL like <a class="reference external" href="https://api.
 </div></blockquote>
 <p><strong>Response</strong></p>
 <blockquote>
-<div><div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">259</span><span class="p">,</span>
   <span class="nt">&quot;next&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.cal-adapt.org/api/series/?page=2&quot;</span><span class="p">,</span>
   <span class="nt">&quot;previous&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
@@ -294,9 +289,7 @@ query parameter to the URL like <a class="reference external" href="https://api.
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -305,7 +298,7 @@ query parameter to the URL like <a class="reference external" href="https://api.
         <a href="data-catalog.html" class="btn btn-neutral float-right" title="Data Catalog" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral" title="About Cal-Adapt" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral float-left" title="About Cal-Adapt" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -314,11 +307,11 @@ query parameter to the URL like <a class="reference external" href="https://api.
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017, Geospatial Innovation Facility, UC Berkeley.
+        &copy; Copyright 2017, Geospatial Innovation Facility, UC Berkeley
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -331,37 +324,15 @@ query parameter to the URL like <a class="reference external" href="https://api.
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'./',
-            VERSION:'1.0',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="_static/jquery.js"></script>
-      <script type="text/javascript" src="_static/underscore.js"></script>
-      <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>
