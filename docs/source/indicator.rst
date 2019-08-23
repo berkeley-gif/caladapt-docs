@@ -1,6 +1,58 @@
 Climate Indicators
 ==================
 
+
+Cooling Degree Days and Heating Degree Days
+-------------------------------------------
+Cooling Degree Days (CDD) and Heating Degree Days (HDD) are a measure of energy demand for cooling and heating of buildings. They are defined as the number of degrees above or below a reference temperature. See the `degree days tool <http://cal-adapt.org/tools/degree-days/>`_ for more information and charting of the available data.
+
+.. http:get:: /api/series/{slug}/hdd/
+
+   Return heating degree days for any location.
+
+.. http:get:: /api/series/{slug}/cdd/
+
+   Return cooling degree days for any location.
+
+   **Example request**:
+
+   .. code-block:: http
+
+      GET /api/series/tasmax_day_HadGEM2-ES_rcp85/cdd/?g=POINT(-121.46+38.59)&freq=A HTTP/1.1
+      Host: api.cal-adapt.org
+      Accept: application/json
+
+   **Example response**:
+
+   .. code-block:: http
+
+      HTTP/1.1 200 OK
+      Allow: GET, POST, OPTIONS
+      Content-Type: application/json
+      Vary: Accept
+
+      {
+      "data": [
+          1272.4594726562,
+          2066.6245117188,
+          1458.0538330078,
+          1674.4998779297
+          ,
+      ],
+      "index": [
+          "2006-12-31T00:00:00Z",
+          "2007-12-31T00:00:00Z",
+          "2008-12-31T00:00:00Z",
+          "2009-12-31T00:00:00Z",
+          ,
+      ]}
+
+   :arg slug: series slug identifier for daily tasmax or tasmin
+   :query g: a geometry (point, line, polygon) as GeoJSON, WKT, GML or KML
+   :query freq: resampling frequency string such as ``M``, ``A``, ``10A``, or any `Pandas offset <http://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects>`_
+   :query float thresh: the reference temperature in F, defaults to ``65``
+
+
 Extreme Precipitation
 ---------------------
 Extreme precipitation events can be characterized using Extreme Value Analysis (EVA) by return levels, including confidence intervals, using the peak over threshold methodology. See the `extreme precipitation tool <http://cal-adapt.org/tools/extreme-precipitation/>`_ for more information and charting of the available data.
