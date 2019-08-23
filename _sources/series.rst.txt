@@ -66,7 +66,11 @@ Time Series
 -----------
 .. http:get:: /api/series/{slug}/events/
 
-   Return the entire time series for any location, with optional temporal and/or rolling aggregations applied. The response consists of ``columns``, ``data``, and ``index``.
+   Return the entire time series for any location, with optional temporal and/or rolling aggregations applied. The response consists of ``columns``, ``data``, and ``index``. 
+
+   The structure of the return is context dependent where a single point returns summary fields (min, mean, max, std, count) when a frequency is provided for temporal aggregation. 
+   
+   Sending a single polygon returns values for all intersecting grid cells, whereas a temporal aggregation is returned when `stat=` and `freq=` are provided controlling spatial aggregation and time series resampling respectively.
 
    **Example request**:
 
