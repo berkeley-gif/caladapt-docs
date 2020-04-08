@@ -68,6 +68,10 @@ Time Series
 
    Return the entire time series for any location, with optional temporal and/or rolling aggregations applied. The response consists of ``columns``, ``data``, and ``index``.
 
+   The structure of the return is context dependent where a single point returns summary fields (min, mean, max, std, count) when a frequency is provided for temporal aggregation.
+
+   Sending a single polygon returns values for all intersecting grid cells, whereas a temporal aggregation is returned when `stat=` and `freq=` are provided controlling spatial aggregation and time series resampling respectively.
+
    **Example request**:
 
    .. code-block:: http
@@ -109,7 +113,6 @@ Time Series
    :query float thresh: only return values above a given threshold
    :query boolean imperial: use imperial units, defaults to false
    :query format: ``json`` or ``csv``
-   :query integer pagesize: number of records, default is 10
    :reqheader Accept: the response content type depends on
                       :mailheader:`Accept` header
    :resheader Content-Type: this depends on :mailheader:`Accept`
