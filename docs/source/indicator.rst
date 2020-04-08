@@ -4,7 +4,7 @@ Climate Indicators
 
 Cooling Degree Days and Heating Degree Days
 -------------------------------------------
-Cooling Degree Days (CDD) and Heating Degree Days (HDD) are a measure of energy demand for cooling and heating of buildings. They are defined as the number of degrees above or below a reference temperature. See the `degree days tool <http://cal-adapt.org/tools/degree-days/>`_ for more information and charting of the available data.
+Cooling Degree Days (CDD) and Heating Degree Days (HDD) are a measure of energy demand for cooling and heating of buildings. They are defined as the number of degrees above or below a reference temperature. See the `degree days tool <https://cal-adapt.org/tools/degree-days/>`_ for more information and charting of the available data.
 
 .. http:get:: /api/series/{slug}/hdd/
 
@@ -47,15 +47,57 @@ Cooling Degree Days (CDD) and Heating Degree Days (HDD) are a measure of energy 
           ,
       ]}
 
-   :arg slug: series slug identifier for daily tasmax or tasmin
+   :arg slug: series slug identifier, only valid for daily tasmax or tasmin slugs
    :query g: a geometry (point, line, polygon) as GeoJSON, WKT, GML or KML
    :query freq: resampling frequency string such as ``M``, ``A``, ``10A``, or any `Pandas offset <http://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects>`_
    :query float thresh: the reference temperature in F, defaults to ``65``
 
 
+Extreme Heat, Heat Waves, and Warm Nights
+-----------------------------------------
+An extreme heat day or warm night is defined as a day when the maximum/minimum temperature exceeds the 98th percentile of observed historical data from 1961–1990 between April and October. See the `extreme heat tool <https://cal-adapt.org/tools/extreme-heat/>`_ for more information and charting of the available data.
+
+.. http:get:: /api/series/{slug}/exheat/
+
+   Return extreme heat, heat waves, or warm night counts for any location.
+
+   **Example request**:
+
+   .. code-block:: http
+
+      GET /api/series/tasmax_day_HadGEM2-ES_rcp85/exheat/?g=POINT(-121.46+38.59) HTTP/1.1
+      Host: api.cal-adapt.org
+      Accept: application/json
+
+   **Example response**:
+
+   .. code-block:: http
+
+      HTTP/1.1 200 OK
+      Allow: GET, POST, OPTIONS
+      Content-Type: application/json
+      Vary: Accept
+
+      {
+      "98p": 103.90999603271484,
+      "counts": {
+          "2006-12-31T00:00:00+00:00": 1,
+          "2007-12-31T00:00:00+00:00": 19,
+          "2008-12-31T00:00:00+00:00": 3
+          ,
+      }}
+
+   :arg slug: series slug identifier, only valid for daily tasmax (extreme heat) or tasmin (warm night) slugs
+   :query g: a geometry (point, line, polygon) as GeoJSON, WKT, GML or KML
+   :query stat: one of ``max``, ``mean``, ``median``, ``min``, ``sum`` for spatial aggregation by polygon/line provided by the ``g`` param, defaults to ``mean``
+   :query freq: resampling frequency string such as ``M``, ``A``, ``10A``, or any `Pandas offset <http://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects>`_, defaults to ``A``
+   :query float pct: percentile to use for extreme heat or warm night threshold, defaults to ``.98`` (98th percentile) of observed data from 1961-1990 between April-October
+   :query integer duration: (duration of extreme event in days)
+
+
 Extreme Precipitation
 ---------------------
-Extreme precipitation events can be characterized using Extreme Value Analysis (EVA) by return levels, including confidence intervals, using the peak over threshold methodology. See the `extreme precipitation tool <http://cal-adapt.org/tools/extreme-precipitation/>`_ for more information and charting of the available data.
+Extreme precipitation events can be characterized using Extreme Value Analysis (EVA) by return levels, including confidence intervals, using the peak over threshold methodology. See the `extreme precipitation tool <https://cal-adapt.org/tools/extreme-precipitation/>`_ for more information and charting of the available data.
 
 .. http:get:: /api/series/{slug}/pot/
 
