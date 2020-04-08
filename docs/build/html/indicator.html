@@ -91,6 +91,7 @@
 <li class="toctree-l1"><a class="reference internal" href="raster-store.html">Raster Store</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Climate Indicators</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#cooling-degree-days-and-heating-degree-days">Cooling Degree Days and Heating Degree Days</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#extreme-heat-heat-waves-and-warm-nights">Extreme Heat, Heat Waves, and Warm Nights</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#extreme-precipitation">Extreme Precipitation</a></li>
 </ul>
 </li>
@@ -163,7 +164,7 @@
 <h1>Climate Indicators<a class="headerlink" href="#climate-indicators" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="cooling-degree-days-and-heating-degree-days">
 <h2>Cooling Degree Days and Heating Degree Days<a class="headerlink" href="#cooling-degree-days-and-heating-degree-days" title="Permalink to this headline">¶</a></h2>
-<p>Cooling Degree Days (CDD) and Heating Degree Days (HDD) are a measure of energy demand for cooling and heating of buildings. They are defined as the number of degrees above or below a reference temperature. See the <a class="reference external" href="http://cal-adapt.org/tools/degree-days/">degree days tool</a> for more information and charting of the available data.</p>
+<p>Cooling Degree Days (CDD) and Heating Degree Days (HDD) are a measure of energy demand for cooling and heating of buildings. They are defined as the number of degrees above or below a reference temperature. See the <a class="reference external" href="https://cal-adapt.org/tools/degree-days/">degree days tool</a> for more information and charting of the available data.</p>
 <dl class="get">
 <dt id="get--api-series-slug-hdd-">
 <code class="descname">GET </code><code class="descname">/api/series/{slug}/hdd/</code><a class="headerlink" href="#get--api-series-slug-hdd-" title="Permalink to this definition">¶</a></dt>
@@ -208,7 +209,7 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>slug</strong> – series slug identifier for daily tasmax or tasmin</li>
+<li><strong>slug</strong> – series slug identifier, only valid for daily tasmax or tasmin slugs</li>
 </ul>
 </td>
 </tr>
@@ -225,9 +226,63 @@
 </dd></dl>
 
 </div>
+<div class="section" id="extreme-heat-heat-waves-and-warm-nights">
+<h2>Extreme Heat, Heat Waves, and Warm Nights<a class="headerlink" href="#extreme-heat-heat-waves-and-warm-nights" title="Permalink to this headline">¶</a></h2>
+<p>An extreme heat day or warm night is defined as a day when the maximum/minimum temperature exceeds the 98th percentile of observed historical data from 1961–1990 between April and October. See the <a class="reference external" href="https://cal-adapt.org/tools/extreme-heat/">extreme heat tool</a> for more information and charting of the available data.</p>
+<dl class="get">
+<dt id="get--api-series-slug-exheat-">
+<code class="descname">GET </code><code class="descname">/api/series/{slug}/exheat/</code><a class="headerlink" href="#get--api-series-slug-exheat-" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return extreme heat, heat waves, or warm night counts for any location.</p>
+<p><strong>Example request</strong>:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">GET</span> <span class="nn">/api/series/tasmax_day_HadGEM2-ES_rcp85/exheat/?g=POINT(-121.46+38.59)</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">api.cal-adapt.org</span>
+<span class="na">Accept</span><span class="o">:</span> <span class="l">application/json</span>
+</pre></div>
+</div>
+<p><strong>Example response</strong>:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Allow</span><span class="o">:</span> <span class="l">GET, POST, OPTIONS</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+<span class="na">Vary</span><span class="o">:</span> <span class="l">Accept</span>
+
+<span class="p">{</span>
+<span class="nt">&quot;98p&quot;</span><span class="p">:</span> <span class="mf">103.90999603271484</span><span class="p">,</span>
+<span class="nt">&quot;counts&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;2006-12-31T00:00:00+00:00&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;2007-12-31T00:00:00+00:00&quot;</span><span class="p">:</span> <span class="mi">19</span><span class="p">,</span>
+    <span class="nt">&quot;2008-12-31T00:00:00+00:00&quot;</span><span class="p">:</span> <span class="mi">3</span>
+    <span class="p">,</span>
+<span class="p">}}</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>slug</strong> – series slug identifier, only valid for daily tasmax (extreme heat) or tasmin (warm night) slugs</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Query Parameters:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><ul class="first last simple">
+<li><strong>g</strong> – a geometry (point, line, polygon) as GeoJSON, WKT, GML or KML</li>
+<li><strong>stat</strong> – one of <code class="docutils literal notranslate"><span class="pre">max</span></code>, <code class="docutils literal notranslate"><span class="pre">mean</span></code>, <code class="docutils literal notranslate"><span class="pre">median</span></code>, <code class="docutils literal notranslate"><span class="pre">min</span></code>, <code class="docutils literal notranslate"><span class="pre">sum</span></code> for spatial aggregation by polygon/line provided by the <code class="docutils literal notranslate"><span class="pre">g</span></code> param, defaults to <code class="docutils literal notranslate"><span class="pre">mean</span></code></li>
+<li><strong>freq</strong> – <p>resampling frequency string such as <code class="docutils literal notranslate"><span class="pre">M</span></code>, <code class="docutils literal notranslate"><span class="pre">A</span></code>, <code class="docutils literal notranslate"><span class="pre">10A</span></code>, or any <a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects">Pandas offset</a>, defaults to <code class="docutils literal notranslate"><span class="pre">A</span></code></p>
+</li>
+<li><strong>pct</strong> (<em>float</em>) – percentile to use for extreme heat or warm night threshold, defaults to <code class="docutils literal notranslate"><span class="pre">.98</span></code> (98th percentile) of observed data from 1961-1990 between April-October</li>
+<li><strong>duration</strong> (<em>integer</em>) – (duration of extreme event in days)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
 <div class="section" id="extreme-precipitation">
 <h2>Extreme Precipitation<a class="headerlink" href="#extreme-precipitation" title="Permalink to this headline">¶</a></h2>
-<p>Extreme precipitation events can be characterized using Extreme Value Analysis (EVA) by return levels, including confidence intervals, using the peak over threshold methodology. See the <a class="reference external" href="http://cal-adapt.org/tools/extreme-precipitation/">extreme precipitation tool</a> for more information and charting of the available data.</p>
+<p>Extreme precipitation events can be characterized using Extreme Value Analysis (EVA) by return levels, including confidence intervals, using the peak over threshold methodology. See the <a class="reference external" href="https://cal-adapt.org/tools/extreme-precipitation/">extreme precipitation tool</a> for more information and charting of the available data.</p>
 <dl class="get">
 <dt id="get--api-series-slug-pot-">
 <code class="descname">GET </code><code class="descname">/api/series/{slug}/pot/</code><a class="headerlink" href="#get--api-series-slug-pot-" title="Permalink to this definition">¶</a></dt>
