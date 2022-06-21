@@ -2,7 +2,7 @@ basemap
 GDAL==2.2.2
 jupyter
 matplotlib==3.0.2
-numpy==1.12.1
+numpy==1.22.0
 pandas==0.19.2
 rasterio==0.36.0
 requests==2.20.0
